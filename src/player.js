@@ -175,6 +175,7 @@ function addKeys() {
             case 65: // D - rotate right
                 player.direction = -1; break;
             case 68: // A - rotate left
+
                 player.direction = 1; break;
         }
     }
