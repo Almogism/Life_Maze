@@ -69,6 +69,14 @@ function drawMap() {
                     mapScale
                 );
             }
+            if (spritePosition[y][x]) {
+                ctx.fillStyle = "rgb(100,100,100)";
+                ctx.fillRect(
+                    x * mapScale + mapScale * 0.25,
+                    y * mapScale + mapScale * 0.25,
+                    mapScale * 0.5, mapScale * 0.5
+                );
+            }
         }
     }
 }

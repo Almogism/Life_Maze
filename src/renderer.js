@@ -117,6 +117,10 @@ castRay = function (rayAngle, stripIdx){
         wallX = (x + (right ? 0 : -1)) >> 0;
         wallY = (y) >> 0;
 
+        if (spritePosition[wallY][wallX] && !spritePosition[wallY][wallX].visible) {
+            spritePosition[wallY][wallX].visible = true;
+        }
+
         if (map[wallY][wallX] > 0){
             var distX = x - player.x;
             var distY = y - player.y;
@@ -146,6 +150,10 @@ castRay = function (rayAngle, stripIdx){
     while (x >= 0 && x < mapWidth && y >= 0 && y < mapHeight) {
         wallY = (y + (up ? -1 : 0)) >> 0;
         wallX = (x) >> 0;
+
+        if (spritePosition[wallY][wallX] && !spritePosition[wallY][wallX].visible) {
+            spritePosition[wallY][wallX].visible = true;
+        }
 
 
         if (map[wallY][wallX] > 0) {
