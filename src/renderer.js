@@ -49,8 +49,8 @@ function initScreen(){
 }
 
 //Variables for the game.
-var screenWidth = 1024;                                   // Screen res
-var screenHeight = 768;                                   // Screen res
+var screenWidth = window.innerWidth;                                   // Screen res
+var screenHeight = window.innerHeight;                                   // Screen res
 var screenStrips = [];                                    // Wall types list
 var numoftex = 33;                                        // Number of different wall types
 var stripWidth = 2;                                       // Wall type is made from 2 pictures
