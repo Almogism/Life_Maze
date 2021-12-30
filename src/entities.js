@@ -103,8 +103,8 @@ renderEntities = function () {
                     prevStyle.left = (screenWidth / 2 + x - size / 2 - size * entity.state);
                 }
                 if (("brightness(" + (100 - 10 * distance) + "%)") != prevStyle.filter) {
-                    img.style.filter = ("brightness(" + (100 - 10 * distance) + "%)");
-                    prevStyle.filter = ("brightness(" + (100 - 10 * distance) + "%)");
+                    img.style.filter = ("brightness(" + (100 - 7.5 * distance) + "%)");
+                    prevStyle.filter = ("brightness(" + (100 - 7.5 * distance) + "%)");
                 }
                 if (size >> 0 != prevStyle.zIndex) {
                     img.style.zIndex = size >> 0;
