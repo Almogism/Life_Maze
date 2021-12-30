@@ -495,7 +495,7 @@ renderSprites = function () {
             img.style.height = size + "px";
 
             // fog on sprite
-            img.style.filter = "brightness(" + (100 - 10 * distance) + "%)";
+            img.style.filter = "brightness(" + (100 - 7.5 * distance) + "%)";
             img.style.zIndex = (size) >> 0;
         } else {
             sprite.img.style.display = "none";

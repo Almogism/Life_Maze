@@ -3,6 +3,13 @@ function initScreen(){
     //Getting the screen ID.
     var screen = $("screen");
 
+    //Getting the loading screen ID.
+    var loading = $("loading");
+
+    //Initializing the loading screen height and width.
+    loading.setAttribute("width", screenWidth);
+    loading.setAttribute("height", screenHeight);
+
     //Styling the screen according to the screen height and width variables.
     screen.style.height = screenHeight + 'px';
     screen.style.width = screenWidth + 'px';
@@ -49,8 +56,13 @@ function initScreen(){
 }
 
 //Variables for the game.
+<<<<<<< Updated upstream
 var screenWidth = 1024;                                   // Screen res
 var screenHeight = 768;                                   // Screen res
+=======
+var screenWidth = window.innerWidth;                      // Screen res
+var screenHeight = window.innerHeight;                    // Screen res
+>>>>>>> Stashed changes
 var screenStrips = [];                                    // Wall types list
 var numoftex = 33;                                        // Number of different wall types
 var stripWidth = 2;                                       // Wall type is made from 2 pictures
@@ -218,7 +230,40 @@ castRay = function (rayAngle, stripIdx){
         }
         strip.fog.style.height = height >> 0 + "px";
         strip.fog.style.width = (width * 2) >> 0 + "px";
-        strip.fog.style.background = "rgba(0,0,0," + distance / 10 + ")";
+        strip.fog.style.background = "rgba(0,0,0," + distance / 20 + ")";
     }
     drawRay(xHit, yHit);
+}
+//Screen dimming function for the loading screen.
+function dimScreen(){
+    //Get loading screen ID.
+    const loading = $("loading");;
+    let i = 0.1;
+    //Interval for dimming, running every 100ms.
+    var dimmingInterval = setInterval(() => {
+        loading.style.opacity = i;
+        i+=0.1;
+        if (i>1.01){
+            //When approaching 1, clear interval and blacken screen entirely.
+            clearInterval(dimmingInterval);
+            loading.style.opacity=1;
+        }
+    }, 100);
+}
+
+//Screen de-dimming function for the loading screen.
+function dedimScreen(){
+    //Get loading screen ID.
+    const loading = $("loading");
+    let i = 1;
+    //Interval for de-dimming, running every 100ms.
+    var dedimmingInterval = setInterval(() => {
+        loading.style.opacity = i;
+        i-=0.1;
+        if (i<0.01){
+            //When approaching zero, clear interval and clear screen entirely.
+            clearInterval(dedimmingInterval);
+            loading.style.opacity=0;
+        }
+    }, 100);
 }
