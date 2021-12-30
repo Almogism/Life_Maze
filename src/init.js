@@ -40,6 +40,16 @@ function gameCycle() {
     setTimeout(gameCycle, cycleDelay); //Call game cycle every cycleDelay.
 }
 
+function stats(){
+    let statistics = document.getElementById("statis");
+    var playerStats = document.createTextNode("<" + player.x.toFixed(2) + "," + player.y.toFixed(2) + ">\n(" + player.rotation.toFixed(2) + ")");
+    statistics.appendChild(playerStats);
+    setTimeout(function(){statistics.removeChild(playerStats)}, 100);
+}
+
+setInterval(stats,200);
+
+
 //Render cycle for the game, to update the game live.
 function renderCycle() {
 
