@@ -5,7 +5,7 @@ var player = {
     direction: 0,		// right 1 left -1
     rotation: 0,		// the current angle of rotationation
     vertical: 0,		// forward 1 backwards -1
-    moveSpeed: 0.075,	// step/update
+    moveSpeed: 0.2,	// step/update
     rotationSpeed: 5,	// rotation each update (in degrees)
     horizontal: false   // right 1 left -1
 }
@@ -168,13 +168,14 @@ function addKeys() {
 
         switch (event.keyCode) {
 
-            case 38: // up
+            case 87: // W - forward
                 player.vertical = 1; break;
-            case 40: // down
+            case 83: // S - backward
                 player.vertical = -1; break;
-            case 37: // left
+            case 65: // D - rotate right
                 player.direction = -1; break;
-            case 39: // right
+            case 68: // A - rotate left
+
                 player.direction = 1; break;
         }
     }
@@ -183,10 +184,10 @@ function addKeys() {
         event = event || window.event;
 
         switch (event.keyCode) {
-            case 38: case 40:
+            case 87: case 83:
                 player.vertical = 0;
                 break;
-            case 37: case 39:
+            case 65: case 68:
                 player.direction = 0;
                 break;
         }

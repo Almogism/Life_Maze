@@ -6,7 +6,8 @@ window.onload = function() {
 
     addKeys(); //Adding the hotkeys for controlling the game.
     initScreen(); //Initializing the screen.
-    initSprites(1); // Initializing the first sprites.
+    initSprites(1); //Initializing the first sprites.
+    initEntities(); //Initializing the entities.
     drawMap(); //Calling the draw map function to draw a minimap.
     gameCycle(); //Game cycle function.
     renderCycle(); //Rendering cycle function.
@@ -44,7 +45,8 @@ function renderCycle() {
 
     updateMap(); //Update map every render for objects.
     castRays(); //Casting rays for the player.
-    renderSprites();
+    renderSprites(); //Rendering sprites in the game.
+    renderEntities(); //Rendering entites in the game.
     updateBackground(); //Change background.
 
     setTimeout(renderCycle, gameCycleDelay); //Call render cycle every gameCycleDelay.

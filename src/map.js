@@ -173,4 +173,15 @@ function updateMap(){
         player.y * mapScale - 2,
         4, 4
     );
+
+    //Entity drawing.
+    for (var i = 0; i < entities.length; i++) {
+        var entity = entities[i];
+        objectCtx.fillStyle = "black";
+        objectCtx.fillRect(
+            entity.x * mapScale - 2,
+            entity.y * mapScale - 2,
+            4, 4
+        );
+    }
 }
