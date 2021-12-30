@@ -138,6 +138,8 @@ function isBlocking(x, y) {
         return true;
     if (map[y >> 0][x >> 0] != 0)
         return true;
+    if (spritePosition[y >> 0][(x) >> 0] && spritePosition[y >> 0][x >> 0].block)
+        return true;
     return false;
 }
 
