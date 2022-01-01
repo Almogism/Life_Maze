@@ -177,6 +177,7 @@ function addKeys() {
             case 68: // A - rotate left
                 player.direction = 1; break;
             case 16: dimScreen(); setTimeout(() => { dedimScreen();}, 2000); break;
+                //slowPanning(); break;
         }
     }
 

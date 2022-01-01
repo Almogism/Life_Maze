@@ -1,20 +1,14 @@
-initSprites = function (state)              // Add sprites for a specific map by checking the state
-{                                           // 1  = Stage 1
-    if (state == 1){                        // 21 = Stage 2.1
-       addItems1();                         // 22 = Stage 2.2
-    }                                       // 23 = Stage 2.3
-    if (state == 21){                       // 24 = Stage 2.4
-        addItems21()
+function initSprites(state){                // Add sprites for a specific map by checking the state
+    switch (state) {
+        case 1: addItems1(); break;         // 1 = Stage 1
+        case 21: addItems21(); break;       // 21 = Stage 2.1
+        case 22: addItems22(); break;       // 22 = Stage 2.2
+        case 23: addItems23(); break;       // 23 = Stage 2.3
+        case 24: addItems24(); break;       // 24 = Stage 2.4
+        //case 3: addItems1(); break;
+        default: break;
     }
-    if (state == 22){
-        addItems22()
-    }
-    if (state == 23){
-        addItems23()
-    }
-    if (state == 24){
-        addItems24();
-    }
+    
     for (var i = 0; i < map.length; i++) 
         spritePosition[i] = [];
 
@@ -75,7 +69,7 @@ var itemTypes = [
 
 //------------LEVEL 1--------------------------------------------------------------------------------------------------------------
 
-addItems1 = function () {
+function addItems1() {
     var item = {
         type: 3,
         x: 5,

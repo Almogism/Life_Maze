@@ -58,6 +58,6 @@ function renderCycle() {
     renderSprites(); //Rendering sprites in the game.
     renderEntities(); //Rendering entites in the game.
     updateBackground(); //Change background.
-
+    checkPlayerLocation(); //Test for player location every cycle, for events.
     setTimeout(renderCycle, gameCycleDelay); //Call render cycle every gameCycleDelay.
 }

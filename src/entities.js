@@ -25,7 +25,8 @@ function initEntities() {
         img.src = type.img;
         img.style.display = "none";
         img.style.position = "absolute";
-
+        
+        //Entity attributes.
         entity.state = 0;
         entity.rot = 0;
         entity.dir = 0;
@@ -43,19 +44,18 @@ function initEntities() {
             zIndex: 0
         };
         entity.img = img;
-        entities.push(entity);
+        entities.push(entity); //Insert entity to array.
         screen.appendChild(img);
     }
 }
 
-//----------------------------------------------------------
-
+//Entities arrays.
 var entities = [];
 var mapEntities = [];
 
-//----------------------------------------------------------
-
+//Entity types.
 var entityTypes = [
+    //Doggy dog :)
     {
         img: 'src/assets/Entities/originalDoggydog.png',
         moveSpeed: 0.2,
@@ -64,8 +64,7 @@ var entityTypes = [
     }
 ];
 
-//----------------------------------------------------------
-
+//Rendering entities 
 renderEntities = function () {
     for (var i = 0; i < entities.length; i++) {
         var entity = entities[i];
@@ -119,13 +118,13 @@ renderEntities = function () {
                     prevStyle.clip = ('rect(0, ' + (size * (entity.state + 1)) + ', ' + size + ', ' + (size * (entity.state)) + ')');
                 }
             }
+            //Giving the entity AI.
             entityAI(entity);
         }
     }
 }
 
-//----------------------------------------------------------
-
+//AI functionality for the entity, so it could follow the player.
 function entityAI(entity) {
 
     var dx = player.x - entity.x;
@@ -146,8 +145,7 @@ function entityAI(entity) {
     entityMove(entity);
 }
 
-//----------------------------------------------------------
-
+//Entity movement function.
 function entityMove(entity) {
 
     var moveStep = entity.speed * entity.moveSpeed;
