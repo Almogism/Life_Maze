@@ -229,36 +229,3 @@ castRay = function (rayAngle, stripIdx){
     }
     drawRay(xHit, yHit);
 }
-//Screen dimming function for the loading screen.
-function dimScreen(){
-    //Get loading screen ID.
-    const loading = $("loading");;
-    let i = 0.1;
-    //Interval for dimming, running every 100ms.
-    var dimmingInterval = setInterval(() => {
-        loading.style.opacity = i;
-        i+=0.1;
-        if (i>1.01){
-            //When approaching 1, clear interval and blacken screen entirely.
-            clearInterval(dimmingInterval);
-            loading.style.opacity=1;
-        }
-    }, 100);
-}
-
-//Screen de-dimming function for the loading screen.
-function dedimScreen(){
-    //Get loading screen ID.
-    const loading = $("loading");
-    let i = 1;
-    //Interval for de-dimming, running every 100ms.
-    var dedimmingInterval = setInterval(() => {
-        loading.style.opacity = i;
-        i-=0.1;
-        if (i<0.01){
-            //When approaching zero, clear interval and clear screen entirely.
-            clearInterval(dedimmingInterval);
-            loading.style.opacity=0;
-        }
-    }, 100);
-}
