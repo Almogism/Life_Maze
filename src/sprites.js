@@ -5,7 +5,7 @@ function initSprites(state){                // Add sprites for a specific map by
         case 22: addItems22(); break;       // 22 = Stage 2.2
         case 23: addItems23(); break;       // 23 = Stage 2.3
         case 24: addItems24(); break;       // 24 = Stage 2.4
-        //case 3: addItems3(); break;
+        case 3: addItems3(); break;
         default: break;
     }
     
@@ -64,7 +64,13 @@ var itemTypes = [
     { img : 'src/assets/Objects/scage.png', block: false},       // 24= Cage with skeleton
     { img : 'src/assets/Objects/trash2.png', block: false},      // 25= Trash 2
     { img : 'src/assets/Objects/trash3.png', block: false},      // 26= Trash 3
-    { img : 'src/assets/Objects/itemshop.png', block: false}     // 27= Item Shop
+    { img : 'src/assets/Objects/itemshop.png', block: false},    // 27= Item Shop
+    { img : 'src/assets/Objects/servicewoman.png', block: false},// 28= Service woman
+    { img : 'src/assets/Objects/kids.png', block: false},        // 29= Kids on a bench
+    { img : 'src/assets/Objects/busy.png', block: false},        // 30= Business meeting
+    { img : 'src/assets/Objects/light4.png', block: false},      // 31= Light from ceiling 2
+    { img : 'src/assets/Objects/waitroom.png', block: false},    // 32= Waiting room
+    { img : 'src/assets/Objects/bench.png', block: false}        // 33= Waiting bench
 
 ];
 
@@ -315,7 +321,15 @@ function addItems24(){
 }
 
 
+//------------LEVEL 3--------------------------------------------------------------------------------------------------------------
 
+
+function addItems3(){
+
+    addSprite(28,11,3); addSprite(29,12,4); addSprite(30,9,3); addSprite(30,7,3); addSprite(30,5,3);
+    addSprite(31,6,4); addSprite(31,8,4); addSprite(31,10,4); addSprite(32,13,3); addSprite(33,14,3);
+
+}
 
 //----------------------------------------------------------
 

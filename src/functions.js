@@ -303,8 +303,8 @@ function switchLevels(level){
             setTimeout(() => {
                 relocatePlayer(7,10,0); //change to another location
                 deleteSprites();
-                initSprites(24); //change to initSprites(whatever number you chose)
-                map = map24; //change to whatever map name you chose
+                initSprites(3); //change to initSprites(whatever number you chose)
+                map = map3; //change to whatever map name you chose
                 initScreen();
                 drawMap();
                 dedimScreen();
