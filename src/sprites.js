@@ -5,7 +5,7 @@ function initSprites(state){                // Add sprites for a specific map by
         case 22: addItems22(); break;       // 22 = Stage 2.2
         case 23: addItems23(); break;       // 23 = Stage 2.3
         case 24: addItems24(); break;       // 24 = Stage 2.4
-        //case 3: addItems1(); break;
+        //case 3: addItems3(); break;
         default: break;
     }
     
@@ -67,153 +67,25 @@ var itemTypes = [
 
 ];
 
+//Function to add a singular sprite.
+function addSprite(newType,newX,newY){
+    var item = {
+        type: newType,
+        x: newX,
+        y: newY
+    }
+    mapSprites.push(item);
+}
+
 //------------LEVEL 1--------------------------------------------------------------------------------------------------------------
 
 function addItems1() {
-    var item = {
-        type: 3,
-        x: 5,
-        y: 3
-    }
-    mapSprites.push(item)
-    var item2 = {
-        type: 2,
-        x: 12,
-        y: 16
-    }
-    mapSprites.push(item2)
-    var item3 = {
-        type: 4,
-        x: 8,
-        y: 1
-    }
-    mapSprites.push(item3)
-    var item4 = {
-        type: 5,
-        x: 7,
-        y: 14
-    }
-    mapSprites.push(item4)
-    var item5 = {
-        type: 5,
-        x: 3,
-        y: 14
-    }
-    mapSprites.push(item5)
-    var item6 = {
-        type: 3,
-        x: 3,
-        y: 7
-    }
-    mapSprites.push(item6)
-    var item7 = {
-        type: 4,
-        x: 1,
-        y: 10
-    }
-    mapSprites.push(item7)
-    var item8 = {
-        type: 9,
-        x: 13,
-        y: 5
-    }
-    mapSprites.push(item8)
-    var item9 = {
-        type: 7,
-        x: 11,
-        y: 1
-    }
-    mapSprites.push(item9)
-    var item10 = {
-        type: 7,
-        x: 18,
-        y: 1
-    }
-    mapSprites.push(item10)
-    var item11 = {
-        type: 8,
-        x: 12,
-        y: 6
-    }
-    mapSprites.push(item11)
-
-    var item12 = {
-        type: 16,
-        x: 9,
-        y: 16
-    }
-    mapSprites.push(item12)
-
-    var item13 = {
-        type: 18,
-        x: 1,
-        y: 16
-    }
-    mapSprites.push(item13)
-
-    var item14 = {
-        type: 13,
-        x: 7,
-        y: 10
-    }
-    mapSprites.push(item14)
-
-    var item15 = {
-        type: 9,
-        x: 5,
-        y: 15
-    }
-    mapSprites.push(item15)
-
-    var item16 = {
-        type: 16,
-        x: 1,
-        y: 1
-    }
-    mapSprites.push(item16)
-
-    var item17 = {
-        type: 16,
-        x: 18,
-        y: 9
-    }
-    mapSprites.push(item17)
-
-    var item18 = {
-        type: 14,
-        x: 15,
-        y: 10
-    }
-    mapSprites.push(item18)
-
-    var item19 = {
-        type: 14,
-        x: 15,
-        y: 14
-    }
-    mapSprites.push(item19)
-
-    var item20 = {
-        type: 3,
-        x: 16,
-        y: 12
-    }
-    mapSprites.push(item20)
-
-    var item21 = {
-        type: 5,
-        x: 5,
-        y: 5
-    }
-    mapSprites.push(item21)
-
-    var item22 = {
-        type: 14,
-        x: 14,
-        y: 3
-    }
-    mapSprites.push(item22)
-
+    addSprite(3,5,3); addSprite(2,12,16); addSprite(4,8,1); addSprite(5,7,14);
+    addSprite(5,3,14); addSprite(3,3,7); addSprite(4,1,10); addSprite(9,13,5);
+    addSprite(7,11,1); addSprite(7,18,1); addSprite(8,12,6); addSprite(16,9,16);
+    addSprite(18,1,16); addSprite(13,7,10); addSprite(9,5,15); addSprite(16,1,1);
+    addSprite(16,18,9); addSprite(14,15,10); addSprite(14,15,14); addSprite(3,16,12);
+    addSprite(5,5,5); addSprite(14,14,3);
 }
 
 

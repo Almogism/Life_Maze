@@ -92,7 +92,10 @@ function slowWalking(){
 }
 
 //Boolean variables to mark finishing missions.
-let mission1= false;
+let mission11= false;
+let mission12= false;
+let mission13= false;
+let mission14= false;
 let mission21 = false;
 let mission22 = false;
 let mission23 = false;
@@ -113,8 +116,55 @@ let mission4 = false;
 //Check player location to commence events.
 function checkPlayerLocation(){
     let playerChoice;
+    if (!mission11 && playerBetween(14,15,2,3)){
+        mission11 = true;
+        freezePlayer();
+        alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
+        map[0][14] = 8;
+        setTimeout(() => {
+            alert("You've burnt the food.\nEven the dog is not impressed, guess we're eating pizza tonight.");
+                map[0][14] = 7;
+                resetPlayer();
+        }, 2000);
+    }
+    if (!mission12 && playerBetween(8,9,14,15)){
+        mission12 = true;
+        freezePlayer();
+            alert("Room cleaning for dad.\nI need to wipe that goo off the wall, let's give our best this time!");
+            setTimeout(() => {
+                alert("You've messed up the whole room.\ndad is going to be mad...");
+                map[12][8] = 4; map[17][7] = 4; map[17][9] = 4; map[17][3] = 4;
+                map[17][4] = 4; map[17][5] = 4; map[17][6] = 4; map[17][8] = 4;          
+                map[17][8] = 4; map[15][0] = 4; map[14][0] = 4; map[13][0] = 4;
+                map[12][1] = 4; map[12][2] = 4; map[12][3] = 4; map[12][4] = 4;
+                map[12][7] = 4; map[12][9] = 4;
+                resetPlayer();
+            }, 2000);
+    }
+    if (!mission13 && playerBetween(12,13,15,16)){
+        mission13 = true;
+        freezePlayer();
+        let playerChoice = prompt("bar hu piho?\nfor wrong press - n \n for right press - y");
+        if (playerChoice == 'y'){
+            alert("you're correct.");
+            freezePlayer();
+        }
+        else if (playerChoice == 'n'){
+            alert("you're wrong.");
+            freezePlayer();
+        }
+        else{
+            alert("wrong input you dickhead");
+            freezePlayer();
+        }
+        resetPlayer();
+    }
 }
-
+function playerBetween(x1,x2,y1,y2){
+    if (player.x > x1 && player.x < x2 && player.y > y1 && player.y < y2)
+        return true;
+    return false;
+}
 function switchLevels(level){
     switch (level) {
         case 1:
