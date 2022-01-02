@@ -63,7 +63,8 @@ var itemTypes = [
     { img : 'src/assets/Objects/sink.png', block: false},        // 23= Sink
     { img : 'src/assets/Objects/scage.png', block: false},       // 24= Cage with skeleton
     { img : 'src/assets/Objects/trash2.png', block: false},      // 25= Trash 2
-    { img : 'src/assets/Objects/trash3.png', block: false}       // 26= Trash 3
+    { img : 'src/assets/Objects/trash3.png', block: false},      // 26= Trash 3
+    { img : 'src/assets/Objects/itemshop.png', block: false}     // 27= Item Shop
 
 ];
 
