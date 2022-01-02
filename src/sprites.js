@@ -69,8 +69,9 @@ var itemTypes = [
     { img : 'src/assets/Objects/kids.png', block: false},        // 29= Kids on a bench
     { img : 'src/assets/Objects/busy.png', block: false},        // 30= Business meeting
     { img : 'src/assets/Objects/light4.png', block: false},      // 31= Light from ceiling 2
-    { img : 'src/assets/Objects/waitroom.png', block: false},    // 32= Waiting room
-    { img : 'src/assets/Objects/bench.png', block: false}        // 33= Waiting bench
+    { img : 'src/assets/Objects/waitroom.png', block: false},    // 32= Waiting room sign
+    { img : 'src/assets/Objects/bench.png', block: false},       // 33= Waiting bench
+    { img : 'src/assets/Objects/policew.png', block: false}      // 34= Police woman
 
 ];
 
@@ -328,7 +329,8 @@ function addItems3(){
 
     addSprite(28,11,3); addSprite(29,12,4); addSprite(30,9,3); addSprite(30,7,3); addSprite(30,5,3);
     addSprite(31,6,4); addSprite(31,8,4); addSprite(31,10,4); addSprite(32,13,3); addSprite(33,14,3);
-
+    addSprite(14,7,6); addSprite(14,11,6); addSprite(14,11,10); addSprite(4,6,11); addSprite(4,14,11);
+    addSprite(9,12,8); addSprite(9,9,8); addSprite(34,5,8);
 }
 
 //----------------------------------------------------------
