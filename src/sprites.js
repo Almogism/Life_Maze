@@ -97,6 +97,7 @@ function addSprite(newType,newX,newY){
 //------------LEVEL 1--------------------------------------------------------------------------------------------------------------
 
 function addItems1() {
+    insertObjective("להכין אוכל","לנקות את החדר של אבא","לדבר עם השליח","");
     addSprite(3,5,3); addSprite(2,12,16); addSprite(4,8,1); addSprite(5,7,14);
     addSprite(5,3,14); addSprite(3,3,7); addSprite(4,1,10); addSprite(9,13,5);
     addSprite(7,11,1); addSprite(7,18,1); addSprite(8,12,6); addSprite(16,9,16);
