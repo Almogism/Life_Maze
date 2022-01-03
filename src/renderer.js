@@ -59,7 +59,7 @@ function initScreen(){
 var screenWidth = window.innerWidth;                      // Screen res
 var screenHeight = window.innerHeight;                    // Screen res
 var screenStrips = [];                                    // Wall types list
-var numoftex = 33;                                        // Number of different wall types
+var numoftex = 54;                                        // Number of different wall types
 var stripWidth = 2;                                       // Wall type is made from 2 pictures
 var fov = 80 * Math.PI / 180;                             // Field of view
 var numofrays = Math.ceil(screenWidth / stripWidth);      // Number of rays cast by player
