@@ -79,7 +79,6 @@ body {
     left: 50%;
     transform: translate(-50%, -90%);
 }
-
 #screen {
     position: absolute;
     margin: auto;
