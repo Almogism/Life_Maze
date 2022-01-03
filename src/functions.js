@@ -323,7 +323,16 @@ function checkPlayerLocation(){
     }
     if (mission14 && !mission21 && playerBetween(10.5,11.5,9,10)){
         mission21 = true;
-        switchLevels(22);
+        Swal.fire({
+            icon: 'error',
+            title: '...אף פעם לא לוקחים את הדירה הראשונה',
+            text: 'הדירה הזאת מלוכלכת ולא ראויה למגורי אדם',
+            confirmButtonText:'!יאללה לחפש דירה חדשה'
+        }).then((result) => {
+            if (result.isConfirmed){
+                switchLevels(22);
+            }
+        })
     }
     if (mission21 && !mission22 && playerBetween(17.5,18.5,9,10)){
         mission22 = true;
@@ -381,7 +390,7 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 Swal.fire({
-                    icon: 'question',
+                    icon: 'warning',
                     title: 'דירה מספר אחת',
                     text: 'אחרי שחיפשתי קצת בפייסבוק הגעתי לדירה הראשונה שמצאתי. המחיר בעיקר משך אותי',
                     confirmButtonText:'!בוא נעשה סיבוב',
@@ -407,7 +416,7 @@ function switchLevels(level){
             break;
         case 22:
             freezePlayer();
-            alert("Okay, lets try again...");
+            //alert("Okay, lets try again...");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(1.3,9,0);
@@ -417,14 +426,30 @@ function switchLevels(level){
                 initScreen();
                 drawMap();
                 dedimScreen();
-                setTimeout(() => {
-                    alert("Okay, seems cozy... lets check it out.");
+
+                //alert("Okay, seems cozy... lets check it out.");
+
+                Swal.fire({
+                    icon: 'question',
+                    title: 'דירה מספר שתיים',
+                    text: 'הפעם ויתרתי על חיפוש בפייסבוק, דוד שלי הציע להשכיר את הדירה שלו במחיר מוזל',
+                    confirmButtonText:'!בוא נעשה סיבוב',
+                }).then((result) => {
+                    if (result.isConfirmed){
                     slowWalking();
                     setTimeout(() => {
-                        alert("this place creeps the bejesus out of me...");
-                        resetPlayer();
-                    }, 15000);
-                }, 2000);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'אני קצת מפחד',
+                            text: 'המקום הזה מלחיץ אותי ברמה אחרת, עם כל הכבוד לדוד שלי אני חייב לראות עוד דירות',
+                            confirmButtonText: 'אני מרגיש שמישהו מסתכל עליי',
+                          }).then((result) => {
+                                if (result.isConfirmed){
+                                    resetPlayer();
+                                }
+                          })
+                    }, 15000); }
+                })
             }, 2000);
             break;
         case 23:
