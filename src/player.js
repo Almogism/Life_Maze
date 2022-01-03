@@ -162,6 +162,8 @@ function drawRay(rayX, rayY) {
 
 //Controlling character movement using key codes.
 function addKeys() {
+    let objectiveVisibility = true;
+    var objectives = $('objectives');
 
     document.onkeydown = function (event) {
         event = event || window.event;
@@ -176,8 +178,21 @@ function addKeys() {
                 player.direction = -1; break;
             case 68: // A - rotate left
                 player.direction = 1; break;
-            case 16: dimScreen(); setTimeout(() => { dedimScreen();}, 2000); break;
-                //slowPanning(); break;
+
+            // case 16: //dimScreen(); setTimeout(() => { dedimScreen();}, 2000); break;
+            //     //slowPanning(); break;
+            case 16:
+                if (objectiveVisibility){
+                    objectives.style.display = "none";
+                    objectiveVisibility = false;
+                }
+                else {
+                    objectives.style.display = "block";
+                    objectiveVisibility = true;
+                }
+                break;
+            case 9: insertObjective(); break;
+
         }
     }
 
