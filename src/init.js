@@ -6,7 +6,8 @@ window.onload = function() {
 
     addKeys(); //Adding the hotkeys for controlling the game.
     initScreen(); //Initializing the screen.
-    initSprites(1); // Initializing the first sprites.
+    initSprites(1); //Initializing the first sprites.
+    initEntities(); //Initializing the entities.
     drawMap(); //Calling the draw map function to draw a minimap.
     gameCycle(); //Game cycle function.
     renderCycle(); //Rendering cycle function.
@@ -39,13 +40,24 @@ function gameCycle() {
     setTimeout(gameCycle, cycleDelay); //Call game cycle every cycleDelay.
 }
 
+function stats(){
+    let statistics = document.getElementById("statis");
+    var playerStats = document.createTextNode("<" + player.x.toFixed(2) + "," + player.y.toFixed(2) + ">\n(" + player.rotation.toFixed(2) + ")");
+    statistics.appendChild(playerStats);
+    setTimeout(function(){statistics.removeChild(playerStats)}, 100);
+}
+
+setInterval(stats,200);
+
+
 //Render cycle for the game, to update the game live.
 function renderCycle() {
 
     updateMap(); //Update map every render for objects.
     castRays(); //Casting rays for the player.
-    renderSprites();
+    renderSprites(); //Rendering sprites in the game.
+    renderEntities(); //Rendering entites in the game.
     updateBackground(); //Change background.
-
+    checkPlayerLocation(); //Test for player location every cycle, for events.
     setTimeout(renderCycle, gameCycleDelay); //Call render cycle every gameCycleDelay.
 }

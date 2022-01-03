@@ -3,6 +3,13 @@ function initScreen(){
     //Getting the screen ID.
     var screen = $("screen");
 
+    //Getting the loading screen ID.
+    var loading = $("loading");
+
+    //Initializing the loading screen height and width.
+    loading.setAttribute("width", screenWidth);
+    loading.setAttribute("height", screenHeight);
+
     //Styling the screen according to the screen height and width variables.
     screen.style.height = screenHeight + 'px';
     screen.style.width = screenWidth + 'px';
@@ -49,10 +56,10 @@ function initScreen(){
 }
 
 //Variables for the game.
-var screenWidth = 1024;                                   // Screen res
-var screenHeight = 768;                                   // Screen res
+var screenWidth = window.innerWidth;                      // Screen res
+var screenHeight = window.innerHeight;                    // Screen res
 var screenStrips = [];                                    // Wall types list
-var numoftex = 33;                                        // Number of different wall types
+var numoftex = 54;                                        // Number of different wall types
 var stripWidth = 2;                                       // Wall type is made from 2 pictures
 var fov = 80 * Math.PI / 180;                             // Field of view
 var numofrays = Math.ceil(screenWidth / stripWidth);      // Number of rays cast by player
@@ -218,7 +225,7 @@ castRay = function (rayAngle, stripIdx){
         }
         strip.fog.style.height = height >> 0 + "px";
         strip.fog.style.width = (width * 2) >> 0 + "px";
-        strip.fog.style.background = "rgba(0,0,0," + distance / 10 + ")";
+        strip.fog.style.background = "rgba(0,0,0," + distance / 20 + ")";
     }
     drawRay(xHit, yHit);
 }

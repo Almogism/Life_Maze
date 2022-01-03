@@ -1,20 +1,15 @@
-initSprites = function (state)              // Add sprites for a specific map by checking the state
-{                                           // 1  = Stage 1
-    if (state == 1){                        // 21 = Stage 2.1
-       addItems1();                         // 22 = Stage 2.2
-    }                                       // 23 = Stage 2.3
-    if (state == 21){                       // 24 = Stage 2.4
-        addItems21()
+function initSprites(state){                // Add sprites for a specific map by checking the state
+    switch (state) {
+        case 1: addItems1(); break;         // 1 = Stage 1
+        case 21: addItems21(); break;       // 21 = Stage 2.1
+        case 22: addItems22(); break;       // 22 = Stage 2.2
+        case 23: addItems23(); break;       // 23 = Stage 2.3
+        case 24: addItems24(); break;       // 24 = Stage 2.4
+        case 3: addItems3(); break;
+        case 31: addItems31(); break;
+        default: break;
     }
-    if (state == 22){
-        addItems22()
-    }
-    if (state == 23){
-        addItems23()
-    }
-    if (state == 24){
-        addItems24();
-    }
+    
     for (var i = 0; i < map.length; i++) 
         spritePosition[i] = [];
 
@@ -69,157 +64,45 @@ var itemTypes = [
     { img : 'src/assets/Objects/sink.png', block: false},        // 23= Sink
     { img : 'src/assets/Objects/scage.png', block: false},       // 24= Cage with skeleton
     { img : 'src/assets/Objects/trash2.png', block: false},      // 25= Trash 2
-    { img : 'src/assets/Objects/trash3.png', block: false}       // 26= Trash 3
+    { img : 'src/assets/Objects/trash3.png', block: false},      // 26= Trash 3
+    { img : 'src/assets/Objects/itemshop.png', block: false},    // 27= Item Shop
+    { img : 'src/assets/Objects/servicewoman.png', block: false},// 28= Service woman
+    { img : 'src/assets/Objects/kids.png', block: false},        // 29= Kids on a bench
+    { img : 'src/assets/Objects/busy.png', block: false},        // 30= Business meeting
+    { img : 'src/assets/Objects/light4.png', block: false},      // 31= Light from ceiling 2
+    { img : 'src/assets/Objects/waitroom.png', block: false},    // 32= Waiting room sign
+    { img : 'src/assets/Objects/bench.png', block: false},       // 33= Waiting bench
+    { img : 'src/assets/Objects/policew.png', block: false},     // 34= Police woman
+    { img : 'src/assets/Objects/sofa.png', block: false},        // 35= Sofa
+    { img : 'src/assets/Objects/hobo.png', block: false},        // 36= Man looking for job
+    { img : 'src/assets/Objects/idf.png', block: false},         // 37= Soldiers
+    { img : 'src/assets/Objects/interview.png', block: false},   // 38= Interviewer sits
+    { img : 'src/assets/Objects/interview2.png', block: false},  // 39= Interviewer stand
+    { img : 'src/assets/Objects/vendingm.png', block: false},    // 40= Vending machine
+    { img : 'src/assets/Objects/working.png', block: false},     // 41= Happy man working
+    { img : 'src/assets/Objects/working2.png', block: false}     // 42= Man plays on desk
 
 ];
 
+//Function to add a singular sprite.
+function addSprite(newType,newX,newY){
+    var item = {
+        type: newType,
+        x: newX,
+        y: newY
+    }
+    mapSprites.push(item);
+}
+
 //------------LEVEL 1--------------------------------------------------------------------------------------------------------------
 
-addItems1 = function () {
-    var item = {
-        type: 3,
-        x: 5,
-        y: 3
-    }
-    mapSprites.push(item)
-    var item2 = {
-        type: 2,
-        x: 12,
-        y: 16
-    }
-    mapSprites.push(item2)
-    var item3 = {
-        type: 4,
-        x: 8,
-        y: 1
-    }
-    mapSprites.push(item3)
-    var item4 = {
-        type: 5,
-        x: 7,
-        y: 14
-    }
-    mapSprites.push(item4)
-    var item5 = {
-        type: 5,
-        x: 3,
-        y: 14
-    }
-    mapSprites.push(item5)
-    var item6 = {
-        type: 3,
-        x: 3,
-        y: 7
-    }
-    mapSprites.push(item6)
-    var item7 = {
-        type: 4,
-        x: 1,
-        y: 10
-    }
-    mapSprites.push(item7)
-    var item8 = {
-        type: 9,
-        x: 13,
-        y: 5
-    }
-    mapSprites.push(item8)
-    var item9 = {
-        type: 7,
-        x: 11,
-        y: 1
-    }
-    mapSprites.push(item9)
-    var item10 = {
-        type: 7,
-        x: 18,
-        y: 1
-    }
-    mapSprites.push(item10)
-    var item11 = {
-        type: 8,
-        x: 12,
-        y: 6
-    }
-    mapSprites.push(item11)
-
-    var item12 = {
-        type: 16,
-        x: 9,
-        y: 16
-    }
-    mapSprites.push(item12)
-
-    var item13 = {
-        type: 18,
-        x: 1,
-        y: 16
-    }
-    mapSprites.push(item13)
-
-    var item14 = {
-        type: 13,
-        x: 7,
-        y: 10
-    }
-    mapSprites.push(item14)
-
-    var item15 = {
-        type: 9,
-        x: 5,
-        y: 15
-    }
-    mapSprites.push(item15)
-
-    var item16 = {
-        type: 16,
-        x: 1,
-        y: 1
-    }
-    mapSprites.push(item16)
-
-    var item17 = {
-        type: 16,
-        x: 18,
-        y: 9
-    }
-    mapSprites.push(item17)
-
-    var item18 = {
-        type: 14,
-        x: 15,
-        y: 10
-    }
-    mapSprites.push(item18)
-
-    var item19 = {
-        type: 14,
-        x: 15,
-        y: 14
-    }
-    mapSprites.push(item19)
-
-    var item20 = {
-        type: 3,
-        x: 16,
-        y: 12
-    }
-    mapSprites.push(item20)
-
-    var item21 = {
-        type: 5,
-        x: 5,
-        y: 5
-    }
-    mapSprites.push(item21)
-
-    var item22 = {
-        type: 14,
-        x: 14,
-        y: 3
-    }
-    mapSprites.push(item22)
-
+function addItems1() {
+    addSprite(3,5,3); addSprite(2,12,16); addSprite(4,8,1); addSprite(5,7,14);
+    addSprite(5,3,14); addSprite(3,3,7); addSprite(4,1,10); addSprite(9,13,5);
+    addSprite(7,11,1); addSprite(7,18,1); addSprite(8,12,6); addSprite(16,9,16);
+    addSprite(18,1,16); addSprite(13,7,10); addSprite(9,5,15); addSprite(16,1,1);
+    addSprite(16,18,9); addSprite(14,15,10); addSprite(14,15,14); addSprite(3,16,12);
+    addSprite(5,5,5); addSprite(14,14,3); addSprite(35,15,16);
 }
 
 
@@ -448,10 +331,25 @@ function addItems24(){
 }
 
 
+//------------LEVEL 3--------------------------------------------------------------------------------------------------------------
 
+
+function addItems3(){
+
+    addSprite(28,11,3); addSprite(29,12,4); addSprite(30,9,3); addSprite(30,7,3); addSprite(30,5,3);
+    addSprite(31,6,4); addSprite(31,8,4); addSprite(31,10,4); addSprite(32,13,3); addSprite(33,14,3);
+    addSprite(14,7,6); addSprite(14,11,6); addSprite(14,11,10); addSprite(4,6,11); addSprite(4,14,11);
+    addSprite(9,12,8); addSprite(9,9,8); addSprite(34,5,8);
+}
 
 //----------------------------------------------------------
+function addItems31(){
 
+    addSprite(36,4,11); addSprite(37,10,5); addSprite(38,15,11); addSprite(39,14,11); addSprite(40,11,9);
+    addSprite(41,4,2); addSprite(42,6,2); addSprite(35,10,2); addSprite(35,12,2); addSprite(4,8,2); 
+    addSprite(31,11,3); addSprite(31,5,4); addSprite(31,7,4); addSprite(2,4,7); addSprite(35,15,7);
+    addSprite(4,15,5);
+}
 // clearSprites = function () {
 //     for (var i = 0; i < sprites.length; i++) {
 //         var sprite = sprites[i];
@@ -495,7 +393,7 @@ renderSprites = function () {
             img.style.height = size + "px";
 
             // fog on sprite
-            img.style.filter = "brightness(" + (100 - 10 * distance) + "%)";
+            img.style.filter = "brightness(" + (100 - 7.5 * distance) + "%)";
             img.style.zIndex = (size) >> 0;
         } else {
             sprite.img.style.display = "none";
