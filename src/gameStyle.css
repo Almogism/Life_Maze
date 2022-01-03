@@ -113,6 +113,7 @@ body {
     background-image: url("assets/ceiling.jpg");
 }
 
-.swal-overlay{
-    z-index: 1000000;
+
+.swal2-container {
+    z-index: 100000000000000;
 }
