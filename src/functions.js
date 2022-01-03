@@ -92,6 +92,24 @@ function slowWalking(){
     }, 3);
 }
 
+//Insert objective to the objective menu
+function insertObjective(obj1="",obj2="",obj3="",obj4=""){
+    $('objective1').innerHTML=obj1;
+    $('objective2').innerHTML=obj2;
+    $('objective3').innerHTML=obj3;
+    $('objective4').innerHTML=obj4;
+}
+
+//Complete objectives
+function completeObjective(objective){
+    switch (objective) {
+        case 1: $('objective1').style.textDecoration="line-through"; break;
+        case 2: $('objective2').style.textDecoration="line-through"; break;
+        case 3: $('objective3').style.textDecoration="line-through"; break;
+        case 4: $('objective4').style.textDecoration="line-through"; break;
+        default: break;
+    }
+}
 //Boolean variables to mark finishing missions.
 let mission11= false;
 let mission12= false;

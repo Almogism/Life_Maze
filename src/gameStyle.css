@@ -19,17 +19,66 @@ body {
     transform: translate(-50%,-50%);
     z-index: 100000;
 }
-/*
-.container{
-    background-color: black;
-    opacity: 1;
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    z-index: 100000;
+
+.container {
+    height:250px;
+    width:250px;
+    position: fixed;
+    opacity: 0.7;
+    top:90%;
+    left:95%;
+    transform: translate(-95%,-90%);
+    text-align: center;
+    color: black;
+    z-index: 1000000;
 }
-*/
+
+.title {
+    font-size:30px;
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    text-decoration: underline;
+}
+
+.objective1 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+.objective2 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.objective3 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+.objective4 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}
 #screen {
     position: absolute;
     margin: auto;
@@ -63,6 +112,7 @@ body {
     height: 50%;
     background-image: url("assets/ceiling.jpg");
 }
+
 
 .swal2-container {
     z-index: 100000000000000;
