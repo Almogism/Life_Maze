@@ -98,6 +98,7 @@ function addSprite(newType,newX,newY){
 
 function addItems1() {
     insertObjective("להכין אוכל","לנקות את החדר של אבא","לדבר עם השליח","");
+
     addSprite(3,5,3); addSprite(2,12,16); addSprite(4,8,1); addSprite(5,7,14);
     addSprite(5,3,14); addSprite(3,3,7); addSprite(4,1,10); addSprite(9,13,5);
     addSprite(7,11,1); addSprite(7,18,1); addSprite(8,12,6); addSprite(16,9,16);
@@ -135,6 +136,7 @@ function addItems24(){
 
 //------------LEVEL 3--------------------------------------------------------------------------------------------------------------
 
+
 function addItems3(){
 
     addSprite(28,11,3); addSprite(29,12,4); addSprite(30,9,3); addSprite(30,7,3); addSprite(30,5,3);
@@ -143,9 +145,9 @@ function addItems3(){
     addSprite(9,12,8); addSprite(9,9,8); addSprite(34,5,8);
 }
 
+
 //------------LEVEL 3.1------------------------------------------------------------------------------------------------------------
 function addItems31(){
-
     addSprite(36,4,11); addSprite(37,10,5); addSprite(38,15,11); addSprite(39,14,11); addSprite(40,11,9);
     addSprite(41,4,2); addSprite(42,6,2); addSprite(35,10,2); addSprite(35,12,2); addSprite(4,8,2); 
     addSprite(31,11,3); addSprite(31,5,4); addSprite(31,7,4); addSprite(2,4,7); addSprite(35,15,7);

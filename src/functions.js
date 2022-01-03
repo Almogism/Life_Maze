@@ -92,6 +92,7 @@ function slowWalking(){
     }, 3);
 }
 
+
 //Insert objective to the objective menu
 function insertObjective(obj1="",obj2="",obj3="",obj4=""){
     $('objective1').innerHTML=obj1;
@@ -114,6 +115,7 @@ function completeObjective(objective){
         default: break;
     }
 }
+
 //Boolean variables to mark finishing missions.
 let mission11= false;
 let mission12= false;
@@ -144,6 +146,7 @@ function checkPlayerLocation(){
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
+
         // alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
 
         Swal.fire({  
@@ -317,6 +320,7 @@ function checkPlayerLocation(){
 
 
 
+
     if (mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
         mission14 = true;
         switchLevels(21);
@@ -361,6 +365,7 @@ function checkPlayerLocation(){
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
         switchLevels(24);
+
     }
 }
 
@@ -380,6 +385,7 @@ function switchLevels(level){
         case 21:
             freezePlayer();
             //alert("I'll go look for another apartment. how bad can it be?!");
+            alert("I'll go look for another apartment. how bad can it be?!");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(8.3,9,0);
@@ -412,6 +418,7 @@ function switchLevels(level){
                         }, 15000);
                     }
                 });
+
             }, 2000);
             break;
         case 22:
