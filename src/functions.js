@@ -95,9 +95,13 @@ function slowWalking(){
 //Insert objective to the objective menu
 function insertObjective(obj1="",obj2="",obj3="",obj4=""){
     $('objective1').innerHTML=obj1;
+    $('objective1').style.textDecoration="none";
     $('objective2').innerHTML=obj2;
+    $('objective2').style.textDecoration="none";
     $('objective3').innerHTML=obj3;
+    $('objective3').style.textDecoration="none";
     $('objective4').innerHTML=obj4;
+    $('objective4').style.textDecoration="none";
 }
 
 //Complete objectives
@@ -166,6 +170,7 @@ function checkPlayerLocation(){
                     }).then((result) => {
                         if (result.isConfirmed){
                             map[0][14] = 7;
+                            completeObjective(1);
                             resetPlayer();
                         }
                     })
@@ -201,6 +206,7 @@ function checkPlayerLocation(){
                             map[17][8] = 4;
                             map[12][4] = 4;
                             map[12][7] = 4; map[12][9] = 4;
+                            completeObjective(2);
                             resetPlayer();
                         }
                     })
@@ -264,8 +270,22 @@ function checkPlayerLocation(){
                                             title: 'אוי לא 3',
                                             text: 'השליח ניתק ואתה נותרת עם בלבול רציני',
                                             confirmButtonText:'אוף 3'
-                                        })
-                                        resetPlayer();
+                                        }).then((result)=>{                                        //resetPlayer();
+                                            completeObjective(3);
+                                            resetPlayer();
+                                            setTimeout(() => {
+                                                Swal.fire({
+                                                    icon: 'question',
+                                                    title: 'ביי ביי',
+                                                    text: 'אחרי שלא הצלחת לעמוד באף אחת מהמטלות הפשוטות שקיבלת, ההורים החליטו לגרש אותך מהבית כדי שתתחיל ללמוד איך מסתדרים לבד',
+                                                    confirmButtonText:'!יאללה לחפש דירה חדשה'
+                                                }).then((result) => {
+                                                    if (result.isConfirmed){
+                                                       insertObjective("לחפש דירה!"); 
+                                                    }
+                                                });
+                                            }, 3000);})
+
                                         }
                                 })
                             }
@@ -299,16 +319,7 @@ function checkPlayerLocation(){
 
     if (mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
         mission14 = true;
-        Swal.fire({
-            icon: 'question',
-            title: 'ביי ביי',
-            text: 'אחרי שלא הצלחת לעמוד באף אחת מהמטלות הפשוטות שקיבלת, ההורים החליטו לגרש אותך מהבית כדי שתתחיל ללמוד איך מסתדרים לבד',
-            confirmButtonText:'!יאללה לחפש דירה חדשה'
-        }).then((result) => {
-            if (result.isConfirmed){
-                switchLevels(21);
-            }
-        });
+        switchLevels(21);
     }
     if (mission14 && !mission21 && playerBetween(10.5,11.5,9,10)){
         mission21 = true;
