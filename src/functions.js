@@ -196,7 +196,7 @@ function checkPlayerLocation(){
     }
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(3);
+        switchLevels(31);
     }
 }
 
@@ -310,6 +310,23 @@ function switchLevels(level){
                 dedimScreen();
                 setTimeout(() => {
                     alert("Bituach leumi, my arch nemesis!");
+                    resetPlayer();
+                }, 2000);
+            }, 2000);
+            break;
+        case 31:
+            freezePlayer();
+            dimScreen();
+            setTimeout(() => {
+                relocatePlayer(7,10,0); //change to another location
+                deleteSprites();
+                initSprites(31); //change to initSprites(whatever number you chose)
+                map = map31; //change to whatever map name you chose
+                initScreen();
+                drawMap();
+                dedimScreen();
+                setTimeout(() => {
+                    alert("wallak need a job.");
                     resetPlayer();
                 }, 2000);
             }, 2000);
