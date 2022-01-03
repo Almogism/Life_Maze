@@ -122,49 +122,175 @@ function checkPlayerLocation(){
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
-        alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
-        map[0][14] = 8;
-        setTimeout(() => {
-            alert("You've burnt the food.\nEven the dog is not impressed, guess we're eating pizza tonight.");
-                map[0][14] = 7;
-                resetPlayer();
-        }, 2000);
-    } 
+        // alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
+
+        Swal.fire({  
+            title: 'ארוחת ערב',
+            text: '?אמא אמרה לחמם את העוף 40 דקות. כמה מסובך זה יכול להיות',
+            imageUrl: 'https://previews.123rf.com/images/olegdudko/olegdudko1907/olegdudko190704407/128656393-raw-uncooked-chicken-fillet-against-white.jpg',
+            imageWidth: 150,
+            imageHeight: 150,  
+            showDenyButton: true,  //showCancelButton: true,  
+            confirmButtonText: `להפעיל את התנור על 200 מעלות`,  
+            denyButtonText: `להפעיל את התנור על 400 מעלות`,
+          }).then((result) => {  
+              if ((result.isConfirmed) || (result.isDenied)) {    
+                map[0][14] = 8;
+                setTimeout(() => {
+                    //alert("You've burnt the food.\nEven the dog is not impressed, guess we're eating pizza tonight.");
+                    Swal.fire({
+                        title: 'אוי לא',
+                        text: 'אני לא חושב שככה נראה עוף מוכן... אפילו הכלב לא רוצה לאכול אותו ',
+                        confirmButtonText: 'אוף',
+                        imageUrl: 'https://www.w-t-w.org/en/wp-content/uploads/2015/10/Are-we-going-to-be-burned-chicken.jpg',
+                        imageWidth: 150,
+                        imageHeight: 150,  
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            map[0][14] = 7;
+                            resetPlayer();
+                        }
+                    })
+                }, 2000);  
+              }
+          });
+      }
+
     if (/*mission11 && */!mission12 && playerBetween(8,9,14,15)){
         mission12 = true;
         freezePlayer();
-            alert("Room cleaning for dad.\nI need to wipe that goo off the wall, let's give our best this time!");
-            setTimeout(() => {
-                alert("You've messed up the whole room.\ndad is going to be mad...");
-                map[12][8] = 4; map[17][7] = 4; map[17][9] = 4; map[17][3] = 4;
-                map[17][4] = 4; map[17][5] = 4; map[17][6] = 4; map[17][8] = 4;          
-                map[17][8] = 4; map[15][0] = 4; map[14][0] = 4; map[13][0] = 4;
-                map[12][1] = 4; map[12][2] = 4; map[12][3] = 4; map[12][4] = 4;
-                map[12][7] = 4; map[12][9] = 4;
-                resetPlayer();
-            }, 2000);
+        Swal.fire({  
+            title: 'לנקות את חדר העבודה',
+            text: 'אבא ביקש ממני לנקות את הקירות בחדר. נראה לי שאפילו לא צריך אקונומיקה, נעביר עליהם מגבון ויהיה בסדר',
+            imageUrl: 'https://www.sano.co.il/media/SA7290000288024.jpg',
+            imageWidth: 150,
+            imageHeight: 150,  
+            showDenyButton: true,  //showCancelButton: true,  
+            confirmButtonText: `ניגוב בתנועות סיבוביות`,  
+            denyButtonText: `ניגוב בתנועות אנכיות`,
+          }).then((result) => {  
+              if ((result.isConfirmed) || (result.isDenied)) {    
+                setTimeout(() => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '2 אוי לא',
+                        text: 'כנראה שלא סתם אמרו להשתמש באקונומיקה. מרחתי את כל הלכלוך על הקירות ואבא לא הולך להיות מרוצה מהעניין',
+                        confirmButtonText: '2 אוף',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            map[12][8] = 4; map[17][7] = 4; map[17][9] = 4; map[17][3] = 4;
+                            map[17][4] = 4; map[17][5] = 4; map[17][6] = 4; map[17][8] = 4;          
+                            map[17][8] = 4;
+                            map[12][4] = 4;
+                            map[12][7] = 4; map[12][9] = 4;
+                            resetPlayer();
+                        }
+                    })
+                }, 2000);  
+              }
+          });
     }
+
+
+
+
     if (/*mission12 && */!mission13 && playerBetween(12,13,15,16)){
-        mission13 = true;
         freezePlayer();
-        playerChoice = prompt("bar hu piho?\nfor wrong press - n \n for right press - y");
-        if (playerChoice == 'y'){
-            alert("you're correct.");
-            freezePlayer();
-        }
-        else if (playerChoice == 'n'){
-            alert("you're wrong.");
-            freezePlayer();
-        }
-        else{
-            alert("wrong input you dickhead");
-            freezePlayer();
-        }
-        resetPlayer();
+        mission13 = true;
+        Swal.fire({  
+            title: 'שיחה עם השליח',
+            text: 'שלום, מדבר השליח לגבי החבילה שהזמנתם. רציתי לברר באיזה שעה אתה פנוי לקבל את המשלוח',
+            imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: '.אני כל הזמן פנוי',  
+            denyButtonText: `.שעה 19:00`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    title: '2 שיחה עם השליח',
+                    text: 'אוקיי רשמתי... אני צריך עכשיו את תעודת הזהות של אחד ההורים לא כולל ספרת ביקורת',
+                    imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: '?מה זה ספרת ביקורת',  
+                    denyButtonText: `.אני לא מוכן למסור מידע שכזה`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            title: '3 שיחה עם השליח',
+                            text: 'לא משנה... *אנחה מזלזלת* תרצה לבוא לקחת את החבילה או שנשלח שליח אליך',
+                            imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: 'כן כן, אני רוצה לקחת',  
+                            denyButtonText: `לא חושב שזאת תהיה בעיה אחי`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    title: '4 שיחה עם השליח',
+                                    text: 'אתה קצת מבלבל אותי, אני רושם שאתה מגיע לקחת, אנחנו נמצאים בגבעת רונן 7 באילת, המשך שבוע מרנין',
+                                    imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: '?מה זה מרנין',  
+                                    denyButtonText: `רגעעעעעעעע`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'אוי לא 3',
+                                            text: 'השליח ניתק ואתה נותרת עם בלבול רציני',
+                                            confirmButtonText:'אוף 3'
+                                        })
+                                        resetPlayer();
+                                        }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        });
+        // mission13 = true;
+        // freezePlayer();
+        // playerChoice = prompt("bar hu piho?\nfor wrong press - n \n for right press - y");
+        // if (playerChoice == 'y'){
+        //     alert("you're correct.");
+        //     freezePlayer();
+        // }
+        // else if (playerChoice == 'n'){
+        //     alert("you're wrong.");
+        //     freezePlayer();
+        // }
+        // else{
+        //     alert("wrong input you dickhead");
+        //     freezePlayer();
+        // }
+        // resetPlayer();
     }
+
+
+
+
+
     if (mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
         mission14 = true;
-        switchLevels(21);
+        Swal.fire({
+            icon: 'question',
+            title: 'ביי ביי',
+            text: 'אחרי שלא הצלחת לעמוד באף אחת מהמטלות הפשוטות שקיבלת, ההורים החליטו לגרש אותך מהבית כדי שתתחיל ללמוד איך מסתדרים לבד',
+            confirmButtonText:'!יאללה לחפש דירה חדשה'
+        }).then((result) => {
+            if (result.isConfirmed){
+                switchLevels(21);
+            }
+        });
     }
     if (mission14 && !mission21 && playerBetween(10.5,11.5,9,10)){
         mission21 = true;
@@ -196,7 +322,7 @@ function checkPlayerLocation(){
     }
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(31);
+        switchLevels(24);
     }
 }
 
@@ -215,7 +341,7 @@ function switchLevels(level){
             break;
         case 21:
             freezePlayer();
-            alert("I'll go look for another apartment. how bad can it be?!");
+            //alert("I'll go look for another apartment. how bad can it be?!");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(8.3,9,0);
@@ -225,14 +351,29 @@ function switchLevels(level){
                 initScreen();
                 drawMap();
                 dedimScreen();
-                setTimeout(() => {
-                    alert("okay lets check this new apartment.");
-                    slowPanning();
-                }, 2000);
-                setTimeout(() => {
-                    alert("Omg, this place is disgusting.\nGotta find a new flat");
-                    resetPlayer();
-                }, 15000);
+                Swal.fire({
+                    icon: 'question',
+                    title: 'דירה מספר אחת',
+                    text: 'אחרי שחיפשתי קצת בפייסבוק הגעתי לדירה הראשונה שמצאתי. המחיר בעיקר משך אותי',
+                    confirmButtonText:'!בוא נעשה סיבוב',
+                }).then((result) => {
+                    if (result.isConfirmed){
+                        slowPanning();
+                        setTimeout(() => {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'איכס איכס איכס',
+                                text: 'אין שום סיכוי בעולם שאני אגור בדירה כזאת',
+                                showDenyButton: true, 
+                                denyButtonText: `לדירה הבאה`,
+                                confirmButtonText:'לדירה הבאה ומהר',
+                            }).then((result) => {
+                                if ((result.isConfirmed) || (result.isDenied)) {
+                                    resetPlayer();}
+                        });
+                        }, 15000);
+                    }
+                });
             }, 2000);
             break;
         case 22:

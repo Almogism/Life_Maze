@@ -63,3 +63,7 @@ body {
     height: 50%;
     background-image: url("assets/ceiling.jpg");
 }
+
+.swal2-container {
+    z-index: 100000000000000;
+}

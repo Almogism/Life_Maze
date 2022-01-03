@@ -129,7 +129,7 @@ function addItems23(){
 function addItems24(){
 
     addSprite(6,11,6); addSprite(23,11,8); addSprite(11,12,8); addSprite(26,6,7); addSprite(26,8,6); addSprite(10,8,10);
-    addSprite(25,6,9); addSprite(26,11,11); 
+    addSprite(25,6,9); addSprite(26,11,11); addSprite(2,5,6); addSprite(27,9,6)
 }
 
 //------------LEVEL 3--------------------------------------------------------------------------------------------------------------
