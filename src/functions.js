@@ -1,25 +1,9 @@
-let playerMoney = 0;
-let originalPlayerSpeed = 0.2;
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
     player.rotationSpeed=0;
     player.direction=0;
     player.vertical=0;
-}
-function increaseSpeed(){
-    if (playerMoney > 1000){
-        originalPlayerSpeed = 0.4;
-        player.moveSpeed = originalPlayerSpeed;
-        playerMoney -= 1000;
-    }
-    else{
-        alert("fuck you.");
-    }
-}
-
-function testAlert(){
-    alert("wallak");
 }
 
 //Reset player movement to continue the game.
@@ -131,7 +115,6 @@ function completeObjective(objective){
     }
 }
 
-
 //Boolean variables to mark finishing missions.
 let mission11= false;
 let mission12= false;
@@ -156,10 +139,8 @@ let temp2 = false; //temporary for bituach leumi coonversation.
 //let mission = false;
 //let mission = false;
 
-
 //Check player location to commence events.
 function checkPlayerLocation(){
-    let playerChoice;
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
@@ -241,7 +222,7 @@ function checkPlayerLocation(){
 
 
 
-    if (/*mission12 && */!mission13 && playerBetween(12,13,15,16)){
+    if (/*mission12 && */!mission13 && playerBetween(12.3,13.7,15.3,16.6)){
         freezePlayer();
         mission13 = true;
         Swal.fire({  
@@ -378,7 +359,7 @@ function checkPlayerLocation(){
             }
         })
     }
-    if (mission22 && !mission23 && playerBetween(11,12,8,9)){
+    if (mission22 && !mission23 && playerBetween(11,12,8,10)){
         mission23 = true;
         freezePlayer();
 
@@ -396,7 +377,7 @@ function checkPlayerLocation(){
                 }
           })
     }
-    if (mission23 && !mission24 && playerBetween(11,12,2,5) && (player.rotation > 5.5 || player.rotation < 0.8)){
+    if (mission23 && !mission24 && playerBetween(11,15,2,4.5) && (player.rotation > 5.7 || player.rotation < 0.8)){
         mission24 = true;
         freezePlayer();
         Swal.fire({

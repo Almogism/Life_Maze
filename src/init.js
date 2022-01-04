@@ -11,6 +11,7 @@ window.onload = function() {
     drawMap(); //Calling the draw map function to draw a minimap.
     gameCycle(); //Game cycle function.
     renderCycle(); //Rendering cycle function.
+    updateMoney();
 }
 
 //Simple getID function with the dollar sign "$".

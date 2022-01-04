@@ -101,6 +101,7 @@ body {
 
 .money{
     font-size:20px;
+    font-weight: bold;
     position: absolute;
     top: 5%;
     left: 5%;
