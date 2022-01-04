@@ -1,13 +1,13 @@
 //Variables for each purchase being made.
-let purchase1 = false;
 let canBuy = false;
+let purchase1 = false;
 let purchase2 = false;
 let purchase3 = false;
 let purchase4 = false;
 let purchase5 = false;
 let purchase6 = false;
 
-let playerMoney = 500;
+let playerMoney = 1200;
 
 //Update the money element in the shop.
 function updateMoney(){
@@ -36,7 +36,7 @@ function buyShoes(){
     var shoes = $("item1");
     if (!purchase1){
         if (playerMoney >= 1000){
-            originalPlayerSpeed = 0.4;
+            originalPlayerSpeed = originalPlayerSpeed*2;
             player.moveSpeed = originalPlayerSpeed;
             changeMoney(-1000);
             purchase1 = true;
@@ -59,7 +59,7 @@ function buyShoes(){
     else {
         shoes.innerHTML = "כבר קנית את המוצר הזה!";
         setTimeout(() => {
-            shoes.innerHTML = "נעליים טובות יותר";
+            shoes.innerHTML = "נעליים טובות יותר - 1000";
         }, 1500);
     }
 }
@@ -70,11 +70,11 @@ function buyBroom(){
     var broom = $("item2");
     if (canBuy){
         if (!purchase2){
-            if (playerMoney >= 1000){
+            if (playerMoney >= 200){
                 purchase2 = true;
                 deleteSprites();
                 initSprites(24);
-                changeMoney(-1000);
+                changeMoney(-200);
             }
             else{
                 setTimeout(() => {
@@ -94,12 +94,12 @@ function buyBroom(){
         else {
             broom.innerHTML = "כבר קנית את המוצר הזה!";
             setTimeout(() => {
-                broom.innerHTML = "מטאטא";
+                broom.innerHTML = "מטאטא - 200";
             }, 1500);
         }
     }
     else {
-        broom.innerHTML = "תמתין תמתין יא נקניק"
+        broom.innerHTML = "את/ה עוד לא שם אחי/אחותי";
             setTimeout(() => {
                 broom.innerHTML = "???";
             }, 1500);
@@ -112,11 +112,11 @@ function buyWrench(){
     var wrench = $("item3");
     if (canBuy){
         if (!purchase3){
-            if (playerMoney >= 1000){
+            if (playerMoney >= 200){
                 purchase3 = true;
                 deleteSprites();
                 initSprites(24);
-                changeMoney(-1000);
+                changeMoney(-200);
             }
             else{
                 setTimeout(() => {
@@ -136,12 +136,12 @@ function buyWrench(){
         else {
             wrench.innerHTML = "כבר קנית את המוצר הזה!";
             setTimeout(() => {
-                wrench.innerHTML = "מפתח צינורות";
+                wrench.innerHTML = "מפתח צינורות - 200";
             }, 1500);
         }
     }
     else {
-        wrench.innerHTML = "תמתין תמתין יא נקניק"
+        wrench.innerHTML = "את/ה עוד לא שם אחי/אחותי";
             setTimeout(() => {
                 wrench.innerHTML = "???";
             }, 1500);
@@ -154,10 +154,10 @@ function buyPictures(){
     var pictures = $("item4");
     if (canBuy){
         if (!purchase4){
-            if (playerMoney >= 1000){
+            if (playerMoney >= 1500){
                 purchase4 = true;
                 map24[12][8] = 55; map24[5][13] = 56; map24[10][15] = 57;
-                changeMoney(-1000);
+                changeMoney(-1500);
             }
             else{
                 setTimeout(() => {
@@ -177,12 +177,12 @@ function buyPictures(){
         else {
             pictures.innerHTML = "כבר קנית את המוצר הזה!";
             setTimeout(() => {
-                pictures.innerHTML = "תמונות לדירה";
+                pictures.innerHTML = "תמונות לדירה - 1500";
             }, 1500);
         }
     }
     else {
-        pictures.innerHTML = "תמתין תמתין יא נקניק"
+        pictures.innerHTML = "את/ה עוד לא שם אחי/אחותי";
             setTimeout(() => {
                 pictures.innerHTML = "???";
             }, 1500);
@@ -195,11 +195,11 @@ function buyOven(){
     var oven = $("item5");
     if (canBuy){
         if (!purchase5){
-            if (playerMoney >= 1000){
+            if (playerMoney >= 3000){
                 purchase5 = true;
                 map24[5][8] = 7;
                 map24[5][7] = 12;
-                changeMoney(-1000);
+                changeMoney(-3000);
             }
             else{
                 setTimeout(() => {
@@ -219,12 +219,12 @@ function buyOven(){
         else {
             oven.innerHTML = "כבר קנית את המוצר הזה!";
             setTimeout(() => {
-                oven.innerHTML = "תנור לדירה";
+                oven.innerHTML = "שיפוץ למטבח - 3000";
             }, 1500);
         }
     }
     else {
-        oven.innerHTML = "תמתין תמתין יא נקניק"
+        oven.innerHTML = "את/ה עוד לא שם אחי/אחותי";
             setTimeout(() => {
                 oven.innerHTML = "???";
             }, 1500);
@@ -237,11 +237,11 @@ function buyFurniture(){
     var furniture = $("item6");
     if (canBuy){
         if (!purchase6){
-            if (playerMoney >= 1000){
+            if (playerMoney >= 10000){
                 purchase6 = true;
                 deleteSprites();
                 initSprites(24);
-                changeMoney(-1000);
+                changeMoney(-10000);
             }
             else{
                 setTimeout(() => {
@@ -261,12 +261,12 @@ function buyFurniture(){
         else {
             furniture.innerHTML = "כבר קנית את המוצר הזה!";
             setTimeout(() => {
-                furniture.innerHTML = "תנור לדירה";
+                furniture.innerHTML = "ריהוט לדירה - 10000";
             }, 1500);
         }
     }
     else {
-        furniture.innerHTML = "תמתין תמתין יא נקניק"
+        furniture.innerHTML = "את/ה עוד לא שם אחי/אחותי";
             setTimeout(() => {
                 furniture.innerHTML = "???";
             }, 1500);

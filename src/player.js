@@ -1,4 +1,4 @@
-let originalPlayerSpeed = 0.2;
+let originalPlayerSpeed = 0.075;
 
 //Creating the player object with the initial values.
 var player = {
@@ -192,7 +192,7 @@ function addKeys() {
                     objectiveVisibility = true;
                 }
                 break;
-            case 73:
+            case 69:
                 if (shopHidden){
                     shop.style.visibility = "visible";
                     shopHidden = false;
