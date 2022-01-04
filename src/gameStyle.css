@@ -21,6 +21,9 @@ body {
 }
 
 .container {
+    direction: rtl;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
     height:250px;
     width:250px;
     position: fixed;
@@ -36,7 +39,6 @@ body {
 .title {
     font-size:30px;
     position: absolute;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -10%);
@@ -47,38 +49,113 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
 }
+
 .objective2 {
     font-size:20px;
     width:300px;
     position: absolute;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .objective3 {
     font-size:20px;
     width:300px;
     position: absolute;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -70%);
 }
+
 .objective4 {
     font-size:20px;
     width:300px;
     position: absolute;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -90%);
 }
+
+.shop{
+    direction: rtl;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: fixed;
+    opacity: 1;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: black;
+    z-index: 1000000;
+    visibility: hidden;
+}
+
+.money:before {
+    content: url('assets/coin.png');
+}
+
+.money{
+    font-size:20px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.item1{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    cursor: pointer;
+}
+
+.item2{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    cursor: pointer;
+}
+
+.item3{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    cursor: pointer;
+}
+
+.item4{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    cursor: pointer;
+}
+
+.item5{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    cursor: pointer;
+}
+
 #screen {
     position: absolute;
     margin: auto;

@@ -1,3 +1,5 @@
+let playerMoney = 0;
+let originalPlayerSpeed = 0.2;
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
@@ -5,10 +7,24 @@ function freezePlayer(){
     player.direction=0;
     player.vertical=0;
 }
+function increaseSpeed(){
+    if (playerMoney > 1000){
+        originalPlayerSpeed = 0.4;
+        player.moveSpeed = originalPlayerSpeed;
+        playerMoney -= 1000;
+    }
+    else{
+        alert("fuck you.");
+    }
+}
+
+function testAlert(){
+    alert("wallak");
+}
 
 //Reset player movement to continue the game.
 function resetPlayer(){
-    player.moveSpeed = 0.2;
+    player.moveSpeed = originalPlayerSpeed;
     player.rotationSpeed=5;
     player.direction=0;
     player.vertical=0;
@@ -114,6 +130,8 @@ function completeObjective(objective){
         default: break;
     }
 }
+
+
 //Boolean variables to mark finishing missions.
 let mission11= false;
 let mission12= false;
@@ -127,6 +145,7 @@ let mission25 = false;
 let mission3 = false;
 let mission4 = false;
 let temp = false; //temporary for bituach leumi
+let temp2 = false; //temporary for bituach leumi coonversation.
 //let mission = false;
 //let mission = false;
 //let mission = false;
@@ -429,6 +448,12 @@ function checkPlayerLocation(){
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
         switchLevels(3);
+    }
+    
+    if (temp && !temp2 && playerBetween(11,12,4,5)){
+        temp2 = true;
+        freezePlayer();
+        alert("בוא נדבר על החיים");
     }
 }
 
