@@ -14,12 +14,14 @@ app.set('view engine', 'html');
 
 
 //create conection to the data base (db)
+
 const db = mysql.createConnection({
     host : process.env.host,
     user: process.env.user,
     password : process.env.password,
     database : process.env.database
 });
+/*
 db.connect((error)=>{
     if(error){
         console.log(error);
@@ -28,7 +30,7 @@ db.connect((error)=>{
         console.log("mysql connected :)");
     }
 })
-
+*/
 //---------------------------
 app.use(express.static('views'));
 //------------------------------
