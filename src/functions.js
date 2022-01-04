@@ -431,12 +431,79 @@ function checkPlayerLocation(){
         temp = true; //this is temporary you wanker
         switchLevels(24);
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
+
     }
     
     if (temp && !temp2 && playerBetween(11,12,4,5)){
         temp2 = true;
         freezePlayer();
-        alert("בוא נדבר על החיים");
+        Swal.fire({  
+            allowOutsideClick: false, 
+            title: 'שיחה עם ביטוח לאומי',
+            text: '?שלום, אני חנה, פקידה בביטוח לאומי, איך אפשר לעזור',
+            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',  
+            denyButtonText: `רציתי לקבל מידע רלוונטי עבור חיילים משוחררים`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    allowOutsideClick: false, 
+                    title: '2 שיחה עם ביטוח לאומי',
+                    text: 'אוקיי, אז דבר ראשון אני שמחה שהגעת אלינו וברכותיי על השחרור ויציאתך לאזרחות. אחד הדברים שמגיעים לך מאיתנו הוא פטור של חודשיים מתשלום ביטוח לאומי וביטוח בריאות אם שירתת לפחות 75% משירות החובה שלך',
+                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: '!אשכרה',  
+                    denyButtonText: `?מגניב, יש אפילו עוד הטבות`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            title: '3 שיחה עם ביטוח לאומי',
+                            text: 'בנוסף מגיע לך פטור מארנונה לתקופה של 4 חודשים על שטח של 70 מ"ר מהדירה. וגם אתה מקבל הטבות מס למשך 3 שנים בגובה של 432 שקלים לחודש. אגב, תבדוק את מענק השחרור והפקדון שקיבלת, הכסף הזה יעזור לך לסגור את החודש בתחילת דרכך',
+                            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: '!מאוד כלכלי להתגייס',  
+                            denyButtonText: `?נהדר! עוד משהו שלדעתך אני צריך לדעת`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    allowOutsideClick: false, 
+                                    title: '4 שיחה עם ביטוח לאומי',
+                                    text: 'חשוב מאוד להירשם לקופת חולים אם אתה עדיין לא רשום לאחת ולבדוק מול הבנק שלך את אופן ניהול חשבונך. אני בטוחה שיש להם מסלולי חיילים ללא עמלות שמאוד יתאימו לך. אה! ומיד אחרי שאתה מסיים פה אני ממליצה לך ללכת לקרן להכוונת חיילים של משרד הביטחון, הם יעזרו עם כל עניין שקשור להכוונת תעסוקה, מלגות וייעוץ שמאוד יועיל לך',
+                                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: '!תודה רבה לך חנה',  
+                                    denyButtonText: `!שיהיה לך יום מרנין`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            allowOutsideClick: false, 
+                                            icon: 'success',
+                                            title: 'ביטוח לאומי דווקא סבבה',
+                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט קצת. אחרי שאסיים שם אקפוץ לקרן להכוונת חיילים כמו שחנה אמרה',
+                                            confirmButtonText:'אני עשיררר'
+                                        }).then((result)=>{
+                                            if (result.isConfirmed){                                        
+                                                resetPlayer();}
+                                            })
+                                        }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        });
     }
 }
 
@@ -615,7 +682,7 @@ function switchLevels(level){
                     Swal.fire({
                         allowOutsideClick: false, 
                         title: 'ביטוח לאומי',
-                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי',
+                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי. אני רואה שיש שם מישהי פנויה, כדאי לי ללכת לדבר איתה',
                         imageUrl: 'https://upload.wikimedia.org/wikipedia/he/thumb/4/46/BituachLeumiLogo.svg/1280px-BituachLeumiLogo.svg.png',
                         imageWidth: 180,
                         imageHeight: 130,
