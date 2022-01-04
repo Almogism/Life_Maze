@@ -431,13 +431,12 @@ function checkPlayerLocation(){
         temp = true; //this is temporary you wanker
         switchLevels(24);
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
+
     }
     
     if (temp && !temp2 && playerBetween(11,12,4,5)){
         temp2 = true;
         freezePlayer();
-        //alert("בוא נדבר על החיים");
-
         Swal.fire({  
             allowOutsideClick: false, 
             title: 'שיחה עם ביטוח לאומי',
