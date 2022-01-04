@@ -607,7 +607,7 @@ function switchLevels(level){
                     Swal.fire({
                         allowOutsideClick: false, 
                         title: 'ביטוח לאומי',
-                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי',
+                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי. אני רואה שיש שם מישהי פנויה, כדאי לי ללכת לדבר איתה',
                         imageUrl: 'https://upload.wikimedia.org/wikipedia/he/thumb/4/46/BituachLeumiLogo.svg/1280px-BituachLeumiLogo.svg.png',
                         imageWidth: 180,
                         imageHeight: 130,
