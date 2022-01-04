@@ -424,6 +424,8 @@ function checkPlayerLocation(){
         mission25 = true;
         switchLevels(24);
     }
+
+
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
         switchLevels(24);
@@ -445,7 +447,6 @@ function switchLevels(level){
             break;
         case 21:
             freezePlayer();
-            //alert("I'll go look for another apartment. how bad can it be?!");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(8.3,9,0);
@@ -484,7 +485,6 @@ function switchLevels(level){
             break;
         case 22:
             freezePlayer();
-            //alert("Okay, lets try again...");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(1.3,9,0);
@@ -494,9 +494,6 @@ function switchLevels(level){
                 initScreen();
                 drawMap();
                 dedimScreen();
-
-                //alert("Okay, seems cozy... lets check it out.");
-
                 Swal.fire({
                     allowOutsideClick: false, 
                     icon: 'question',
@@ -524,9 +521,6 @@ function switchLevels(level){
             break;
         case 23:
             freezePlayer();
-
-            //alert("Third times a charm I guess?");
-
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(6.5,6.5,0);
@@ -554,9 +548,6 @@ function switchLevels(level){
             break;
         case 24:
             freezePlayer();
-            setTimeout(() => {
-                alert("phew, I'm glad I got away.");
-            }, 1000);
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(7,10,0);
@@ -567,9 +558,37 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("Okay, I think this is the one!");
-                    alert("It does require a bit of cleaning and some furnishing");
-                    resetPlayer();
+                    
+                    setTimeout(() => {
+
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            icon: 'question',
+                            title: 'דירה מספר ארבע',
+                            text: 'אז אחרי מחקר מעמיק בפייסבוק, ביד2 ובכל אתר אינטרנט שקשור לדירות, הגעתי לדירה משופצת במרכז העיר',
+                            confirmButtonText:'!בוא נעשה סיבוב',
+                        }).then((result) => {
+                                if (result.isConfirmed){
+                                    resetPlayer();
+                                    setTimeout(() => {
+                                    freezePlayer();
+                                    Swal.fire({
+                                        allowOutsideClick: false, 
+                                        title: 'דווקא לא כזה נורא',
+                                        text: '!חוץ מהלכלוך שצריך לנקות והנזילה בכיור אני חושב שזאת האחת',
+                                        imageUrl: 'https://previews.123rf.com/images/kongvector/kongvector1712/kongvector171200808/91176035-mechanic-broom-character-cartoon-style-holding-a-wrench-vector-illustration.jpg',
+                                        imageWidth: 130,
+                                        imageHeight: 130,
+                                        confirmButtonText:'!הידד',
+                                    }).then((result) => {
+                                        if (result.isConfirmed){
+                                            resetPlayer();
+                                        }
+                                    })
+                                    }, 10000);
+                                }
+                        })
+                    }, 2000);
                 }, 2000);
             }, 2000);
             break;
