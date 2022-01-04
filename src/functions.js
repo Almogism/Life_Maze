@@ -127,6 +127,7 @@ let mission23 = false;
 let mission24 = false;
 let mission25 = false;
 let mission3 = false;
+let mission31 = false;
 let mission4 = false;
 let temp = false; //temporary for bituach leumi
 let temp2 = false; //temporary for bituach leumi coonversation.
@@ -386,12 +387,22 @@ function checkPlayerLocation(){
             resetPlayer();
         }, 2000);
     }
+
     if (flag && mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
+        flag = false;
         mission25 = true;
         switchLevels(24);
     }
-    if (temp && !temp2 && playerBetween(11,12,4,5)){
-        temp2 = true;
+
+    if (flag && mission25 && !mission3 && playerBetween(5,6.5,9.8,11)){ //add bar's flag
+        flag = false;
+        mission3 = true;
+        freezePlayer();
+        switchLevels(3);
+    }
+
+    if (mission3 && !mission31 && playerBetween(11,12,4,5)){
+        mission31 = true;
         freezePlayer();
         Swal.fire({  
             allowOutsideClick: false, 
@@ -449,7 +460,9 @@ function checkPlayerLocation(){
                                             confirmButtonText:'אני עשיררר'
                                         }).then((result)=>{
                                             if (result.isConfirmed){                                        
-                                                resetPlayer();}
+                                                resetPlayer();
+                                                //וואי נודר אני רץ לדירה לקנות עוד דברים אעאעאעאעאע
+                                            }
                                             })
                                         }
                                 })
@@ -461,14 +474,13 @@ function checkPlayerLocation(){
             }
         });
     }
-    //This is the havit
-    if (!temp && player.x <1.5 && player.y >16){
-        temp = true; //this is temporary you wanker
-        switchLevels(31);
-        mission25 = true;
-        insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
+    if (mission31 && !mission4 && playerBetween(14,15,10,12)){
+        freezePlayer();
+        mission4 = true;
     }
 
+
+    
 
 
     
@@ -543,11 +555,15 @@ function checkPlayerLocation(){
                 })
             }
         });
-
-        //alert("ya abuzdinak.");
-
     }
         
+        //This is the havit
+        if (!temp && player.x <1.5 && player.y >16){
+            temp = true;
+            switchLevels(31);
+            mission25 = true;
+            insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
+        }
 }
 
 //Test if player location is between x1 and x2, y1 and y2.
@@ -676,9 +692,7 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    
                     setTimeout(() => {
-
                         Swal.fire({
                             allowOutsideClick: false, 
                             icon: 'question',
@@ -700,9 +714,15 @@ function switchLevels(level){
                                         confirmButtonText:'!הידד',
                                     }).then((result) => {
                                         if (result.isConfirmed){
+                                            flag = true; //להעביר לסוף השיחה
                                             resetPlayer();
+                                            completeObjective(1);
                                             insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
                                             canBuy = true;
+                                            setTimeout(() => {
+                                                //אני יכול לקנות רהיטים
+                                                //אולי כדאי שאלך לביטוח לאומי
+                                            }, 10000);
                                         }
                                     })
                                     }, 10000);
@@ -718,8 +738,8 @@ function switchLevels(level){
             setTimeout(() => {
                 relocatePlayer(7,10,0); //change to another location
                 deleteSprites();
-                initSprites(3); //change to initSprites(whatever number you chose)
-                map = map3; //change to whatever map name you chose
+                initSprites(3);
+                map = map3;
                 initScreen();
                 drawMap();
                 dedimScreen();
