@@ -81,8 +81,8 @@ var itemTypes = [
     { img : 'src/assets/Objects/vendingm.png', block: false},    // 40= Vending machine
     { img : 'src/assets/Objects/working.png', block: false},     // 41= Happy man working
     { img : 'src/assets/Objects/working2.png', block: false},    // 42= Man plays on desk
-    { img : 'src/assets/Objects/wrench.png', block: false},      // 43= wrench
-    { img : 'src/assets/Objects/broom.png', block: false}        // 44= broom
+    { img : 'src/assets/Objects/wrench.png', block: false},      // 43= Wrench
+    { img : 'src/assets/Objects/broom.png', block: false}        // 44= Broom
 
 ];
 
