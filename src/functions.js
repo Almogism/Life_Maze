@@ -464,7 +464,7 @@ function checkPlayerLocation(){
     //This is the havit
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(31);
+        switchLevels(24);
         mission25 = true;
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
     }
@@ -698,8 +698,31 @@ function switchLevels(level){
                                     }).then((result) => {
                                         if (result.isConfirmed){
                                             resetPlayer();
+                                            completeObjective(1);
                                             insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
                                             canBuy = true;
+                                            setTimeout(() => {
+                                                Swal.fire({
+                                                    allowOutsideClick: false, 
+                                                    icon: 'warning',
+                                                    title: '*SMS קיבלת*',
+                                                    text: 'היי מתוקי, זאת אמא שלך מדברת. רציתי להזכיר לך כמה חשוב לקנות רהיטים לבית כדי שהוא יקבל סוף סוף צורה. איזה כיף שאתה עצמאי סוף סוף. יום טוב מתוקי, אוהבת',
+                                                    confirmButtonText:'!יאללה רהיטים',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed){
+                                                        setTimeout(() => {
+
+                                                            Swal.fire({
+                                                                allowOutsideClick: false, 
+                                                                icon: 'warning',
+                                                                title: 'אני צריך ללכת לביטוח לאומי',
+                                                                text: 'אמרו משהו על זה שמגיע הטבות למשוחררים טריים לא? שווה לקפוץ לביטוח לאומי לראות אם ההטבות שלהם שוות משהו',
+                                                                confirmButtonText:'!יאללה לביטוח לאומי',
+                                                            })
+                                                        }, 15000);
+                                                    }
+                                                })
+                                            }, 5000);
                                         }
                                     })
                                     }, 10000);
