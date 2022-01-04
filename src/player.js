@@ -1,3 +1,5 @@
+let originalPlayerSpeed = 0.2;
+
 //Creating the player object with the initial values.
 var player = {
     x: 2,

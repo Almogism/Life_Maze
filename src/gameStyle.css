@@ -101,6 +101,7 @@ body {
 
 .money{
     font-size:20px;
+    font-weight: bold;
     position: absolute;
     top: 5%;
     left: 5%;
@@ -110,9 +111,9 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    top: 25%;
+    top: 23%;
     left: 50%;
-    transform: translate(-50%, -25%);
+    transform: translate(-50%, -23%);
     cursor: pointer;
 }
 
@@ -120,9 +121,9 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    top: 40%;
+    top: 36%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -36%);
     cursor: pointer;
 }
 
@@ -130,9 +131,9 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    top: 55%;
+    top: 49%;
     left: 50%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -49%);
     cursor: pointer;
 }
 
@@ -140,9 +141,9 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    top: 70%;
+    top: 62%;
     left: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -62%);
     cursor: pointer;
 }
 
@@ -150,12 +151,21 @@ body {
     font-size:20px;
     width:300px;
     position: absolute;
-    top: 85%;
+    top: 75%;
     left: 50%;
-    transform: translate(-50%, -85%);
+    transform: translate(-50%, -75%);
     cursor: pointer;
 }
 
+.item6{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -88%);
+    cursor: pointer;
+}
 #screen {
     position: absolute;
     margin: auto;
