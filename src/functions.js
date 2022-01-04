@@ -1,3 +1,5 @@
+let playerMoney = 0;
+let originalPlayerSpeed = 0.2;
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
@@ -5,10 +7,24 @@ function freezePlayer(){
     player.direction=0;
     player.vertical=0;
 }
+function increaseSpeed(){
+    if (playerMoney > 1000){
+        originalPlayerSpeed = 0.4;
+        player.moveSpeed = originalPlayerSpeed;
+        playerMoney -= 1000;
+    }
+    else{
+        alert("fuck you.");
+    }
+}
+
+function testAlert(){
+    alert("wallak");
+}
 
 //Reset player movement to continue the game.
 function resetPlayer(){
-    player.moveSpeed = 0.2;
+    player.moveSpeed = originalPlayerSpeed;
     player.rotationSpeed=5;
     player.direction=0;
     player.vertical=0;
@@ -114,6 +130,8 @@ function completeObjective(objective){
         default: break;
     }
 }
+
+
 //Boolean variables to mark finishing missions.
 let mission11= false;
 let mission12= false;
