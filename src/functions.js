@@ -145,6 +145,7 @@ let mission25 = false;
 let mission3 = false;
 let mission4 = false;
 let temp = false; //temporary for bituach leumi
+let temp2 = false; //temporary for bituach leumi coonversation.
 //let mission = false;
 //let mission = false;
 //let mission = false;
@@ -447,6 +448,12 @@ function checkPlayerLocation(){
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
         switchLevels(3);
+    }
+    
+    if (temp && !temp2 && playerBetween(11,12,4,5)){
+        temp2 = true;
+        freezePlayer();
+        alert("בוא נדבר על החיים");
     }
 }
 
