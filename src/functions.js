@@ -393,15 +393,161 @@ function checkPlayerLocation(){
     if (temp && !temp2 && playerBetween(11,12,4,5)){
         temp2 = true;
         freezePlayer();
-        alert("בוא נדבר על החיים");
+        Swal.fire({  
+            allowOutsideClick: false, 
+            title: 'שיחה עם ביטוח לאומי',
+            text: '?שלום, אני חנה, פקידה בביטוח לאומי, איך אפשר לעזור',
+            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',  
+            denyButtonText: `רציתי לקבל מידע רלוונטי עבור חיילים משוחררים`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    allowOutsideClick: false, 
+                    title: '2 שיחה עם ביטוח לאומי',
+                    text: 'אוקיי, אז דבר ראשון אני שמחה שהגעת אלינו וברכותיי על השחרור ויציאתך לאזרחות. אחד הדברים שמגיעים לך מאיתנו הוא פטור של חודשיים מתשלום ביטוח לאומי וביטוח בריאות אם שירתת לפחות 75% משירות החובה שלך',
+                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: '!אשכרה',  
+                    denyButtonText: `?מגניב, יש אפילו עוד הטבות`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            title: '3 שיחה עם ביטוח לאומי',
+                            text: 'בנוסף מגיע לך פטור מארנונה לתקופה של 4 חודשים על שטח של 70 מ"ר מהדירה. וגם אתה מקבל הטבות מס למשך 3 שנים בגובה של 432 שקלים לחודש. אגב, תבדוק את מענק השחרור והפקדון שקיבלת, הכסף הזה יעזור לך לסגור את החודש בתחילת דרכך',
+                            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: '!מאוד כלכלי להתגייס',  
+                            denyButtonText: `?נהדר! עוד משהו שלדעתך אני צריך לדעת`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    allowOutsideClick: false, 
+                                    title: '4 שיחה עם ביטוח לאומי',
+                                    text: 'חשוב מאוד להירשם לקופת חולים אם אתה עדיין לא רשום לאחת ולבדוק מול הבנק שלך את אופן ניהול חשבונך. אני בטוחה שיש להם מסלולי חיילים ללא עמלות שמאוד יתאימו לך. אה! ומיד אחרי שאתה מסיים פה אני ממליצה לך ללכת לקרן להכוונת חיילים של משרד הביטחון, הם יעזרו עם כל עניין שקשור להכוונת תעסוקה, מלגות וייעוץ שמאוד יועיל לך',
+                                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: '!תודה רבה לך חנה',  
+                                    denyButtonText: `!שיהיה לך יום מרנין`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            allowOutsideClick: false, 
+                                            icon: 'success',
+                                            title: 'ביטוח לאומי דווקא סבבה',
+                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט קצת. אחרי שאסיים שם אקפוץ לקרן להכוונת חיילים כמו שחנה אמרה',
+                                            confirmButtonText:'אני עשיררר'
+                                        }).then((result)=>{
+                                            if (result.isConfirmed){                                        
+                                                resetPlayer();}
+                                            })
+                                        }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        });
     }
     //This is the havit
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(24);
+        switchLevels(31);
         mission25 = true;
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
     }
+
+
+
+    
+    if (!temp2 && playerBetween(14,15,10,12)){
+        freezePlayer();
+        temp2 = true;
+
+        Swal.fire({  
+            allowOutsideClick: false, 
+            title: 'שיחה עם הקרן להכוונת חיילים משוחררים',
+            text: 'אהלן אחי, מה המצב? אתה נראה כאילו השתחררת אתמול',
+            imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: '?אני נראה עד כדי כך מבולבל',  
+            denyButtonText: `...מצחיק מאוד`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    allowOutsideClick: false, 
+                    title: '2 שיחה עם הקרן להכוונת חיילים משוחררים',
+                    text: 'סתם סתם, קודם כל ברוך הבא לקרן להכוונת חיילים משוחררים של משרד הביטחון - המקפצה שלך  לאזרחות! אנחנו פה כדי לעזור. נתחיל בעניין המלגות שמגיעות לך בתור משוחרר טרי',
+                    imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: 'נווווווו',  
+                    denyButtonText: `אני מקשיב`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            title: '3 שיחה עם הקרן להכוונת חיילים משוחררים',
+                            text: 'מבחינת מלגות יש 2 מלגות עיקריות שמגיעות לך. אם בחרת ללמוד במוסד אקדמי באיזור הפריפריה, מגיעה לך שנת לימודים ראשונה בחינם! בנוסף, אם שירתת בתור לוחם לדוגמא, אנחנו נממן לך שני שליש מסך כל התואר! דואגים לך פה',
+                            imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: 'אני עדיין מרגיש קצת מודאג',  
+                            denyButtonText: `?מגניב ממש, מה עם עניין התעסוקה למשל`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    allowOutsideClick: false, 
+                                    title: '4 שיחה עם הקרן להכוונת חיילים משוחררים',
+                                    text: 'אז חוץ מייעוץ תעסוקתי שאתה תמיד יכול לפנות אלינו לגביו, יש את נושא העבודה המועדפת. אם בשנה הראשונה לשחרור תבחר לעבוד בתחנת דלק, מלונות, מפעלים או תחומים מוכרים אחרים בתעשיה ותסיים 150 ימי עבודה בתוך שנתיים מהשחרור, תקבל מאיתנו מענק יפה של 9,500 ש"ח! אני מאחל לך המון הצלחה בהמשך ותמיד תוכל להתעדכן באתר האינטרנט שלנו לגבי עוד הטבות שמגיעות לך על שירות משמעותי למדינה',
+                                    imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: 'איזה כיף! מתאים לי עבודה מועדפת',  
+                                    denyButtonText: `!תודה רבה ויום מרנין`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            allowOutsideClick: false, 
+                                            icon: 'success',
+                                            title: 'הקרן להכוונת חיילים משוחררים גם סבבה',
+                                            text: 'קיבלתי המון מידע רלוונטי מהקרן להכוונת חיילים משוחררים, אני חושב שהגיע הזמן ללכת הביתה ולנוח קצת אחרי היום המשוגע הזה',
+                                            confirmButtonText:'יאללה הבייתה'
+                                        }).then((result)=>{
+                                            if (result.isConfirmed){                                        
+                                                resetPlayer();}
+                                            })
+                                        }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        });
+
+        //alert("ya abuzdinak.");
+
+    }
+        
 }
 
 //Test if player location is between x1 and x2, y1 and y2.
@@ -487,7 +633,7 @@ function switchLevels(level){
                                     resetPlayer();
                                 }
                           })
-                    }, 15000); }
+                    }, 18000); }
                 })
             }, 2000);
             break;
@@ -606,8 +752,20 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("wallak need a job.");
-                    resetPlayer();
+
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        imageUrl: 'https://www.smartdrive.co.il/sites/smart/UserContent/images/%D7%A2%D7%9C%D7%95%D7%9F%20%D7%9E%D7%A7%D7%A4%D7%A6%D7%94%20%D7%9C%D7%95%D7%91%D7%99%20%D7%92%D7%93%D7%95%D7%9C.jpg',
+                        imageWidth: 200,
+                        imageHeight: 130,
+                        title: 'הקרן להכוונת חיילים משוחררים',
+                        text: 'בביטוח לאומי אמרו לי ללכת לדבר עם נציגים של הקרן להכוונת חיילים על מנת לשמוע על הכוונת תעסוקה, מלגות, ייעוץ ואולי עוד ',
+                        confirmButtonText:'בוא נחפש מישהו לדבר איתו',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                        }
+                    })
                 }, 2000);
             }, 2000);
             break;
