@@ -423,12 +423,14 @@ function checkPlayerLocation(){
     if (mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
         mission25 = true;
         switchLevels(24);
+        insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
     }
 
-
+    //This is the havit
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(3);
+        switchLevels(24);
+        insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
     }
     
     if (temp && !temp2 && playerBetween(11,12,4,5)){
