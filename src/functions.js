@@ -447,14 +447,12 @@ function checkPlayerLocation(){
 
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(3);
+        switchLevels(31);
     }
     
     if (temp && !temp2 && playerBetween(11,12,4,5)){
         temp2 = true;
         freezePlayer();
-        //alert("בוא נדבר על החיים");
-
         Swal.fire({  
             allowOutsideClick: false, 
             title: 'שיחה עם ביטוח לאומי',
