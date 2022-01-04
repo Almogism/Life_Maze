@@ -116,6 +116,7 @@ function completeObjective(objective){
 }
 
 //Boolean variables to mark finishing missions.
+let temp =false;
 let flag= false;
 let mission11= false;
 let mission12= false;
@@ -127,11 +128,11 @@ let mission23 = false;
 let mission24 = false;
 let mission25 = false;
 let mission3 = false;
+let mission31 = false;
 let mission4 = false;
-let temp = false; //temporary for bituach leumi
-let temp2 = false; //temporary for bituach leumi coonversation.
-//let mission = false;
-//let mission = false;
+let mission41 = false;
+let mission5 = false;
+let mission51 = false;
 //let mission = false;
 //let mission = false;
 //let mission = false;
@@ -337,7 +338,6 @@ function checkPlayerLocation(){
     if (mission22 && !mission23 && playerBetween(11,12,8,10)){
         mission23 = true;
         freezePlayer();
-
         Swal.fire({
             allowOutsideClick: false, 
             title: 'מה קורה כאן',
@@ -386,12 +386,22 @@ function checkPlayerLocation(){
             resetPlayer();
         }, 2000);
     }
+
     if (flag && mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
+        flag = false;
         mission25 = true;
         switchLevels(24);
     }
-    if (temp && !temp2 && playerBetween(11,12,4,5)){
-        temp2 = true;
+    
+    if (flag && mission25 && !mission3 && playerBetween(5,6.5,9.8,11)){
+        flag = false;
+        mission3 = true;
+        freezePlayer();
+        switchLevels(3);
+    }
+
+    if (mission3 && !mission31 && playerBetween(11,12,4,5)){
+        mission31 = true;
         freezePlayer();
         Swal.fire({  
             allowOutsideClick: false, 
@@ -445,11 +455,31 @@ function checkPlayerLocation(){
                                             allowOutsideClick: false, 
                                             icon: 'success',
                                             title: 'ביטוח לאומי דווקא סבבה',
-                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט קצת. אחרי שאסיים שם אקפוץ לקרן להכוונת חיילים כמו שחנה אמרה',
+                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט. אחרי שאסתובב פה קצת אקפוץ הביתה ואז לקרן להכוונת חיילים כמו שחנה אמרה',
                                             confirmButtonText:'אני עשיררר'
                                         }).then((result)=>{
-                                            if (result.isConfirmed){                                        
-                                                resetPlayer();}
+                                            if (result.isConfirmed){   
+                                                changeMoney(17000);                                     
+                                                resetPlayer();
+                                                completeObjective(1);
+                                                setTimeout(() => {
+                                                    freezePlayer();
+                                                    Swal.fire({
+                                                        allowOutsideClick: false, 
+                                                        title: 'קיבלתי מלא כסף מהצבא',
+                                                        text: '?אז אני אלך חזרה הבייתה לקנות עוד דברים',
+                                                        imageUrl: 'https://www.funeralpartners.co.uk/wp-content/uploads/2021/02/celebration-of-life-1024x411.jpg',
+                                                        imageWidth: 280,
+                                                        imageHeight: 150,  
+                                                        confirmButtonText: '!יאללה לבזבז באחריות',  
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed){
+                                                            resetPlayer();
+                                                            flag = true;
+                                                        }
+                                                    })
+                                                }, 7000);
+                                            }
                                             })
                                         }
                                 })
@@ -461,21 +491,20 @@ function checkPlayerLocation(){
             }
         });
     }
-    //This is the havit
-    if (!temp && player.x <1.5 && player.y >16){
-        temp = true; //this is temporary you wanker
-        switchLevels(24);
-        mission25 = true;
-        insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
+    if (flag && mission31 && !mission4 && playerBetween(5.5,6.5,10,11)){
+        flag = false;
+        mission4 = true;
+        switchLevels(241);
     }
-
-
-
-    
-    if (!temp2 && playerBetween(14,15,10,12)){
+    //הולך לקרן
+    if (flag && mission4 && !mission41 && playerBetween(5,6.5,9.8,11)){ //flag if ready to leave the apartment.
+        flag = false;
+        mission41 = true;
+        switchLevels(31);
+    }
+    if (mission41 && !mission5 && playerBetween(14,15,10,12)){
+        mission5 = true;
         freezePlayer();
-        temp2 = true;
-
         Swal.fire({  
             allowOutsideClick: false, 
             title: 'שיחה עם הקרן להכוונת חיילים',
@@ -532,19 +561,34 @@ function checkPlayerLocation(){
                                             confirmButtonText:'יאללה הבייתה'
                                         }).then((result)=>{
                                             if (result.isConfirmed){                                        
-                                                resetPlayer();}
+                                                resetPlayer();
+                                                completeObjective(1);
+                                                setTimeout(() => {
+                                                    insertObjective("לחזור לדירה!");
+                                                    flag = true;
+                                                }, 5000);
+                                            }
                                             })
                                         }
                                 })
                             }
                         })
                     }
-
                 })
             }
         });
     }
-        
+    if (flag && mission5 && !mission51 && playerBetween(4,6,10,11)){
+        flag = false;
+        mission51 = true;
+        switchLevels(242);
+    }
+    // //havitush
+    // if (!temp && player.x <1.5 && player.y >16){
+    //     flag = false;
+    //     temp = true;
+    //     switchLevels(241);
+    // }
 }
 
 //Test if player location is between x1 and x2, y1 and y2.
@@ -654,11 +698,10 @@ function switchLevels(level){
                         confirmButtonText:'!בוא נעשה סיבוב',
                     }).then((result) => {
                         if (result.isConfirmed){
-                        resetPlayer();}
+                        resetPlayer();
+                    }
                 })
-
                 }, 2000);
-
             }, 2000);
             break;
         case 24:
@@ -673,9 +716,7 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    
                     setTimeout(() => {
-
                         Swal.fire({
                             allowOutsideClick: false, 
                             icon: 'question',
@@ -699,14 +740,14 @@ function switchLevels(level){
                                         if (result.isConfirmed){
                                             resetPlayer();
                                             completeObjective(1);
-                                            insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
+                                            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
                                             canBuy = true;
                                             setTimeout(() => {
                                                 Swal.fire({
                                                     allowOutsideClick: false, 
                                                     icon: 'warning',
                                                     title: '*SMS קיבלת*',
-                                                    text: 'היי מתוקי, זאת אמא שלך מדברת. רציתי להזכיר לך כמה חשוב לקנות רהיטים לבית כדי שהוא יקבל סוף סוף צורה. איזה כיף שאתה עצמאי סוף סוף. יום טוב מתוקי, אוהבת',
+                                                    text: 'היי מתוקי, זאת אמא שלך מדברת. רציתי להזכיר לך כמה חשוב לקנות רהיטים ולנקות את הבית כדי שהוא יקבל צורה. איזה כיף שאתה עצמאי סוף סוף. נ.ב - הכל בחנות חפצים. יום טוב מתוקי, אוהבת',
                                                     confirmButtonText:'!יאללה רהיטים',
                                                 }).then((result) => {
                                                     if (result.isConfirmed){
@@ -718,11 +759,19 @@ function switchLevels(level){
                                                                 title: 'אני צריך ללכת לביטוח לאומי',
                                                                 text: 'אמרו משהו על זה שמגיע הטבות למשוחררים טריים לא? שווה לקפוץ לביטוח לאומי לראות אם ההטבות שלהם שוות משהו',
                                                                 confirmButtonText:'!יאללה לביטוח לאומי',
+                                                            }).then((result)=>{
+                                                                if (result.isConfirmed){
+                                                                    flag = true;
+                                                                    insertObjective("ללכת לביטוח לאומי!");
+                                                                }
+                                                                    
                                                             })
-                                                        }, 15000);
+                                                       }, 15000);
+                                                    // }, 5000);
                                                     }
                                                 })
                                             }, 5000);
+
                                         }
                                     })
                                     }, 10000);
@@ -732,14 +781,74 @@ function switchLevels(level){
                 }, 2000);
             }, 2000);
             break;
+        case 241:
+            freezePlayer();
+            dimScreen();
+            setTimeout(() => {
+                relocatePlayer(7,10,0);
+                deleteSprites();
+                initSprites(24);
+                map = map24;
+                initScreen();
+                drawMap();
+                dedimScreen();
+                setTimeout(() => {
+                    setTimeout(() => {
+                        freezePlayer();
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            icon: 'success',
+                            title: 'הדירה נראית אש',
+                            text: 'עכשיו אחרי שקניתי, ניקיתי וסידרתי פה. אולי כדאי שנלך לקרן להכוונת חיילים משוחררים כדי לקבל עוד מידע',
+                            confirmButtonText:'יאללה בסדר'
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                insertObjective("ללכת לקרן להכוונה!");
+                                resetPlayer();
+                                flag = true;
+                            }
+                        })
+                    }, 30000);
+                // }, 3000);
+                    resetPlayer();
+                },2000);
+            }, 2000);
+            break;
+        case 242:
+            freezePlayer();
+            dimScreen();
+            setTimeout(() => {
+                deleteSprites();
+                initSprites(24);
+                map = map24;
+                initScreen();
+                drawMap();
+                dedimScreen();
+                setTimeout(() => {
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        icon: 'success',
+                        title: '!אני רשמית עצמאי',
+                        text: 'עכשיו אחרי שלמדתי איך מסתדרים באזרחות אני בחיים לא חוזר לגור אצל ההורים',
+                        confirmButtonText:'תלחץ כאן כדי להסתובב בבית ולסיים את המשחק'
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                            insertObjective();
+                            //flag = true -> to enter more levels
+                        }
+                    })
+                }, 2000);
+            }, 2000);
+            break;
         case 3:
             freezePlayer();
             dimScreen();
             setTimeout(() => {
-                relocatePlayer(7,10,0); //change to another location
+                relocatePlayer(7,10,0); //for almog
                 deleteSprites();
-                initSprites(3); //change to initSprites(whatever number you chose)
-                map = map3; //change to whatever map name you chose
+                initSprites(3);
+                map = map3;
                 initScreen();
                 drawMap();
                 dedimScreen();
@@ -764,15 +873,14 @@ function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
-                relocatePlayer(7,10,0); //change to another location
+                relocatePlayer(7,10,0); //for almog
                 deleteSprites();
-                initSprites(31); //change to initSprites(whatever number you chose)
-                map = map31; //change to whatever map name you chose
+                initSprites(31); 
+                map = map31; 
                 initScreen();
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-
                     Swal.fire({
                         allowOutsideClick: false, 
                         imageUrl: 'https://www.smartdrive.co.il/sites/smart/UserContent/images/%D7%A2%D7%9C%D7%95%D7%9F%20%D7%9E%D7%A7%D7%A4%D7%A6%D7%94%20%D7%9C%D7%95%D7%91%D7%99%20%D7%92%D7%93%D7%95%D7%9C.jpg',
@@ -784,6 +892,7 @@ function switchLevels(level){
                     }).then((result) => {
                         if (result.isConfirmed){
                             resetPlayer();
+                            flag = true;
                         }
                     })
                 }, 2000);
