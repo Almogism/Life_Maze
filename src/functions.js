@@ -464,7 +464,7 @@ function checkPlayerLocation(){
     //This is the havit
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(31);
+        switchLevels(24);
         mission25 = true;
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
     }
@@ -478,7 +478,7 @@ function checkPlayerLocation(){
 
         Swal.fire({  
             allowOutsideClick: false, 
-            title: 'שיחה עם הקרן להכוונת חיילים משוחררים',
+            title: 'שיחה עם הקרן להכוונת חיילים',
             text: 'אהלן אחי, מה המצב? אתה נראה כאילו השתחררת אתמול',
             imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
             imageWidth: 200,
@@ -490,7 +490,7 @@ function checkPlayerLocation(){
             if ((result.isConfirmed) ||  (result.isDenied)){
                 Swal.fire({
                     allowOutsideClick: false, 
-                    title: '2 שיחה עם הקרן להכוונת חיילים משוחררים',
+                    title: '2 שיחה עם הקרן להכוונת חיילים',
                     text: 'סתם סתם, קודם כל ברוך הבא לקרן להכוונת חיילים משוחררים של משרד הביטחון - המקפצה שלך  לאזרחות! אנחנו פה כדי לעזור. נתחיל בעניין המלגות שמגיעות לך בתור משוחרר טרי',
                     imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
                     imageWidth: 200,
@@ -502,7 +502,7 @@ function checkPlayerLocation(){
                     if ((result.isConfirmed) ||  (result.isDenied)){
                         Swal.fire({
                             allowOutsideClick: false, 
-                            title: '3 שיחה עם הקרן להכוונת חיילים משוחררים',
+                            title: '3 שיחה עם הקרן להכוונת חיילים',
                             text: 'מבחינת מלגות יש 2 מלגות עיקריות שמגיעות לך. אם בחרת ללמוד במוסד אקדמי באיזור הפריפריה, מגיעה לך שנת לימודים ראשונה בחינם! בנוסף, אם שירתת בתור לוחם לדוגמא, אנחנו נממן לך שני שליש מסך כל התואר! דואגים לך פה',
                             imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
                             imageWidth: 200,
@@ -514,7 +514,7 @@ function checkPlayerLocation(){
                             if ((result.isConfirmed) ||  (result.isDenied)){
                                 Swal.fire({
                                     allowOutsideClick: false, 
-                                    title: '4 שיחה עם הקרן להכוונת חיילים משוחררים',
+                                    title: '4 שיחה עם הקרן להכוונת חיילים',
                                     text: 'אז חוץ מייעוץ תעסוקתי שאתה תמיד יכול לפנות אלינו לגביו, יש את נושא העבודה המועדפת. אם בשנה הראשונה לשחרור תבחר לעבוד בתחנת דלק, מלונות, מפעלים או תחומים מוכרים אחרים בתעשיה ותסיים 150 ימי עבודה בתוך שנתיים מהשחרור, תקבל מאיתנו מענק יפה של 9,500 ש"ח! אני מאחל לך המון הצלחה בהמשך ותמיד תוכל להתעדכן באתר האינטרנט שלנו לגבי עוד הטבות שמגיעות לך על שירות משמעותי למדינה',
                                     imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
                                     imageWidth: 200,
@@ -543,9 +543,6 @@ function checkPlayerLocation(){
                 })
             }
         });
-
-        //alert("ya abuzdinak.");
-
     }
         
 }
@@ -701,8 +698,31 @@ function switchLevels(level){
                                     }).then((result) => {
                                         if (result.isConfirmed){
                                             resetPlayer();
+                                            completeObjective(1);
                                             insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
                                             canBuy = true;
+                                            setTimeout(() => {
+                                                Swal.fire({
+                                                    allowOutsideClick: false, 
+                                                    icon: 'warning',
+                                                    title: '*SMS קיבלת*',
+                                                    text: 'היי מתוקי, זאת אמא שלך מדברת. רציתי להזכיר לך כמה חשוב לקנות רהיטים לבית כדי שהוא יקבל סוף סוף צורה. איזה כיף שאתה עצמאי סוף סוף. יום טוב מתוקי, אוהבת',
+                                                    confirmButtonText:'!יאללה רהיטים',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed){
+                                                        setTimeout(() => {
+
+                                                            Swal.fire({
+                                                                allowOutsideClick: false, 
+                                                                icon: 'warning',
+                                                                title: 'אני צריך ללכת לביטוח לאומי',
+                                                                text: 'אמרו משהו על זה שמגיע הטבות למשוחררים טריים לא? שווה לקפוץ לביטוח לאומי לראות אם ההטבות שלהם שוות משהו',
+                                                                confirmButtonText:'!יאללה לביטוח לאומי',
+                                                            })
+                                                        }, 15000);
+                                                    }
+                                                })
+                                            }, 5000);
                                         }
                                     })
                                     }, 10000);
