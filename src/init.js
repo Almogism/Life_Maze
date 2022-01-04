@@ -48,7 +48,7 @@ function stats(){
     setTimeout(function(){statistics.removeChild(playerStats)}, 100);
 }
 
-setInterval(stats,200);
+//setInterval(stats,200);
 
 
 //Render cycle for the game, to update the game live.
