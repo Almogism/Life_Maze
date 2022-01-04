@@ -116,6 +116,7 @@ function completeObjective(objective){
 }
 
 //Boolean variables to mark finishing missions.
+let flag= false;
 let mission11= false;
 let mission12= false;
 let mission13= false;
@@ -144,8 +145,6 @@ function checkPlayerLocation(){
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
-        // alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
-
         Swal.fire({
             allowOutsideClick: false,  
             title: 'ארוחת ערב',
@@ -160,7 +159,6 @@ function checkPlayerLocation(){
               if ((result.isConfirmed) || (result.isDenied)) {    
                 map[0][14] = 8;
                 setTimeout(() => {
-                    //alert("You've burnt the food.\nEven the dog is not impressed, guess we're eating pizza tonight.");
                     Swal.fire({
                         allowOutsideClick: false, 
                         title: 'אוי לא',
@@ -181,7 +179,7 @@ function checkPlayerLocation(){
           });
       }
 
-    if (/*mission11 && */!mission12 && playerBetween(8,9,14,15)){
+    if (mission11 && !mission12 && playerBetween(8,9,14,15)){
         mission12 = true;
         freezePlayer();
         Swal.fire({  
@@ -218,11 +216,7 @@ function checkPlayerLocation(){
               }
           });
     }
-
-
-
-
-    if (/*mission12 && */!mission13 && playerBetween(12.3,13.7,15.3,16.6)){
+    if (mission12 && !mission13 && playerBetween(12.3,13.7,15.3,16.6)){
         freezePlayer();
         mission13 = true;
         Swal.fire({  
@@ -279,7 +273,7 @@ function checkPlayerLocation(){
                                             title: 'אוי לא 3',
                                             text: 'השליח ניתק ואתה נותרת עם בלבול רציני',
                                             confirmButtonText:'אוף 3'
-                                        }).then((result)=>{                                        //resetPlayer();
+                                        }).then((result)=>{
                                             completeObjective(3);
                                             resetPlayer();
                                             setTimeout(() => {
@@ -291,7 +285,8 @@ function checkPlayerLocation(){
                                                     confirmButtonText:'!יאללה לחפש דירה חדשה'
                                                 }).then((result) => {
                                                     if (result.isConfirmed){
-                                                       insertObjective("לחפש דירה!"); 
+                                                       insertObjective("לחפש דירה!");
+                                                       flag = true;
                                                     }
                                                 });
                                             }, 3000);})
@@ -305,29 +300,9 @@ function checkPlayerLocation(){
                 })
             }
         });
-        // mission13 = true;
-        // freezePlayer();
-        // playerChoice = prompt("bar hu piho?\nfor wrong press - n \n for right press - y");
-        // if (playerChoice == 'y'){
-        //     alert("you're correct.");
-        //     freezePlayer();
-        // }
-        // else if (playerChoice == 'n'){
-        //     alert("you're wrong.");
-        //     freezePlayer();
-        // }
-        // else{
-        //     alert("wrong input you dickhead");
-        //     freezePlayer();
-        // }
-        // resetPlayer();
     }
-
-
-
-
-
-    if (mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
+    if (flag && mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
+        flag = false;
         mission14 = true;
         switchLevels(21);
     }
@@ -401,109 +376,31 @@ function checkPlayerLocation(){
                     }).then((result) => {
                         if (result.isConfirmed){
                             resetPlayer();
+                            flag = true;
                         }
                     })
                 }, 2000);
             }
         })
-        
-        
-
-
-
-        //alert("hmm, seems suspicious");
-
-
         setTimeout(() => {
-            //alert("Okay, I think I need to get the hell out of here!!!!");
-            //alert("Fuck this shit!!!");
             resetPlayer();
         }, 2000);
     }
-    if (mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
+    if (flag && mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
         mission25 = true;
         switchLevels(24);
-        insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
     }
-
+    if (temp && !temp2 && playerBetween(11,12,4,5)){
+        temp2 = true;
+        freezePlayer();
+        alert("בוא נדבר על החיים");
+    }
     //This is the havit
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
         switchLevels(24);
+        mission25 = true;
         insertItems("מטאטא","מפתח צינורות","תמונה לקיר","תנור לדירה","רהיטים לדירה")
-
-    }
-    
-    if (temp && !temp2 && playerBetween(11,12,4,5)){
-        temp2 = true;
-        freezePlayer();
-        Swal.fire({  
-            allowOutsideClick: false, 
-            title: 'שיחה עם ביטוח לאומי',
-            text: '?שלום, אני חנה, פקידה בביטוח לאומי, איך אפשר לעזור',
-            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
-            imageWidth: 200,
-            imageHeight: 150,  
-            showDenyButton: true,
-            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',  
-            denyButtonText: `רציתי לקבל מידע רלוונטי עבור חיילים משוחררים`,
-        }).then((result) => {
-            if ((result.isConfirmed) ||  (result.isDenied)){
-                Swal.fire({
-                    allowOutsideClick: false, 
-                    title: '2 שיחה עם ביטוח לאומי',
-                    text: 'אוקיי, אז דבר ראשון אני שמחה שהגעת אלינו וברכותיי על השחרור ויציאתך לאזרחות. אחד הדברים שמגיעים לך מאיתנו הוא פטור של חודשיים מתשלום ביטוח לאומי וביטוח בריאות אם שירתת לפחות 75% משירות החובה שלך',
-                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
-                    imageWidth: 200,
-                    imageHeight: 150,  
-                    showDenyButton: true,
-                    confirmButtonText: '!אשכרה',  
-                    denyButtonText: `?מגניב, יש אפילו עוד הטבות`,
-                }).then((result) => {
-                    if ((result.isConfirmed) ||  (result.isDenied)){
-                        Swal.fire({
-                            allowOutsideClick: false, 
-                            title: '3 שיחה עם ביטוח לאומי',
-                            text: 'בנוסף מגיע לך פטור מארנונה לתקופה של 4 חודשים על שטח של 70 מ"ר מהדירה. וגם אתה מקבל הטבות מס למשך 3 שנים בגובה של 432 שקלים לחודש. אגב, תבדוק את מענק השחרור והפקדון שקיבלת, הכסף הזה יעזור לך לסגור את החודש בתחילת דרכך',
-                            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
-                            imageWidth: 200,
-                            imageHeight: 150,  
-                            showDenyButton: true,
-                            confirmButtonText: '!מאוד כלכלי להתגייס',  
-                            denyButtonText: `?נהדר! עוד משהו שלדעתך אני צריך לדעת`,
-                        }).then((result) => {
-                            if ((result.isConfirmed) ||  (result.isDenied)){
-                                Swal.fire({
-                                    allowOutsideClick: false, 
-                                    title: '4 שיחה עם ביטוח לאומי',
-                                    text: 'חשוב מאוד להירשם לקופת חולים אם אתה עדיין לא רשום לאחת ולבדוק מול הבנק שלך את אופן ניהול חשבונך. אני בטוחה שיש להם מסלולי חיילים ללא עמלות שמאוד יתאימו לך. אה! ומיד אחרי שאתה מסיים פה אני ממליצה לך ללכת לקרן להכוונת חיילים של משרד הביטחון, הם יעזרו עם כל עניין שקשור להכוונת תעסוקה, מלגות וייעוץ שמאוד יועיל לך',
-                                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
-                                    imageWidth: 200,
-                                    imageHeight: 150,  
-                                    showDenyButton: true,
-                                    confirmButtonText: '!תודה רבה לך חנה',  
-                                    denyButtonText: `!שיהיה לך יום מרנין`,
-                                }).then((result) => {
-                                        if ((result.isConfirmed) ||  (result.isDenied)){
-                                        Swal.fire({
-                                            allowOutsideClick: false, 
-                                            icon: 'success',
-                                            title: 'ביטוח לאומי דווקא סבבה',
-                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט קצת. אחרי שאסיים שם אקפוץ לקרן להכוונת חיילים כמו שחנה אמרה',
-                                            confirmButtonText:'אני עשיררר'
-                                        }).then((result)=>{
-                                            if (result.isConfirmed){                                        
-                                                resetPlayer();}
-                                            })
-                                        }
-                                })
-                            }
-                        })
-                    }
-
-                })
-            }
-        });
     }
 }
 
@@ -658,6 +555,8 @@ function switchLevels(level){
                                     }).then((result) => {
                                         if (result.isConfirmed){
                                             resetPlayer();
+                                            insertItems("מטאטא","מפתח צינורות","תמונות לדירה","תנור לדירה","רהיטים לדירה");
+                                            canBuy = true;
                                         }
                                     })
                                     }, 10000);
@@ -682,7 +581,7 @@ function switchLevels(level){
                     Swal.fire({
                         allowOutsideClick: false, 
                         title: 'ביטוח לאומי',
-                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי. אני רואה שיש שם מישהי פנויה, כדאי לי ללכת לדבר איתה',
+                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי',
                         imageUrl: 'https://upload.wikimedia.org/wikipedia/he/thumb/4/46/BituachLeumiLogo.svg/1280px-BituachLeumiLogo.svg.png',
                         imageWidth: 180,
                         imageHeight: 130,

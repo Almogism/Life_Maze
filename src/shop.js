@@ -1,4 +1,6 @@
+//Variables for each purchase being made.
 let purchase1 = false;
+let canBuy = false;
 let purchase2 = false;
 let purchase3 = false;
 let purchase4 = false;
@@ -66,7 +68,7 @@ function buyShoes(){
 function buyBroom(){
     var money = $("money");
     var broom = $("item2");
-    if (mission25){
+    if (canBuy){
         if (!purchase2){
             if (playerMoney >= 1000){
                 purchase2 = true;
@@ -108,7 +110,7 @@ function buyBroom(){
 function buyWrench(){
     var money = $("money");
     var wrench = $("item3");
-    if (mission25){
+    if (canBuy){
         if (!purchase3){
             if (playerMoney >= 1000){
                 purchase3 = true;
@@ -150,12 +152,10 @@ function buyWrench(){
 function buyPictures(){
     var money = $("money");
     var pictures = $("item4");
-    if (mission25){
+    if (canBuy){
         if (!purchase4){
             if (playerMoney >= 1000){
                 purchase4 = true;
-
-                //Change map here
                 map[12][8] = 55; map[5][13] = 56; map[10][15] = 57;
                 changeMoney(-1000);
             }
@@ -193,13 +193,12 @@ function buyPictures(){
 function buyOven(){
     var money = $("money");
     var oven = $("item5");
-    if (mission25){
+    if (canBuy){
         if (!purchase5){
             if (playerMoney >= 1000){
                 purchase5 = true;
-
-                //Change map here
-                map[5][6] = 7;
+                map[5][8] = 7;
+                map[5][7] = 12;
                 changeMoney(-1000);
             }
             else{
@@ -236,11 +235,12 @@ function buyOven(){
 function buyFurniture(){
     var money = $("money");
     var furniture = $("item6");
-    if (mission25){
+    if (canBuy){
         if (!purchase6){
             if (playerMoney >= 1000){
                 purchase6 = true;
-                //add sprites here
+                deleteSprites();
+                initSprites(24);
                 changeMoney(-1000);
             }
             else{
