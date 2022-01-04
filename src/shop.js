@@ -154,7 +154,9 @@ function buyPictures(){
         if (!purchase4){
             if (playerMoney >= 1000){
                 purchase4 = true;
+
                 //Change map here
+                map[12][8] = 55; map[5][13] = 56; map[10][15] = 57;
                 changeMoney(-1000);
             }
             else{
@@ -195,7 +197,9 @@ function buyOven(){
         if (!purchase5){
             if (playerMoney >= 1000){
                 purchase5 = true;
+
                 //Change map here
+                map[5][6] = 7;
                 changeMoney(-1000);
             }
             else{
