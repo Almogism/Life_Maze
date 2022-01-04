@@ -428,7 +428,7 @@ function checkPlayerLocation(){
 
     if (!temp && player.x <1.5 && player.y >16){
         temp = true; //this is temporary you wanker
-        switchLevels(24);
+        switchLevels(3);
     }
 }
 
@@ -604,8 +604,19 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("Bituach leumi, my arch nemesis!");
-                    resetPlayer();
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        title: 'ביטוח לאומי',
+                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי',
+                        imageUrl: 'https://upload.wikimedia.org/wikipedia/he/thumb/4/46/BituachLeumiLogo.svg/1280px-BituachLeumiLogo.svg.png',
+                        imageWidth: 180,
+                        imageHeight: 130,
+                        confirmButtonText:'מקווה שהם יעשו לי קצת סדר בראש',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                        }
+                    })
                 }, 2000);
             }, 2000);
             break;
