@@ -1,4 +1,3 @@
-
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
@@ -9,7 +8,7 @@ function freezePlayer(){
 
 //Reset player movement to continue the game.
 function resetPlayer(){
-    player.moveSpeed = 0.2;
+    player.moveSpeed = originalPlayerSpeed;
     player.rotationSpeed=5;
     player.direction=0;
     player.vertical=0;
@@ -115,7 +114,10 @@ function completeObjective(objective){
         default: break;
     }
 }
+
 //Boolean variables to mark finishing missions.
+let temp =false;
+let flag= false;
 let mission11= false;
 let mission12= false;
 let mission13= false;
@@ -126,8 +128,11 @@ let mission23 = false;
 let mission24 = false;
 let mission25 = false;
 let mission3 = false;
+let mission31 = false;
 let mission4 = false;
-let temp = false; //temporary for bituach leumi
+let mission41 = false;
+let mission5 = false;
+let mission51 = false;
 //let mission = false;
 //let mission = false;
 //let mission = false;
@@ -135,19 +140,14 @@ let temp = false; //temporary for bituach leumi
 //let mission = false;
 //let mission = false;
 //let mission = false;
-//let mission = false;
-//let mission = false;
-
 
 //Check player location to commence events.
 function checkPlayerLocation(){
-    let playerChoice;
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
-        // alert("Mom said I need to prepare some food.\nIt's just some chicken, how hard can it be?");
-
-        Swal.fire({  
+        Swal.fire({
+            allowOutsideClick: false,  
             title: 'ארוחת ערב',
             text: '?אמא אמרה לחמם את העוף 40 דקות. כמה מסובך זה יכול להיות',
             imageUrl: 'https://previews.123rf.com/images/olegdudko/olegdudko1907/olegdudko190704407/128656393-raw-uncooked-chicken-fillet-against-white.jpg',
@@ -160,8 +160,8 @@ function checkPlayerLocation(){
               if ((result.isConfirmed) || (result.isDenied)) {    
                 map[0][14] = 8;
                 setTimeout(() => {
-                    //alert("You've burnt the food.\nEven the dog is not impressed, guess we're eating pizza tonight.");
                     Swal.fire({
+                        allowOutsideClick: false, 
                         title: 'אוי לא',
                         text: 'אני לא חושב שככה נראה עוף מוכן... אפילו הכלב לא רוצה לאכול אותו ',
                         confirmButtonText: 'אוף',
@@ -180,10 +180,11 @@ function checkPlayerLocation(){
           });
       }
 
-    if (/*mission11 && */!mission12 && playerBetween(8,9,14,15)){
+    if (mission11 && !mission12 && playerBetween(8,9,14,15)){
         mission12 = true;
         freezePlayer();
         Swal.fire({  
+            allowOutsideClick: false, 
             title: 'לנקות את חדר העבודה',
             text: 'אבא ביקש ממני לנקות את הקירות בחדר. נראה לי שאפילו לא צריך אקונומיקה, נעביר עליהם מגבון ויהיה בסדר',
             imageUrl: 'https://www.sano.co.il/media/SA7290000288024.jpg',
@@ -196,6 +197,7 @@ function checkPlayerLocation(){
               if ((result.isConfirmed) || (result.isDenied)) {    
                 setTimeout(() => {
                     Swal.fire({
+                        allowOutsideClick: false, 
                         icon: 'error',
                         title: '2 אוי לא',
                         text: 'כנראה שלא סתם אמרו להשתמש באקונומיקה. מרחתי את כל הלכלוך על הקירות ואבא לא הולך להיות מרוצה מהעניין',
@@ -215,14 +217,11 @@ function checkPlayerLocation(){
               }
           });
     }
-
-
-
-
-    if (/*mission12 && */!mission13 && playerBetween(12,13,15,16)){
+    if (mission12 && !mission13 && playerBetween(12.3,13.7,15.3,16.6)){
         freezePlayer();
         mission13 = true;
         Swal.fire({  
+            allowOutsideClick: false, 
             title: 'שיחה עם השליח',
             text: 'שלום, מדבר השליח לגבי החבילה שהזמנתם. רציתי לברר באיזה שעה אתה פנוי לקבל את המשלוח',
             imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
@@ -234,6 +233,7 @@ function checkPlayerLocation(){
         }).then((result) => {
             if ((result.isConfirmed) ||  (result.isDenied)){
                 Swal.fire({
+                    allowOutsideClick: false, 
                     title: '2 שיחה עם השליח',
                     text: 'אוקיי רשמתי... אני צריך עכשיו את תעודת הזהות של אחד ההורים לא כולל ספרת ביקורת',
                     imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
@@ -245,6 +245,7 @@ function checkPlayerLocation(){
                 }).then((result) => {
                     if ((result.isConfirmed) ||  (result.isDenied)){
                         Swal.fire({
+                            allowOutsideClick: false, 
                             title: '3 שיחה עם השליח',
                             text: 'לא משנה... *אנחה מזלזלת* תרצה לבוא לקחת את החבילה או שנשלח שליח אליך',
                             imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
@@ -256,6 +257,7 @@ function checkPlayerLocation(){
                         }).then((result) => {
                             if ((result.isConfirmed) ||  (result.isDenied)){
                                 Swal.fire({
+                                    allowOutsideClick: false, 
                                     title: '4 שיחה עם השליח',
                                     text: 'אתה קצת מבלבל אותי, אני רושם שאתה מגיע לקחת, אנחנו נמצאים בגבעת רונן 7 באילת, המשך שבוע מרנין',
                                     imageUrl: 'https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/Vd3bj2jPe/videoblocks-portrait-serious-man-having-phone-talk-at-street-close-up-of-angry-businessman-talking-on-smartphone-outdoors-young-business-man-walking-with-mobile-phone-office-employee-call-phone-outside_baui9chy8_thumbnail-1080_01.png',
@@ -267,22 +269,25 @@ function checkPlayerLocation(){
                                 }).then((result) => {
                                         if ((result.isConfirmed) ||  (result.isDenied)){
                                         Swal.fire({
+                                            allowOutsideClick: false, 
                                             icon: 'error',
                                             title: 'אוי לא 3',
                                             text: 'השליח ניתק ואתה נותרת עם בלבול רציני',
                                             confirmButtonText:'אוף 3'
-                                        }).then((result)=>{                                        //resetPlayer();
+                                        }).then((result)=>{
                                             completeObjective(3);
                                             resetPlayer();
                                             setTimeout(() => {
                                                 Swal.fire({
+                                                    allowOutsideClick: false, 
                                                     icon: 'question',
                                                     title: 'ביי ביי',
                                                     text: 'אחרי שלא הצלחת לעמוד באף אחת מהמטלות הפשוטות שקיבלת, ההורים החליטו לגרש אותך מהבית כדי שתתחיל ללמוד איך מסתדרים לבד',
                                                     confirmButtonText:'!יאללה לחפש דירה חדשה'
                                                 }).then((result) => {
                                                     if (result.isConfirmed){
-                                                       insertObjective("לחפש דירה!"); 
+                                                       insertObjective("לחפש דירה!");
+                                                       flag = true;
                                                     }
                                                 });
                                             }, 3000);})
@@ -296,35 +301,16 @@ function checkPlayerLocation(){
                 })
             }
         });
-        // mission13 = true;
-        // freezePlayer();
-        // playerChoice = prompt("bar hu piho?\nfor wrong press - n \n for right press - y");
-        // if (playerChoice == 'y'){
-        //     alert("you're correct.");
-        //     freezePlayer();
-        // }
-        // else if (playerChoice == 'n'){
-        //     alert("you're wrong.");
-        //     freezePlayer();
-        // }
-        // else{
-        //     alert("wrong input you dickhead");
-        //     freezePlayer();
-        // }
-        // resetPlayer();
     }
-
-
-
-
-
-    if (mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
+    if (flag && mission13 && !mission14 && playerBetween(16.5,17.5,15,16)){
+        flag = false;
         mission14 = true;
         switchLevels(21);
     }
     if (mission14 && !mission21 && playerBetween(10.5,11.5,9,10)){
         mission21 = true;
         Swal.fire({
+            allowOutsideClick: false, 
             icon: 'error',
             title: '...אף פעם לא לוקחים את הדירה הראשונה',
             text: 'הדירה הזאת מלוכלכת ולא ראויה למגורי אדם',
@@ -337,32 +323,272 @@ function checkPlayerLocation(){
     }
     if (mission21 && !mission22 && playerBetween(17.5,18.5,9,10)){
         mission22 = true;
-        switchLevels(23);
+        Swal.fire({
+            allowOutsideClick: false, 
+            icon: 'error',
+            title: '?פעם שלישית גלידה',
+            text: '...אני בטוח בזה שהדירה המובטחת ממש מעבר לפינה',
+            confirmButtonText:'!יאללה לחפש דירה חדשה'
+        }).then((result) => {
+            if (result.isConfirmed){
+                switchLevels(23);
+            }
+        })
     }
-    if (mission22 && !mission23 && playerBetween(11,12,8,9)){
+    if (mission22 && !mission23 && playerBetween(11,12,8,10)){
         mission23 = true;
         freezePlayer();
-        alert("Is this a maze or a home god dammit.");
-        resetPlayer();
+        Swal.fire({
+            allowOutsideClick: false, 
+            title: 'מה קורה כאן',
+            text: '???זה בית או מבוך',
+            imageUrl: 'https://www.segment.co.il/wp-content/uploads/2016/12/ikea-logo-new-hero-1.jpg',
+            imageWidth: 100,
+            imageHeight: 100,
+            confirmButtonText: 'מבוך',  
+          }).then((result) => {
+                if (result.isConfirmed){
+                    resetPlayer();
+                }
+          })
     }
-    if (mission23 && !mission24 && playerBetween(11,12,2,5) && (player.rotation > 5.5 || player.rotation < 0.8)){
+    if (mission23 && !mission24 && playerBetween(11,15,2,4.5) && (player.rotation > 5.7 || player.rotation < 0.8)){
         mission24 = true;
         freezePlayer();
-        alert("hmm, seems suspicious");
+        Swal.fire({
+            allowOutsideClick: false, 
+            title: 'משהו כאן לא בסדר',
+            text: 'אני כמעט בטוח שהבית הזה לא מאה אחוז, בלי קשר לטפט',
+            confirmButtonText: 'סיבוב נוסף',
+        }).then((result) => {
+            if (result.isConfirmed){
+                resetPlayer();
+                setTimeout(() => {
+                    freezePlayer();
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        imageUrl: 'https://img.favpng.com/13/12/2/tnt-bomb-explosive-material-dynamite-clip-art-png-favpng-L69x0r88qRxK4bZzzgunrHkff.jpg',
+                        imageWidth: 100,
+                        imageHeight: 100,
+                        title: '!!!אמא',
+                        text: '!הבית הזה יכול להתפוצץ בכל רגע',
+                        confirmButtonText: 'לברוח על נפשך',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                            flag = true;
+                        }
+                    })
+                }, 2000);
+            }
+        })
         setTimeout(() => {
-            alert("Okay, I think I need to get the hell out of here!!!!");
-            alert("Fuck this shit!!!");
             resetPlayer();
         }, 2000);
     }
-    if (mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
+
+    if (flag && mission24 && !mission25 && playerBetween(12,13,2.5,3.5)){
+        flag = false;
         mission25 = true;
         switchLevels(24);
     }
-    if (!temp && player.x <1.5 && player.y >16){
-        temp = true; //this is temporary you wanker
-        switchLevels(24);
+    
+    if (flag && mission25 && !mission3 && playerBetween(5,6.5,9.8,11)){
+        flag = false;
+        mission3 = true;
+        freezePlayer();
+        switchLevels(3);
     }
+
+    if (mission3 && !mission31 && playerBetween(11,12,4,5)){
+        mission31 = true;
+        freezePlayer();
+        Swal.fire({  
+            allowOutsideClick: false, 
+            title: 'שיחה עם ביטוח לאומי',
+            text: '?שלום, אני חנה, פקידה בביטוח לאומי, איך אפשר לעזור',
+            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: 'השתחררתי לפני חודש מהצבא ואני קצת מבולבל',  
+            denyButtonText: `רציתי לקבל מידע רלוונטי עבור מסיימי שירות לאומי`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    allowOutsideClick: false, 
+                    title: '2 שיחה עם ביטוח לאומי',
+                    text: 'אוקיי, אז דבר ראשון אני שמחה שהגעת אלינו וברכותיי על השחרור ויציאתך לאזרחות. אחד הדברים שמגיעים לך מאיתנו הוא פטור של חודשיים מתשלום ביטוח לאומי וביטוח בריאות אם שירתת לפחות 75% משירות החובה שלך',
+                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: '!אשכרה',  
+                    denyButtonText: `?מגניב, יש אפילו עוד הטבות`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            title: '3 שיחה עם ביטוח לאומי',
+                            text: 'בנוסף מגיע לך פטור מארנונה לתקופה של 4 חודשים על שטח של 70 מ"ר מהדירה. וגם אתה מקבל הטבות מס למשך 3 שנים בגובה של 432 שקלים לחודש. אגב, תבדוק את מענק השחרור והפקדון שקיבלת, הכסף הזה יעזור לך לסגור את החודש בתחילת דרכך',
+                            imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: '!מאוד כלכלי להתגייס',  
+                            denyButtonText: `?נהדר! עוד משהו שלדעתך אני צריך לדעת`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    allowOutsideClick: false, 
+                                    title: '4 שיחה עם ביטוח לאומי',
+                                    text: 'חשוב מאוד להירשם לקופת חולים אם אתה עדיין לא רשום לאחת ולבדוק מול הבנק שלך את אופן ניהול חשבונך. אני בטוחה שיש להם מסלולי חיילים ללא עמלות שמאוד יתאימו לך. אה! ומיד אחרי שאתה מסיים פה אני ממליצה לך ללכת לקרן להכוונת חיילים של משרד הביטחון, הם יעזרו עם כל עניין שקשור להכוונת תעסוקה, מלגות וייעוץ שמאוד יועיל לך',
+                                    imageUrl: 'https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/07/09/15942940756571_b.jpg',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: '!תודה רבה לך חנה',  
+                                    denyButtonText: `!שיהיה לך יום מרנין`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            allowOutsideClick: false, 
+                                            icon: 'success',
+                                            title: 'ביטוח לאומי דווקא סבבה',
+                                            text: 'קיבלתי את המענק שחרור! אני צריך לחזור לדירה שלי עכשיו כדי לנקות ולרהט. אחרי שאסתובב פה קצת אקפוץ הביתה ואז לקרן להכוונת חיילים כמו שחנה אמרה',
+                                            confirmButtonText:'אני עשיררר'
+                                        }).then((result)=>{
+                                            if (result.isConfirmed){   
+                                                changeMoney(17000);                                     
+                                                resetPlayer();
+                                                completeObjective(1);
+                                                setTimeout(() => {
+                                                    freezePlayer();
+                                                    Swal.fire({
+                                                        allowOutsideClick: false, 
+                                                        title: 'קיבלתי מלא כסף מהצבא',
+                                                        text: '?אז אני אלך חזרה הבייתה לקנות עוד דברים',
+                                                        imageUrl: 'https://www.funeralpartners.co.uk/wp-content/uploads/2021/02/celebration-of-life-1024x411.jpg',
+                                                        imageWidth: 280,
+                                                        imageHeight: 150,  
+                                                        confirmButtonText: '!יאללה לבזבז באחריות',  
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed){
+                                                            resetPlayer();
+                                                            flag = true;
+                                                        }
+                                                    })
+                                                }, 7000);
+                                            }
+                                            })
+                                        }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        });
+    }
+    if (flag && mission31 && !mission4 && playerBetween(5.5,6.5,10,11)){
+        flag = false;
+        mission4 = true;
+        switchLevels(241);
+    }
+    //הולך לקרן
+    if (flag && mission4 && !mission41 && playerBetween(5,6.5,9.8,11)){ //flag if ready to leave the apartment.
+        flag = false;
+        mission41 = true;
+        switchLevels(31);
+    }
+    if (mission41 && !mission5 && playerBetween(14,15,10,12)){
+        mission5 = true;
+        freezePlayer();
+        Swal.fire({  
+            allowOutsideClick: false, 
+            title: 'שיחה עם הקרן להכוונת חיילים',
+            text: 'אהלן אחי, מה המצב? אתה נראה כאילו השתחררת אתמול',
+            imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+            imageWidth: 200,
+            imageHeight: 150,  
+            showDenyButton: true,
+            confirmButtonText: '?אני נראה עד כדי כך מבולבל',  
+            denyButtonText: `...מצחיק מאוד`,
+        }).then((result) => {
+            if ((result.isConfirmed) ||  (result.isDenied)){
+                Swal.fire({
+                    allowOutsideClick: false, 
+                    title: '2 שיחה עם הקרן להכוונת חיילים',
+                    text: 'סתם סתם, קודם כל ברוך הבא לקרן להכוונת חיילים משוחררים של משרד הביטחון - המקפצה שלך  לאזרחות! אנחנו פה כדי לעזור. נתחיל בעניין המלגות שמגיעות לך בתור משוחרר טרי',
+                    imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                    imageWidth: 200,
+                    imageHeight: 150,  
+                    showDenyButton: true,
+                    confirmButtonText: 'נווווווו',  
+                    denyButtonText: `אני מקשיב`,
+                }).then((result) => {
+                    if ((result.isConfirmed) ||  (result.isDenied)){
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            title: '3 שיחה עם הקרן להכוונת חיילים',
+                            text: 'מבחינת מלגות יש 2 מלגות עיקריות שמגיעות לך. אם בחרת ללמוד במוסד אקדמי באיזור הפריפריה, מגיעה לך שנת לימודים ראשונה בחינם! בנוסף, אם שירתת בתור לוחם לדוגמא, אנחנו נממן לך שני שליש מסך כל התואר! דואגים לך פה',
+                            imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                            imageWidth: 200,
+                            imageHeight: 150,  
+                            showDenyButton: true,
+                            confirmButtonText: 'אני עדיין מרגיש קצת מודאג',  
+                            denyButtonText: `?מגניב ממש, מה עם עניין התעסוקה למשל`,
+                        }).then((result) => {
+                            if ((result.isConfirmed) ||  (result.isDenied)){
+                                Swal.fire({
+                                    allowOutsideClick: false, 
+                                    title: '4 שיחה עם הקרן להכוונת חיילים',
+                                    text: 'אז חוץ מייעוץ תעסוקתי שאתה תמיד יכול לפנות אלינו לגביו, יש את נושא העבודה המועדפת. אם בשנה הראשונה לשחרור תבחר לעבוד בתחנת דלק, מלונות, מפעלים או תחומים מוכרים אחרים בתעשיה ותסיים 150 ימי עבודה בתוך שנתיים מהשחרור, תקבל מאיתנו מענק יפה של 9,500 ש"ח! אני מאחל לך המון הצלחה בהמשך ותמיד תוכל להתעדכן באתר האינטרנט שלנו לגבי עוד הטבות שמגיעות לך על שירות משמעותי למדינה',
+                                    imageUrl: 'https://videoandmarketing.co.il/wp-content/uploads/2017/02/%D7%94%D7%A7%D7%A8%D7%9F-%D7%94%D7%99%D7%97%D7%99%D7%93%D7%94-%D7%9C%D7%97%D7%99%D7%99%D7%9C%D7%99%D7%9D-%D7%9E%D7%A9%D7%95%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A9%D7%AA%D7%97%D7%A8%D7%A8%D7%99%D7%9D-%D7%9E%D7%A6%D7%99%D7%A4%D7%95%D7%A8%D7%94.jpg',
+                                    imageWidth: 200,
+                                    imageHeight: 150,  
+                                    showDenyButton: true,
+                                    confirmButtonText: 'איזה כיף! מתאים לי עבודה מועדפת',  
+                                    denyButtonText: `!תודה רבה ויום מרנין`,
+                                }).then((result) => {
+                                        if ((result.isConfirmed) ||  (result.isDenied)){
+                                        Swal.fire({
+                                            allowOutsideClick: false, 
+                                            icon: 'success',
+                                            title: 'הקרן להכוונת חיילים משוחררים גם סבבה',
+                                            text: 'קיבלתי המון מידע רלוונטי מהקרן להכוונת חיילים משוחררים, אני חושב שהגיע הזמן ללכת הביתה ולנוח קצת אחרי היום המשוגע הזה',
+                                            confirmButtonText:'יאללה הבייתה'
+                                        }).then((result)=>{
+                                            if (result.isConfirmed){                                        
+                                                resetPlayer();
+                                                completeObjective(1);
+                                                setTimeout(() => {
+                                                    insertObjective("לחזור לדירה!");
+                                                    flag = true;
+                                                }, 5000);
+                                            }
+                                            })
+                                        }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        });
+    }
+    if (flag && mission5 && !mission51 && playerBetween(4,6,10,11)){
+        flag = false;
+        mission51 = true;
+        switchLevels(242);
+    }
+    // //havitush
+    // if (!temp && player.x <1.5 && player.y >16){
+    //     flag = false;
+    //     temp = true;
+    //     switchLevels(241);
+    // }
 }
 
 //Test if player location is between x1 and x2, y1 and y2.
@@ -380,7 +606,6 @@ function switchLevels(level){
             break;
         case 21:
             freezePlayer();
-            //alert("I'll go look for another apartment. how bad can it be?!");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(8.3,9,0);
@@ -391,6 +616,7 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 Swal.fire({
+                    allowOutsideClick: false, 
                     icon: 'warning',
                     title: 'דירה מספר אחת',
                     text: 'אחרי שחיפשתי קצת בפייסבוק הגעתי לדירה הראשונה שמצאתי. המחיר בעיקר משך אותי',
@@ -400,6 +626,7 @@ function switchLevels(level){
                         slowPanning();
                         setTimeout(() => {
                             Swal.fire({
+                                allowOutsideClick: false, 
                                 icon: 'warning',
                                 title: 'איכס איכס איכס',
                                 text: 'אין שום סיכוי בעולם שאני אגור בדירה כזאת',
@@ -417,7 +644,6 @@ function switchLevels(level){
             break;
         case 22:
             freezePlayer();
-            //alert("Okay, lets try again...");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(1.3,9,0);
@@ -427,10 +653,8 @@ function switchLevels(level){
                 initScreen();
                 drawMap();
                 dedimScreen();
-
-                //alert("Okay, seems cozy... lets check it out.");
-
                 Swal.fire({
+                    allowOutsideClick: false, 
                     icon: 'question',
                     title: 'דירה מספר שתיים',
                     text: 'הפעם ויתרתי על חיפוש בפייסבוק, דוד שלי הציע להשכיר את הדירה שלו במחיר מוזל',
@@ -440,7 +664,8 @@ function switchLevels(level){
                     slowWalking();
                     setTimeout(() => {
                         Swal.fire({
-                            icon: 'error',
+                            allowOutsideClick: false, 
+                            icon: 'question',
                             title: 'אני קצת מפחד',
                             text: 'המקום הזה מלחיץ אותי ברמה אחרת, עם כל הכבוד לדוד שלי אני חייב לראות עוד דירות',
                             confirmButtonText: 'אני מרגיש שמישהו מסתכל עליי',
@@ -449,13 +674,12 @@ function switchLevels(level){
                                     resetPlayer();
                                 }
                           })
-                    }, 15000); }
+                    }, 18000); }
                 })
             }, 2000);
             break;
         case 23:
             freezePlayer();
-            alert("Third times a charm I guess?");
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(6.5,6.5,0);
@@ -466,17 +690,22 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("Okay, seems inviting and nice...");
-                    resetPlayer();
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        icon: 'question',
+                        title: 'דירה מספר שלוש',
+                        text: 'הפעם קיבלתי המלצה מחבר על איש מבוגר שמשכיר את אחת הדירות שלו. חוץ מהטפט המזעזע אני לא חושב שמשהו פה הולך להפתיע אותי',
+                        confirmButtonText:'!בוא נעשה סיבוב',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                        resetPlayer();
+                    }
+                })
                 }, 2000);
-
             }, 2000);
             break;
         case 24:
             freezePlayer();
-            setTimeout(() => {
-                alert("phew, I'm glad I got away.");
-            }, 1000);
             dimScreen();
             setTimeout(() => {
                 relocatePlayer(7,10,0);
@@ -487,9 +716,128 @@ function switchLevels(level){
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("Okay, I think this is the one!");
-                    alert("It does require a bit of cleaning and some furnishing");
+                    setTimeout(() => {
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            icon: 'question',
+                            title: 'דירה מספר ארבע',
+                            text: 'אז אחרי מחקר מעמיק בפייסבוק, ביד2 ובכל אתר אינטרנט שקשור לדירות, הגעתי לדירה משופצת במרכז העיר',
+                            confirmButtonText:'!בוא נעשה סיבוב',
+                        }).then((result) => {
+                                if (result.isConfirmed){
+                                    resetPlayer();
+                                    setTimeout(() => {
+                                    freezePlayer();
+                                    Swal.fire({
+                                        allowOutsideClick: false, 
+                                        title: 'דווקא לא כזה נורא',
+                                        text: '!חוץ מהלכלוך שצריך לנקות והנזילה בכיור אני חושב שזאת האחת',
+                                        imageUrl: 'https://previews.123rf.com/images/kongvector/kongvector1712/kongvector171200808/91176035-mechanic-broom-character-cartoon-style-holding-a-wrench-vector-illustration.jpg',
+                                        imageWidth: 130,
+                                        imageHeight: 130,
+                                        confirmButtonText:'!הידד',
+                                    }).then((result) => {
+                                        if (result.isConfirmed){
+                                            resetPlayer();
+                                            completeObjective(1);
+                                            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
+                                            canBuy = true;
+                                            setTimeout(() => {
+                                                Swal.fire({
+                                                    allowOutsideClick: false, 
+                                                    icon: 'warning',
+                                                    title: '*SMS קיבלת*',
+                                                    text: 'היי מתוקי, זאת אמא שלך מדברת. רציתי להזכיר לך כמה חשוב לקנות רהיטים ולנקות את הבית כדי שהוא יקבל צורה. איזה כיף שאתה עצמאי סוף סוף. נ.ב - הכל בחנות חפצים. יום טוב מתוקי, אוהבת',
+                                                    confirmButtonText:'!יאללה רהיטים',
+                                                }).then((result) => {
+                                                    if (result.isConfirmed){
+                                                        setTimeout(() => {
+
+                                                            Swal.fire({
+                                                                allowOutsideClick: false, 
+                                                                icon: 'warning',
+                                                                title: 'אני צריך ללכת לביטוח לאומי',
+                                                                text: 'אמרו משהו על זה שמגיע הטבות למשוחררים טריים לא? שווה לקפוץ לביטוח לאומי לראות אם ההטבות שלהם שוות משהו',
+                                                                confirmButtonText:'!יאללה לביטוח לאומי',
+                                                            }).then((result)=>{
+                                                                if (result.isConfirmed){
+                                                                    flag = true;
+                                                                    insertObjective("ללכת לביטוח לאומי!");
+                                                                }
+                                                                    
+                                                            })
+                                                       }, 15000);
+                                                    // }, 5000);
+                                                    }
+                                                })
+                                            }, 5000);
+
+                                        }
+                                    })
+                                    }, 10000);
+                                }
+                        })
+                    }, 2000);
+                }, 2000);
+            }, 2000);
+            break;
+        case 241:
+            freezePlayer();
+            dimScreen();
+            setTimeout(() => {
+                relocatePlayer(7,10,0);
+                deleteSprites();
+                initSprites(24);
+                map = map24;
+                initScreen();
+                drawMap();
+                dedimScreen();
+                setTimeout(() => {
+                    setTimeout(() => {
+                        freezePlayer();
+                        Swal.fire({
+                            allowOutsideClick: false, 
+                            icon: 'success',
+                            title: 'הדירה נראית אש',
+                            text: 'עכשיו אחרי שקניתי, ניקיתי וסידרתי פה. אולי כדאי שנלך לקרן להכוונת חיילים משוחררים כדי לקבל עוד מידע',
+                            confirmButtonText:'יאללה בסדר'
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                insertObjective("ללכת לקרן להכוונה!");
+                                resetPlayer();
+                                flag = true;
+                            }
+                        })
+                    }, 30000);
+                // }, 3000);
                     resetPlayer();
+                },2000);
+            }, 2000);
+            break;
+        case 242:
+            freezePlayer();
+            dimScreen();
+            setTimeout(() => {
+                deleteSprites();
+                initSprites(24);
+                map = map24;
+                initScreen();
+                drawMap();
+                dedimScreen();
+                setTimeout(() => {
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        icon: 'success',
+                        title: '!אני רשמית עצמאי',
+                        text: 'עכשיו אחרי שלמדתי איך מסתדרים באזרחות אני בחיים לא חוזר לגור אצל ההורים',
+                        confirmButtonText:'תלחץ כאן כדי להסתובב בבית ולסיים את המשחק'
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                            insertObjective();
+                            //flag = true -> to enter more levels
+                        }
+                    })
                 }, 2000);
             }, 2000);
             break;
@@ -497,16 +845,27 @@ function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
-                relocatePlayer(7,10,0); //change to another location
+                relocatePlayer(7,10,0); //for almog
                 deleteSprites();
-                initSprites(3); //change to initSprites(whatever number you chose)
-                map = map3; //change to whatever map name you chose
+                initSprites(3);
+                map = map3;
                 initScreen();
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("Bituach leumi, my arch nemesis!");
-                    resetPlayer();
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        title: 'ביטוח לאומי',
+                        text: 'הבנתי שאחד המקומות הכי חשובים להגיע אליהם מיד לאחר השחרור הוא ביטוח לאומי',
+                        imageUrl: 'https://upload.wikimedia.org/wikipedia/he/thumb/4/46/BituachLeumiLogo.svg/1280px-BituachLeumiLogo.svg.png',
+                        imageWidth: 180,
+                        imageHeight: 130,
+                        confirmButtonText:'מקווה שהם יעשו לי קצת סדר בראש',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                        }
+                    })
                 }, 2000);
             }, 2000);
             break;
@@ -514,16 +873,28 @@ function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
-                relocatePlayer(7,10,0); //change to another location
+                relocatePlayer(7,10,0); //for almog
                 deleteSprites();
-                initSprites(31); //change to initSprites(whatever number you chose)
-                map = map31; //change to whatever map name you chose
+                initSprites(31); 
+                map = map31; 
                 initScreen();
                 drawMap();
                 dedimScreen();
                 setTimeout(() => {
-                    alert("wallak need a job.");
-                    resetPlayer();
+                    Swal.fire({
+                        allowOutsideClick: false, 
+                        imageUrl: 'https://www.smartdrive.co.il/sites/smart/UserContent/images/%D7%A2%D7%9C%D7%95%D7%9F%20%D7%9E%D7%A7%D7%A4%D7%A6%D7%94%20%D7%9C%D7%95%D7%91%D7%99%20%D7%92%D7%93%D7%95%D7%9C.jpg',
+                        imageWidth: 200,
+                        imageHeight: 130,
+                        title: 'הקרן להכוונת חיילים משוחררים',
+                        text: 'בביטוח לאומי אמרו לי ללכת לדבר עם נציגים של הקרן להכוונת חיילים על מנת לשמוע על הכוונת תעסוקה, מלגות, ייעוץ ואולי עוד ',
+                        confirmButtonText:'בוא נחפש מישהו לדבר איתו',
+                    }).then((result) => {
+                        if (result.isConfirmed){
+                            resetPlayer();
+                            flag = true;
+                        }
+                    })
                 }, 2000);
             }, 2000);
             break;

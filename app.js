@@ -7,7 +7,6 @@ const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
 //const { a } = require("swig/lib/dateformatter");
 
-module.exports.text = "GeeksforGeeks";
 
 
 dotenv.config({path: './.env'});
@@ -106,6 +105,7 @@ app.get('/toAdd',(req,res)=>{
     res.render('toAdd');
 })
 //---------- post
+// /signup -> login
 app.post('/login',(req,res)=>{
     
     console.log(req.body);
@@ -116,7 +116,6 @@ app.post('/login',(req,res)=>{
     const passwordConfirm = req.body.passwordConfirm;
     const service = req.body.service;
     const genders = req.body.gender;
-    
     //is there already this username
     db.query('SELECT userName FROM users WHERE userName = ?',[username],async (error,results)=>{
         if(error){
