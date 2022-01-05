@@ -6,6 +6,7 @@ const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
 
+
 dotenv.config({path: './.env'});
 const app = express();
 app.engine('html', cons.swig)
@@ -122,6 +123,7 @@ app.post('/login',(req,res)=>{
         if(results.length >0){
             
             console.log('that username is already in use');
+            res.render('signup3');
             return;
             //help dosent work V
             /*return res.render('signup',{
@@ -132,6 +134,7 @@ app.post('/login',(req,res)=>{
         else if(password !== passwordConfirm)
         {
             console.log('password dosent match');
+            res.render('signup2');
             return;
             //help dosent work V
             /*
@@ -152,6 +155,7 @@ app.post('/login',(req,res)=>{
             if(error){
                 console.log(error);
             }
+            res.render('login');
             /*else{
                 console.log(results);
             }*/
@@ -161,23 +165,25 @@ app.post('/login',(req,res)=>{
 
     })
 
-    res.render('login');
+
 
 })
 
 //-get into game
-app.post('/game',(req,res)=>{
+app.post('/next',(req,res)=>{
     
     const username = req.body.myusername;
     const password = req.body.password;
-
+    module.exports =  {username};
     db.query('SELECT password FROM users WHERE userName = ? ',[username],async(error,results)=>{
         if(error){
             console.log(error);
         }
+        console.log(results.length);
+        
         if(results.length==0){
             console.log('wrong user name or paswword');
-            res.render('toAdd');
+            res.render('login2');
             return;
         }
         const pass = results[0].password;
@@ -187,9 +193,9 @@ app.post('/game',(req,res)=>{
            console.log('fuck yeah');
            res.render('game');
        }
-
-        
-        
+       else{
+         res.render('login2');
+       }
     }
     )
     

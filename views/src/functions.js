@@ -1,3 +1,4 @@
+
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
