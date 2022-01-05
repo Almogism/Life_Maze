@@ -11,6 +11,7 @@ window.onload = function() {
     drawMap(); //Calling the draw map function to draw a minimap.
     gameCycle(); //Game cycle function.
     renderCycle(); //Rendering cycle function.
+    updateMoney();
 }
 
 //Simple getID function with the dollar sign "$".
@@ -47,7 +48,7 @@ function stats(){
     setTimeout(function(){statistics.removeChild(playerStats)}, 100);
 }
 
-setInterval(stats,200);
+//setInterval(stats,200);
 
 
 //Render cycle for the game, to update the game live.

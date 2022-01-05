@@ -80,7 +80,11 @@ var itemTypes = [
     { img : 'src/assets/Objects/interview2.png', block: false},  // 39= Interviewer stand
     { img : 'src/assets/Objects/vendingm.png', block: false},    // 40= Vending machine
     { img : 'src/assets/Objects/working.png', block: false},     // 41= Happy man working
-    { img : 'src/assets/Objects/working2.png', block: false}     // 42= Man plays on desk
+    { img : 'src/assets/Objects/working2.png', block: false},    // 42= Man plays on desk
+    { img : 'src/assets/Objects/wrench.png', block: false},      // 43= Wrench
+    { img : 'src/assets/Objects/broom.png', block: false},       // 44= Broom
+    { img : 'src/assets/Objects/wardrobe.png', block: false},    // 45= Wardrobe
+    { img : 'src/assets/Objects/nstand.png', block: false}       // 46= Nightstand
 
 ];
 
@@ -128,9 +132,44 @@ function addItems23(){
 //------------LEVEL 2.4------------------------------------------------------------------------------------------------------------
 
 function addItems24(){
-
-    addSprite(6,11,6); addSprite(23,11,8); addSprite(11,12,8); addSprite(26,6,7); addSprite(26,8,6); addSprite(10,8,10);
-    addSprite(25,6,9); addSprite(26,11,11); addSprite(2,5,6); addSprite(27,9,6)
+    if (!purchase6){
+        if (!purchase2){
+            addSprite(6,11,6); addSprite(23,11,8); addSprite(26,6,7); addSprite(26,8,6); addSprite(10,8,10);
+            addSprite(25,6,9); addSprite(26,11,11); addSprite(2,5,6);
+            if (!purchase3)
+                addSprite(11,12,8);
+            else
+                addSprite(43,12,8);
+        }
+        else{
+            addSprite(2,5,6); addSprite(6,11,6); addSprite(23,11,8); addSprite(44,9,6);
+            if (!purchase3)
+                addSprite(11,12,8);
+            else
+                addSprite(43,12,8);
+        }
+    }
+    else{
+        if (!purchase2){
+            addSprite(6,11,6); addSprite(23,11,8); addSprite(26,6,7); addSprite(26,8,6); addSprite(10,8,10);
+            addSprite(25,6,9); addSprite(26,11,11); addSprite(2,5,6); addSprite(35,9,9); addSprite(3,8,8); 
+            addSprite(31,12,10); addSprite(4,5,11); addSprite(31,10,11); addSprite(16,5,8); addSprite(8,8,6);
+            addSprite(31,8,9); addSprite(4,14,11); addSprite(46,11,7); addSprite(45,14,6); addSprite(14,13,7);
+            if (!purchase3)
+                addSprite(11,12,8);
+            else
+                addSprite(43,12,8);
+        }
+        else{
+            addSprite(2,5,6); addSprite(6,11,6); addSprite(23,11,8); addSprite(44,9,6); addSprite(35,9,9); addSprite(3,8,8); 
+            addSprite(31,12,10); addSprite(4,5,11); addSprite(31,10,11); addSprite(16,5,8); addSprite(8,8,6);
+            addSprite(31,8,9); addSprite(4,14,11); addSprite(46,11,7); addSprite(45,14,6); addSprite(14,13,7);
+            if (!purchase3)
+                addSprite(11,12,8);
+            else
+                addSprite(43,12,8);
+        }
+    }
 }
 
 //------------LEVEL 3--------------------------------------------------------------------------------------------------------------

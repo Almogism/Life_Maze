@@ -1,3 +1,5 @@
+let originalPlayerSpeed = 0.075;
+
 //Creating the player object with the initial values.
 var player = {
     x: 2,
@@ -5,7 +7,7 @@ var player = {
     direction: 0,		// right 1 left -1
     rotation: 0,		// the current angle of rotationation
     vertical: 0,		// forward 1 backwards -1
-    moveSpeed: 0.2,	// step/update
+    moveSpeed: originalPlayerSpeed,	// step/update
     rotationSpeed: 5,	// rotation each update (in degrees)
     horizontal: false   // right 1 left -1
 }
@@ -164,7 +166,9 @@ function drawRay(rayX, rayY) {
 function addKeys() {
     let objectiveVisibility = true;
     var objectives = $('objectives');
-
+    let shopHidden = true;
+    var shop = $("shop");
+    //shop.style.visibility = "hidden";
     document.onkeydown = function (event) {
         event = event || window.event;
 
@@ -178,9 +182,7 @@ function addKeys() {
                 player.direction = -1; break;
             case 68: // A - rotate left
                 player.direction = 1; break;
-            // case 16: //dimScreen(); setTimeout(() => { dedimScreen();}, 2000); break;
-            //     //slowPanning(); break;
-            case 16:
+            case 79:
                 if (objectiveVisibility){
                     objectives.style.display = "none";
                     objectiveVisibility = false;
@@ -190,7 +192,16 @@ function addKeys() {
                     objectiveVisibility = true;
                 }
                 break;
-            case 9: insertObjective(); break;
+            case 69:
+                if (shopHidden){
+                    shop.style.visibility = "visible";
+                    shopHidden = false;
+                }
+                else {
+                    shop.style.visibility = "hidden";
+                    shopHidden = true;
+                }
+                break;
         }
     }
 
