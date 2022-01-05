@@ -52,7 +52,7 @@ function stats(){
 
 
 //Render cycle for the game, to update the game live.
-function renderCycle() {
+async function renderCycle() {
 
     updateMap(); //Update map every render for objects.
     castRays(); //Casting rays for the player.

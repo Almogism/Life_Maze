@@ -174,19 +174,35 @@ app.post('/login',(req,res)=>{
 //-get into game
 app.post('/switch-level',(req,res)=>{
     const level = req.body.level;
-    console.log(level);
-    //db level quary
+    db.query('UPDATE users SET level = ? WHERE userName = ?',[level,usernamename],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }  
+        console.log(results.affectedRows + " record(s) updated");
+    })
 });
+//get the level from the db
+app.get('/get-first-level', (req, res) => {
+    db.query('SELECT level FROM users WHERE userName = ? ',[usernamename],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        var leveldb = results.level;
+        res.send({level : results[0].level});
+    })
+});
+var usernamename= undefined;
+//console.log(usernamename);
 app.post('/next',(req,res)=>{
     
     const username = req.body.myusername;
     const password = req.body.password;
+    usernamename =username;
+    //console.log(usernamename);
     db.query('SELECT password FROM users WHERE userName = ? ',[username],async(error,results)=>{
         if(error){
             console.log(error);
         }
-        console.log(results.length);
-        
         if(results.length==0){
             console.log('wrong user name or paswword');
             res.render('login2');
@@ -205,4 +221,4 @@ app.post('/next',(req,res)=>{
     }
     )
     
-})
+});

@@ -1,4 +1,3 @@
-
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
@@ -134,7 +133,7 @@ let mission4 = false;
 let mission41 = false;
 let mission5 = false;
 let mission51 = false;
-//let mission = false;
+let sync = false;
 //let mission = false;
 //let mission = false;
 //let mission = false;
@@ -142,8 +141,13 @@ let mission51 = false;
 //let mission = false;
 //let mission = false;
 
+let globalLevel;
 //Check player location to commence events.
 function checkPlayerLocation(){
+    if (!sync){
+        sync = true;
+        switchLevels(4);
+    }
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
         freezePlayer();
@@ -599,8 +603,14 @@ function playerBetween(x1,x2,y1,y2){
     return false;
 }
 
+
 //Switching levels.
 async function switchLevels(level){
+    if (!globalLevel){
+        const response = await fetch('/get-first-level', { headers: { 'Content-Type': 'application/json' } }).then(response => response.json());
+        globalLevel = response.level;
+        alert(globalLevel);
+    }
     switch (level) {
         case 1:
             
@@ -905,11 +915,12 @@ async function switchLevels(level){
         default:
             break;
     }
-
     await fetch('/switch-level', {
-        type: 'POST',
-        body: {
-            level,
-        }
-    });
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ level }),
+      });
+
 }
