@@ -44,4 +44,24 @@ form{
 
 }
 
+.welcome-title h1{
+    font-size: 52px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
 
+}
+.game-title h2{
+    font-size: 30px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
+
+} 
+.intro-questions p{
+    font-size: 20px;
+    line-height: 10px;
+    color: white;
+    font-family:sans-serif;
+
+}
