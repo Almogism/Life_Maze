@@ -1,0 +1,206 @@
+body {
+    background: linear-gradient(to bottom, #69532f 0%, #a3772e 22%, #835019 62%, #5e3a11 100%);
+}
+#loading {
+    /*position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    width: 100px; 
+    height: 100px; 
+    background-color: black;
+    color:black;*/
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 100000;
+}
+
+.container {
+    direction: rtl;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    height:250px;
+    width:250px;
+    position: fixed;
+    opacity: 0.8;
+    top:90%;
+    left:95%;
+    transform: translate(-95%,-90%);
+    text-align: center;
+    color: black;
+    z-index: 1000000;
+}
+
+.title {
+    font-size:30px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    text-decoration: underline;
+}
+
+.objective1 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.objective2 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.objective3 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+.objective4 {
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}
+
+.shop{
+    direction: rtl;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: fixed;
+    opacity: 0.8;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: black;
+    z-index: 1000000;
+    visibility: hidden;
+}
+
+.money:before {
+    content: url('assets/coin.png');
+}
+
+.money{
+    font-size:20px;
+    font-weight: bold;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.item1{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -23%);
+    cursor: pointer;
+}
+
+.item2{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -36%);
+    cursor: pointer;
+}
+
+.item3{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -49%);
+    cursor: pointer;
+}
+
+.item4{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -62%);
+    cursor: pointer;
+}
+
+.item5{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    cursor: pointer;
+}
+
+.item6{
+    font-size:20px;
+    width:300px;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -88%);
+    cursor: pointer;
+}
+#screen {
+    position: absolute;
+    margin: auto;
+    left: 0; top: 0; bottom: 0; right: 0;
+    border: 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+#map {
+    background: rgba(255, 255, 255, 0.5);
+    position: relative;
+    left: 10px;
+    top: 10px;
+    z-index: 99999;
+}
+
+#minimap { position: absolute; }
+#objects { position: absolute; }
+
+#floor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000 50%, #42301c 100%);
+}
+
+#ceiling {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-image: url("assets/ceiling.jpg");
+}
+
+
+.swal2-container {
+    z-index: 100000000000000;
+}
