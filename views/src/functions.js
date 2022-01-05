@@ -1,3 +1,4 @@
+
 //Freeze player for transitions and events.
 function freezePlayer(){
     player.moveSpeed = 0;
@@ -599,9 +600,10 @@ function playerBetween(x1,x2,y1,y2){
 }
 
 //Switching levels.
-function switchLevels(level){
+async function switchLevels(level){
     switch (level) {
         case 1:
+            
             alert("Error!\nSavta shelha.");
             break;
         case 21:
@@ -903,4 +905,11 @@ function switchLevels(level){
         default:
             break;
     }
+
+    await fetch('/switch-level', {
+        type: 'POST',
+        body: {
+            level,
+        }
+    });
 }

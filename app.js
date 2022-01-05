@@ -5,6 +5,7 @@ var path = require('path');
 const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
+
 //const { a } = require("swig/lib/dateformatter");
 
 
@@ -171,6 +172,11 @@ app.post('/login',(req,res)=>{
 })
 
 //-get into game
+app.post('/switch-level',(req,res)=>{
+    const level = req.body.level;
+    console.log(level);
+    //db level quary
+});
 app.post('/next',(req,res)=>{
     
     const username = req.body.myusername;
