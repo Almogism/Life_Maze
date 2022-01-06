@@ -192,7 +192,7 @@ input[type="button"]:hover{
 button[type="submit"]{
     width: 100%;
     height: 50px;
-    border: 1px solid;
+    border: 2px solid;
     background: #2691d9;
     border-radius: 25px;
     font-size: 18px;
@@ -200,6 +200,7 @@ button[type="submit"]{
     font-weight: 700;
     cursor: pointer;
     outline: none;
+    margin-bottom: 15px;
 }
 button[type="submit"]:hover{
     border-color: #2691d9;
@@ -220,3 +221,31 @@ button[type="submit"]:hover{
     text-decoration: underline;
 }
 
+.gen{
+    margin-left : 40px;
+    margin-right: -10px;
+}
+
+.ser{
+    margin-left : 30px;
+    margin-right: -10px;
+}
+
+#guidebtn{
+    width: 100%;
+    height: 50px;
+    border: 2px solid;
+    background-color: crimson;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#guidebtn:hover{
+    border-color: crimson;
+    transition: .5s;
+}
