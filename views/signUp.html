@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="center" style="margin-top: 80px;">
-    <h1>LifeMaze - הרשמה</h1>
+    <h1>הרשמה</h1>
     <form action="/login" method="POST">
         <div class="txt_field">
             <input type="text" required style="text-align: center;" id = "myusername" name = "myusername" placeholder="שם משתמש">
@@ -19,25 +19,24 @@
             <input type="text" required style="text-align: center;" id = "myname" name="name" placeholder="שם פרטי">
             <span></span>
         </div>
-        <br>
          <div id="service" class="radio1">
          <h4>איפה שירתת?</h4>
          <input type="radio" id="service" name="service" value="service">
-         <label for="service">שירות לאומי</label><br>
+         <label for="service" class = "ser">שירות לאומי</label>
          <input type="radio" id="service" name="service" value="army">
-         <label for="army">צבא הגנה לישראל</label><br>
+         <label for="army" class = "ser">צבא הגנה לישראל</label>
         </div>
 
          <div id="gender" class="radio2">
          <h4>זכר או נקבה?</h4>
          <input type="radio" id="gender" name="gender" value="male">
-         <label for="male">זכר</label><br>
+         <label for="male" class = "gen">זכר</label>
         
          <input type="radio" id="gender" name="gender" value="female">
-         <label for="female">נקבה</label><br>
+         <label for="female" class = "gen">נקבה</label>
 
          <input type="radio" id="gender" name="gender" value="other">
-         <label for="other">אחר</label><br>
+         <label for="other" class = "gen">אחר</label>
         
         </div>
 
@@ -54,7 +53,8 @@
         </div>
         
         <button  type ="submit" class="btn btn-primary" >הרשמה</button>
-        
+
+        <button  type ="button" id ="guidebtn" onclick="location.href='/videopage'" class="btn btn-primary" >לסרטון הדרכה</button>
 
     </form>
     </div>
