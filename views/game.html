@@ -1,18 +1,7 @@
 <html>
-
-<!-- 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-
 <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
-    
-<!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
-
-
-
-
 <script src="src/functions.js" type="text/javascript"></script>
 <script src="src/shop.js" type="text/javascript"></script>
 <script src="src/entities.js" type="text/javascript"></script>
@@ -29,7 +18,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-    
+    <canvas id="pauseCanvas"></canvas>
     <div id="screen">
         <div id="floor"></div>
         <div id="ceiling"></div>
@@ -59,6 +48,7 @@
         <div class="item5" id="item5" onclick="buyOven()">???</div>
         <div class="item6" id="item6" onclick="buyFurniture()">???</div>
     </div>
+    <h1 id="pauseText">M - Toggle minimap<br>P - Snap a screenshot<br>Esc - Toggle pause menu<br>O - Toggle objectives<br>Y - Toggle music player<br>E - Inventory</h1>
     <audio id="pauseAudio" controls autoplay="" loop=""><source src="../MapleStory8bit.mp3"></audio>
 </body>
 
