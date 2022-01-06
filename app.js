@@ -5,6 +5,7 @@ var path = require('path');
 const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
+const { resolveRunner } = require("jest-resolve");
 
 
 dotenv.config({path: './.env'});
@@ -90,6 +91,9 @@ app.get('/recoverPassword',(req,res)=>{
 })
 app.get('/toAdd',(req,res)=>{
     res.render('toAdd');
+})
+app.get('/game_continue',(req,res)=>{
+    res.render('game');
 })
 //---------- post
 // /signup -> login
@@ -181,7 +185,19 @@ app.post('/next',(req,res)=>{
 
 
        if( bcrypt.compareSync(password,pass)){
-           res.render('game');
+           db.query('SELECT level FROM users WHERE userName = ?',[username],async(er,re)=>{
+                if(error){
+                    console.log(er);
+                }
+                if(re[0].level != 1){
+                    res.render('levelask');
+                    return;
+                }
+                else{
+                    res.render('game');
+                }
+           });
+           
        }
        else{
          res.render('login2');
@@ -190,4 +206,13 @@ app.post('/next',(req,res)=>{
     )
     
 });
+app.post('/game_continue',(req,res)=>{
+    db.query('UPDATE users SET level = ? WHERE userName = ?',[1,usernamename],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        res.render('game');
+    })
+})
+
 module.exports = app;
