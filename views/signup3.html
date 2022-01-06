@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<link rel="icon" type="image/png" href="/assets/lifemazelogo.png">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>Signup form</title>
@@ -8,94 +9,52 @@
 </head>
 <body>
     <div class="center" style="margin-top: 80px;">
-    <h1>LifeMaze - הרשמה</h1>
-    <h4>קיים כבר שם משתמש כזה בבקשה נסה לבחור שם משתמש אחר</h4>
+    <h1>הרשמה</h1>
+    <h4 style="margin-right: 19px; color: red; font-style: italic;">קיים כבר שם משתמש כזה, נסה לבחור שם משתמש אחר</h4>
     <form action="/login" method="POST">
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myusername" name = "myusername">
+            <input type="text" required style="text-align: center;" id = "myusername" name = "myusername" placeholder="שם משתמש">
             <span></span>
-            <label>שם משתמש</label>
         </div>
         <div class="txt_field">
-            <input type="text" required style="text-align: center;" id = "myname" name="name">
+            <input type="text" required style="text-align: center;" id = "myname" name="name" placeholder="שם פרטי">
             <span></span>
-            <label>שם פרטי</label>
         </div>
-        <br>
          <div id="service" class="radio1">
-         <h4>?איפה שירתת</h4>
+         <h4>איפה שירתת?</h4>
          <input type="radio" id="service" name="service" value="service">
-         <label for="service">שירות לאומי</label><br>
-        <span class="checkmark"></span>
+         <label for="service" class = "ser">שירות לאומי</label>
          <input type="radio" id="service" name="service" value="army">
-         <label for="army">צבא הגנה לישראל</label><br>
+         <label for="army" class = "ser">צבא הגנה לישראל</label>
         </div>
 
          <div id="gender" class="radio2">
-         <h4>?זכר או נקבה</h4>
+         <h4>זכר או נקבה?</h4>
          <input type="radio" id="gender" name="gender" value="male">
-         <label for="male">זכר</label><br>
+         <label for="male" class = "gen">זכר</label>
         
          <input type="radio" id="gender" name="gender" value="female">
-         <label for="female">נקבה</label><br>
+         <label for="female" class = "gen">נקבה</label>
 
          <input type="radio" id="gender" name="gender" value="other">
-         <label for="other">אחר</label><br>
+         <label for="other" class = "gen">אחר</label>
         
         </div>
-<!--
-        <div id="service" class="radio1">
-        <h4>?איפה שירתת</h4>
-        <label class="container">שירות לאומי
-            <input type="radio" name = service id = myservice required>
-            <span class="checkmark"></span>
-          </label>
-        </div>
-        <div id="service" class="radio1">
-        <label class="container">צבא ההגנה לישראל  
-            <input type="radio" name = service id = myservice>
-            <span class="checkmark"></span>
-          </label>
-        </div>
 
-        <div id="gender" class="radio2">
-        <h4>?זכר או נקבה</h4>
-            <label class="container">זכר   
-                <input type="radio" name = genders id = mygender required>
-                <span class="checkmark"></span>
-              </label>
-            </div>
-
-        <div id="gender" class="radio2">
-            <label class="container">נקבה   
-                <input type="radio" name = genders id = mygender>
-                <span class="checkmark"></span>
-              </label>
-            </div>
-        <div id="gender" class="radio2">
-            <label class="container">אחר   
-                <input type="radio" name = genders id = mygender>
-                <span class="checkmark"></span>
-              </label>
-            </div>
-
--->
         <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
+            <input type="password" required style="text-align: center;" id = "mypassword" name = "password" placeholder="סיסמא">
             <span></span>
-            <label>סיסמא</label>
-        </div>
-        
-        <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword2" name = "passwordConfirm">
-            <span></span>
-            <label>אישור סיסמא</label>
-        </div>
-
-        <button  type ="submit" class="btn btn-primary" >!להירשם</button>
-
-    </form>
             
+        </div>
+        
+        <div class="txt_field">
+            <input type="password" required style="text-align: center;" id = "mypassword2" name = "passwordConfirm" placeholder="אישור סיסמא">
+            <span></span>
+            
+        </div>
+        
+        <button  type ="submit" class="btn btn-primary" >הרשמה</button>
+    </form>
     </div>
 
 </body>
