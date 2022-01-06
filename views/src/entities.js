@@ -58,7 +58,7 @@ var entityTypes = [
     //Doggy dog :)
     {
         img: 'src/assets/Entities/originalDoggydog.png',
-        moveSpeed: 0.15,
+        moveSpeed: 0.05,
         rotSpeed: 5,
         numOfStates: 9
     }
