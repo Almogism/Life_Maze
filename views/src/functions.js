@@ -141,10 +141,12 @@ let sync = false;
 //let mission = false;
 //let mission = false;
 let globalLevel;
+let globalMoney;
 //Check player location to commence events.
 function syncronize(state){
     switch (state) {
         case 1:
+            setMoney(1200);
             break;
         case 21:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
@@ -662,6 +664,8 @@ async function switchLevels(level){
         const response = await fetch('/get-first-level', { headers: { 'Content-Type':
         'application/json' } }).then(response => response.json());
         globalLevel = response.level;
+        globalMoney= response.money;
+        alert(globalMoney);
         syncronize(globalLevel);
     }
     switch (level) {
@@ -971,6 +975,6 @@ async function switchLevels(level){
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ level }),
+        body: JSON.stringify({ level:level , money : globalMoney }),
       });
 }
