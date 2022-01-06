@@ -84,7 +84,7 @@ app.get('/',(req,res)=>{
 */
 //--------- routes
 app.get('/',(req,res)=>{
-    res.status(200).json({ name: 'john' });
+    //res.status(200).json({ name: 'john' });
     res.render('firstpage');
 })
 

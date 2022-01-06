@@ -1,7 +1,6 @@
 # Life_Maze
-Life Maze game.
+welcome to Life Maze game.
+For this game you would need a stable internet connection, a keyboard, screen and a mouse.
+You could use any browser you have installed on your computer.
+Enjoy!
 
-host = 127.0.0.1
-user = root
-password = aalleexx
-database = lifemazesql
