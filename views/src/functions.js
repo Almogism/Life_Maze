@@ -141,10 +141,12 @@ let sync = false;
 //let mission = false;
 //let mission = false;
 let globalLevel;
+let globalMoney;
 //Check player location to commence events.
 function syncronize(state){
     switch (state) {
         case 1:
+            setMoney(1200);
             break;
         case 21:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
@@ -469,8 +471,8 @@ function checkPlayerLocation(){
             imageWidth: 200,
             imageHeight: 150,  
             showDenyButton: true,
-            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',
-            denyButtonText: 'רציתי לקבל מידע רלוונטי עבור חיילים משוחררים',
+            confirmButtonText: 'השתחררתי לפני חודש מהצבא ואני קצת מבולבל',  
+            denyButtonText: `רציתי לקבל מידע רלוונטי עבור מסיימי שירות לאומי`,
         }).then((result) => {
             if ((result.isConfirmed) ||  (result.isDenied)){
                 Swal.fire({
@@ -662,6 +664,7 @@ async function switchLevels(level){
         const response = await fetch('/get-first-level', { headers: { 'Content-Type':
         'application/json' } }).then(response => response.json());
         globalLevel = response.level;
+        globalMoney= response.money;
         syncronize(globalLevel);
     }
     switch (level) {
@@ -971,6 +974,6 @@ async function switchLevels(level){
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ level }),
+        body: JSON.stringify({ level:level , money : globalMoney }),
       });
 }

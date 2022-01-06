@@ -2,6 +2,11 @@
 <link rel="icon" type="image/png" href="/assets/lifemazelogo.png">
 <html lang="en" dir="rtl">
 
+    <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
 <head style="direction: rtl;">
 
     <div class="intro-help-hover" style="direction: rtl;">
@@ -16,17 +21,60 @@
     width="36" height="36" /></p> </div> 
         <script>
             function copyLink(){
-                navigator.clipboard.writeText("https://lifemaze.com/");
+                navigator.clipboard.writeText("lifemaze.online");
+                Swal.fire('הקישור הועתק');
             }
+            let flag = true;
+            
+            function settingz(){
+                Swal.fire({
+                    title: 'הגדרות',
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Light/Dark Theme',
+                    denyButtonText: `Credits`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            if (flag){
+                                flag=false;
+                                document.getElementById("center").style.background = "#333232";
+                                document.getElementById("koteret").style.color = "white";
+                            }
+                            else {
+                                flag=true;
+                                document.getElementById("center").style.background = "white";
+                                document.getElementById("koteret").style.color = "black";
+                            }
+                        } 
+                        else if (result.isDenied) {
+                            Swal.fire({
+                                title: 'Credits',
+                                html: "בר שורץ <br> אלמוג בוקובזה <br> אלכס סביצקי <br> הדר איזקסון",
+                                width: 600,
+                                padding: '3em',
+                                color: '#716add',
+                                imageWidth: 2000,
+                                imageHeight: 1500, 
+                                backdrop: `
+                                    rgba(0,0,123,0.4)
+                                    url("https://c.tenor.com/WJG99yy8tTsAAAAi/tongue-out-dazed.gif")
+                                    center right
+                                    repeat`
+                            })
+                        }
+                })
+            }
+
         </script>
 
 
-    <p style="text-align: right;"><img src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" alt="" 
+    <p style="text-align: right;"><img onclick="settingz()" src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" alt="" 
         title="הגדרות" 
         width="36" height="36" /></p>
     <p style="text-align: right;"><img onclick="copyLink()" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/344/external-share-cryptocurrency-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt="" 
         title="שיתוף" 
         width="36" height="36" /></p>
+
 
 
     <meta charset="UTF-8">
@@ -36,8 +84,8 @@
 </head>
 
 <body style="direction: rtl;" id="log-in"> 
-    <div class="center">
-    <h1>Life Maze</h1>
+    <div class="center" id="center">
+    <h1 id="koteret">Life Maze</h1>
     <form action="/next" method="POST" >
 
     <div class="txt_field">
@@ -52,7 +100,7 @@
     </div>
 
     <!--<input type="submit" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">-->
-    <button type="submit" class="btn btn-primary" onclick="location.href='game.html'">כניסה למשחק </button>
+    <button type="submit" class="btn btn-primary">כניסה למשחק </button>
     <div class="signup_link">
     <input type="button" value="הרשמה" style="margin-bottom: -200px;" onclick="location.href='/signUp'">
     <br> <br> <br>
