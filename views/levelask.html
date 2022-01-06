@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<link rel="icon" type="image/png" href="/assets/lifemazelogo.png">
+<html lang="en" dir="rtl">
 
 <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
 <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
-<head>
-    <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
-    title="!ברוכים הבאים
-    .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
-    .התנועה במשחק היא באמצעות העכבר וחצי המקלדת
-    .כדי לכבות או להפעיל את מפת המשחק M לחצו על" style="text-align: right;"
-    width="36" height="36" /></p>
+<head style="direction: rtl;">
+
+    <div class="intro-help-hover" style="direction: rtl;">
+    <p style="direction: rtl;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    title=
+    "    ברוכים הבאים🎉 
+    מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה. 
+    התנועה במשחק היא באמצעות העכבר ומקשים W A S D.
+    כדי לכבות ולהפעיל את מפת המשחק  לחצו על M.
+    כדי להפעיל ולכבות את חנות החפצים לחצו E."
+    
+    width="36" height="36" /></p> </div> 
     <script>
         function copyLink(){
             navigator.clipboard.writeText("lifemaze.online");
@@ -33,13 +39,11 @@
                             flag=false;
                             document.getElementById("center").style.background = "#333232";
                             document.getElementById("koteret").style.color = "white";
-                            document.getElementById("koteret2").style.color = "white";
                         }
                         else {
                             flag=true;
                             document.getElementById("center").style.background = "white";
                             document.getElementById("koteret").style.color = "black";
-                            document.getElementById("koteret2").style.color = "black";
                         }
                     } 
                     else if (result.isDenied) {
@@ -77,37 +81,18 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body id="log-in"> 
-    <div class="center" id="center">
-    <h1 id ="koteret">Life Maze</h1>
-    <h1 id="koteret2" style="font-size: x-large;">סיסמא או שם משתמש לא נכונים</h1>
-    <form action="/next" method="POST" >
 
-    <div class="txt_field">
-            <input type="text" required style="text-align: center;"id = "myusername" name = "myusername">
-            <span></span>
-            <label>שם משתמש</label>
-    </div>
-    <div class="txt_field">
-            <input type="password" required style="text-align: center;" id = "mypassword" name = "password">
-            <span></span>
-            <label>סיסמא</label>
-    </div>
-
-
-    <div class="pass" onclick="location.href='/recoverPassword'">?שכחת סיסמא</div>
-    <!--<input type="submit" value="כניסה למשחק" style="margin-bottom: -200px;" onclick="location.href='/game'">-->
-    <button type="submit" class="btn btn-primary" >כניסה למשחק </button>
+<body style="direction: rtl;" id="log-in"> 
+    <div class="center" id = "center">
+    <h1 style="font-size:x-large;" id = "koteret">היי, היית פה כבר! <br> תרצה להתחיל מהשלב שהיית בו?</h1>
+    <form action="/game_continue" method="post" >
+    <button type="submit" class="btn btn-primary">תחזיר אותי לשלב הראשון  </button>
     <div class="signup_link">
-    <input type="button" value="הרשמה" style="margin-bottom: -200px;" onclick="location.href='/signUp'">
-    <br>
-    <br>
-    <br>
-    <div class="pass" style="text-align:center" onclick="location.href='/contactdev'">צור קשר</div>
-    
-
+    <input type="button" value="תמשיך מהשלב שעצרתי" style="margin-bottom: -200px;" onclick="location.href='/game'">
+    <br> <br> <br>
     </div>
     </form>
+
     </div>
 </body>
 </html>
