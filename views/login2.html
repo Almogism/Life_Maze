@@ -5,66 +5,70 @@
 <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
 <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
 <head>
-    <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
-    title="!ברוכים הבאים
-    .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
-    .התנועה במשחק היא באמצעות העכבר וחצי המקלדת
-    .כדי לכבות או להפעיל את מפת המשחק M לחצו על" style="text-align: right;"
+    <p style="text-align: right;"><img onclick="help()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    title="כפתור עזרה" style="text-align: right;"
     width="36" height="36" /></p>
-    <script>
-        function copyLink(){
-            navigator.clipboard.writeText("lifemaze.online");
-            Swal.fire('הקישור הועתק');
-        }
-        let flag = true;
-        
-        function settingz(){
-            Swal.fire({
-                title: 'הגדרות',
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: 'Light/Dark Theme',
-                denyButtonText: `Credits`,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        if (flag){
-                            flag=false;
-                            document.getElementById("center").style.background = "#333232";
-                            document.getElementById("koteret").style.color = "white";
-                            document.getElementById("koteret2").style.color = "white";
+        <script>
+            function copyLink(){
+                navigator.clipboard.writeText("lifemaze.online");
+                Swal.fire('הקישור הועתק');
+            }
+
+            function help(){
+                Swal.fire({
+                    icon: 'question',
+                    title: 'עזרה',
+                    html: "זזים באמצעות מקשי הW,A,S,D <br> לחצו על ESC על מנת לעצור את המשחק ולהיזכר שנית במקשים <br> לחצו על E על מנת לפתוח או לסגור את חנות החפצים <br> לחצו על O על מנת לפתוח או לסגור את ההכוונה במהלך המשחק <br> לחצו על Y על מנת לפתוח או לסגור את נגן המוזיקה של המשחק <br> לחצו על M על מנת להציג או להסתיר את מפת המשחק"
+                })
+            }
+
+            let flag = true;
+            function settingz(){
+                Swal.fire({
+                    title: 'הגדרות',
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Light/Dark Theme',
+                    denyButtonText: `Credits`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            if (flag){
+                                flag=false;
+                                document.getElementById("center").style.background = "#333232";
+                                document.getElementById("koteret").style.color = "white";
+                                document.getElementById("koteret2").style.color = "white";
+                            }
+                            else {
+                                flag=true;
+                                document.getElementById("center").style.background = "white";
+                                document.getElementById("koteret").style.color = "black";
+                                document.getElementById("koteret2").style.color = "black";
+                            }
+                        } 
+                        else if (result.isDenied) {
+                            Swal.fire({
+                                title: 'Credits',
+                                html: "בר שורץ <br> אלמוג בוקובזה <br> אלכס סביצקי <br> הדר איזקסון",
+                                width: 600,
+                                padding: '3em',
+                                color: '#716add',
+                                imageWidth: 2000,
+                                imageHeight: 1500, 
+                                backdrop: `
+                                    rgba(0,0,123,0.4)
+                                    url("https://c.tenor.com/WJG99yy8tTsAAAAi/tongue-out-dazed.gif")
+                                    center right
+                                    repeat`
+                            })
                         }
-                        else {
-                            flag=true;
-                            document.getElementById("center").style.background = "white";
-                            document.getElementById("koteret").style.color = "black";
-                            document.getElementById("koteret2").style.color = "black";
-                        }
-                    } 
-                    else if (result.isDenied) {
-                        Swal.fire({
-                            title: 'Credits',
-                            html: "בר שורץ <br> אלמוג בוקובזה <br> אלכס סביצקי <br> הדר איזקסון",
-                            width: 600,
-                            padding: '3em',
-                            color: '#716add',
-                            imageWidth: 2000,
-                            imageHeight: 1500, 
-                            backdrop: `
-                                rgba(0,0,123,0.4)
-                                url("https://c.tenor.com/WJG99yy8tTsAAAAi/tongue-out-dazed.gif")
-                                center right
-                                repeat`
-                        })
-                    }
-            })
-        }
-
-    </script>
+                })
+            }
+        </script>
 
 
-    <p style="text-align: right;"><img onclick="settingz()" src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" alt="" 
+    <p style="text-align: right;"><img onclick="settingz()"  src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" alt="" 
+
         title="הגדרות" 
         width="36" height="36" /></p>
     <p style="text-align: right;"><img onclick="copyLink()" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/344/external-share-cryptocurrency-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt="" 

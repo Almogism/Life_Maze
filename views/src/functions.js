@@ -471,8 +471,8 @@ function checkPlayerLocation(){
             imageWidth: 200,
             imageHeight: 150,  
             showDenyButton: true,
-            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',
-            denyButtonText: 'רציתי לקבל מידע רלוונטי עבור חיילים משוחררים',
+            confirmButtonText: 'השתחררתי לפני חודש מהצבא ואני קצת מבולבל',  
+            denyButtonText: `רציתי לקבל מידע רלוונטי עבור מסיימי שירות לאומי`,
         }).then((result) => {
             if ((result.isConfirmed) ||  (result.isDenied)){
                 Swal.fire({
@@ -884,6 +884,7 @@ async function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
+                relocatePlayer(7,10,0);
                 deleteSprites();
                 initSprites(24);
                 map = map24;

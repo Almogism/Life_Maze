@@ -168,6 +168,14 @@ function addKeys() {
     var objectives = $('objectives');
     let shopHidden = true;
     var shop = $("shop");
+    let mapHidden = false;
+    var miniMapz = $('map');
+    let menuHidden = true;
+    var menuz = $('pauseCanvas');
+    var info = $('pauseText');
+    let audioHidden = false;
+    var audioz = $('pauseAudio');
+
     //shop.style.visibility = "hidden";
     document.onkeydown = function (event) {
         event = event || window.event;
@@ -182,6 +190,39 @@ function addKeys() {
                 player.direction = -1; break;
             case 68: // A - rotate left
                 player.direction = 1; break;
+        }
+    }
+
+    document.onkeyup = function (event) {
+        event = event || window.event;
+
+        switch (event.keyCode) {
+            case 87: case 83:
+                player.vertical = 0;
+                break;
+            case 65: case 68:
+                player.direction = 0;
+                break;
+            case 80:
+                //Convert the game canvas to DataURL type.
+                var tempImage = gameCanvas.toDataURL('image/jpeg');
+                //Create a download function to simulate a mouse click event that triggers the download.
+                function downloadImage(tempData) {
+                    //Temporary download element.
+                    var download = document.createElement('a');
+                    //Set fields.
+                    download.href = tempData;
+                    download.target = '_blank';
+                    download.download = "Screenshot.jpeg";
+                    //(evt = event)
+                    var evt = document.createEvent('MouseEvents');
+                    //Initialize mouse click.
+                    evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0,
+                        false, false, false, false, 0, null);
+                    download.dispatchEvent(evt);
+                }
+                downloadImage(tempImage);
+                break;
             case 79:
                 if (objectiveVisibility){
                     objectives.style.display = "none";
@@ -196,25 +237,46 @@ function addKeys() {
                 if (shopHidden){
                     shop.style.visibility = "visible";
                     shopHidden = false;
+                    freezePlayer();
                 }
                 else {
                     shop.style.visibility = "hidden";
                     shopHidden = true;
+                    resetPlayer();
                 }
                 break;
-        }
-    }
-
-    document.onkeyup = function (event) {
-        event = event || window.event;
-
-        switch (event.keyCode) {
-            case 87: case 83:
-                player.vertical = 0;
+            case 77:
+                if (mapHidden){
+                    mapHidden = false;
+                    miniMapz.style.opacity = 1;
+                }
+                else{
+                    mapHidden = true;
+                    miniMapz.style.opacity = 0;
+                }
                 break;
-            case 65: case 68:
-                player.direction = 0;
+            case 27:
+                if (menuHidden){
+                    menuHidden = false;
+                    menuz.style.opacity = 1;
+                    info.style.opacity = 1;
+                }
+                else {
+                    menuHidden = true;
+                    menuz.style.opacity = 0;
+                    info.style.opacity = 0;
+                }
                 break;
+            case 89:
+                if(audioHidden){
+                    audioHidden = false;
+                    audioz.style.visibility = "visible";
+                }
+                else{
+                    audioHidden = true;
+                    audioz.style.visibility = "hidden";
+                }
+            break;
         }
     }
 }
