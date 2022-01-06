@@ -1,3 +1,4 @@
+/*--------- require dependencies -----------*/
 const express = require("express");
 const dotenv = require("dotenv");
 const mysql = require("mysql");
@@ -6,15 +7,22 @@ const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
 
-
-dotenv.config({path: './.env'});
 const app = express();
+
+/*---------------- app use -----------------*/
+app.use(express.static('views'));
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
+
 app.engine('html', cons.swig)
 app.set('view engine', 'html');
 
 
-//create conection to the data base (db)
 
+
+
+/*--create conection to the data base (db)--*/
+dotenv.config({path: './.env'});
 var db_config = {
     host: process.env.host,
       user: process.env.user,
@@ -45,34 +53,18 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
-/*
-db.connect((error)=>{
-    if(error){
-        console.log(error);
-    }
-    else{
-        console.log("mysql connected :)");
-    }
-})
-*/
-//---------------------------
-app.use(express.static('views'));
-//------------------------------
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: true }))
 
+/*---------------- listen to port -----------------*/
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, err => {
     if(err) throw err;
     console.log("%c Server running", "color: green");
 });
 
-//--------- routes
+/*---------------- gets function -----------------*/
 app.get('/',(req,res)=>{
-    res.status(201);
     res.render('firstpage');
 })
-
 app.get('/login',(req,res)=>{
     res.render('login');
 })
@@ -109,13 +101,12 @@ app.get('/get-first-level', (req, res) => {
 });
 
 
-//------------------- post -----------------------
+//------------------- posts -----------------------
 
 var usernamename= undefined;
 
 // signup -> login
 app.post('/login',(req,res)=>{
-    
     console.log(req.body);
     //getting the info from html
     const username = req.body.myusername;
