@@ -168,6 +168,10 @@ function addKeys() {
     var objectives = $('objectives');
     let shopHidden = true;
     var shop = $("shop");
+    var menuz = $('pauseCanvas');
+    var info = $('pauseText');
+    let audioHidden = false;
+    var audioz = $('pauseAudio');
     //shop.style.visibility = "hidden";
     document.onkeydown = function (event) {
         event = event || window.event;
@@ -237,6 +241,16 @@ function addKeys() {
                     resetPlayer();
                 }
                 break;
+            case 89:
+                if(audioHidden){
+                    audioHidden = false;
+                    audioz.style.visibility = "visible";
+                }
+                else{
+                    audioHidden = true;
+                    audioz.style.visibility = "hidden";
+                }
+            break;
         }
     }
 }
