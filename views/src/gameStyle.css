@@ -6,7 +6,8 @@ body {
     width : 480px;
     height: 270px;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
     position: fixed;
     top:50%;
     left:50%;
@@ -24,7 +25,8 @@ h1{
     text-align: center;
     transform: translate(-50%,-45%);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
     color:white;
     -webkit-text-stroke: 1px black;
     text-shadow: 1px 1px 2px black;
@@ -47,7 +49,7 @@ audio{
     left:98%;
     width:18%;
     transform: translate(-98%,-5%);
-    opacity: 1;
+    opacity: 0.5;
     border-radius: 30px;
     border:solid 3px black;
     -webkit-box-shadow: 3px 3px 20px rgba(0,0, 0, 0.4);
@@ -141,6 +143,25 @@ audio{
     position: absolute;
     top: 5%;
     left: 5%;
+}
+
+.esc:before{
+    top: 5px;
+    position: relative;
+    content: url('assets/esc.png');
+}
+
+.esc{
+    font-size:20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    position: fixed;
+    top: 93%;
+    left: 1%;
+    opacity: 0.8;
+    z-index: 10000000;
+
+    bottom: 10px;
 }
 
 .item1{
