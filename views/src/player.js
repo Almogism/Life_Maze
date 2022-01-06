@@ -182,6 +182,39 @@ function addKeys() {
                 player.direction = -1; break;
             case 68: // A - rotate left
                 player.direction = 1; break;
+        }
+    }
+
+    document.onkeyup = function (event) {
+        event = event || window.event;
+
+        switch (event.keyCode) {
+            case 87: case 83:
+                player.vertical = 0;
+                break;
+            case 65: case 68:
+                player.direction = 0;
+                break;
+            case 80:
+                //Convert the game canvas to DataURL type.
+                var tempImage = gameCanvas.toDataURL('image/jpeg');
+                //Create a download function to simulate a mouse click event that triggers the download.
+                function downloadImage(tempData) {
+                    //Temporary download element.
+                    var download = document.createElement('a');
+                    //Set fields.
+                    download.href = tempData;
+                    download.target = '_blank';
+                    download.download = "Screenshot.jpeg";
+                    //(evt = event)
+                    var evt = document.createEvent('MouseEvents');
+                    //Initialize mouse click.
+                    evt.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0,
+                        false, false, false, false, 0, null);
+                    download.dispatchEvent(evt);
+                }
+                downloadImage(tempImage);
+                break;
             case 79:
                 if (objectiveVisibility){
                     objectives.style.display = "none";
@@ -196,24 +229,13 @@ function addKeys() {
                 if (shopHidden){
                     shop.style.visibility = "visible";
                     shopHidden = false;
+                    freezePlayer();
                 }
                 else {
                     shop.style.visibility = "hidden";
                     shopHidden = true;
+                    resetPlayer();
                 }
-                break;
-        }
-    }
-
-    document.onkeyup = function (event) {
-        event = event || window.event;
-
-        switch (event.keyCode) {
-            case 87: case 83:
-                player.vertical = 0;
-                break;
-            case 65: case 68:
-                player.direction = 0;
                 break;
         }
     }
