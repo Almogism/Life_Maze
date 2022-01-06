@@ -657,7 +657,7 @@ function playerBetween(x1,x2,y1,y2){
         return true;
     return false;
 }
-
+module.exports = playerBetween;
 //Switching levels.
 async function switchLevels(level){
     if (!globalLevel){
@@ -884,6 +884,7 @@ async function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
+                relocatePlayer(7,10,0);
                 deleteSprites();
                 initSprites(24);
                 map = map24;

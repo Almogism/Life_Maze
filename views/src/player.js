@@ -11,7 +11,7 @@ var player = {
     rotationSpeed: 5,	// rotation each update (in degrees)
     horizontal: false   // right 1 left -1
 }
-
+module.exports = player;
 //Movement function for the player.
 function move(timeDelta) {
     
@@ -168,6 +168,14 @@ function addKeys() {
     var objectives = $('objectives');
     let shopHidden = true;
     var shop = $("shop");
+    let mapHidden = false;
+    var miniMapz = $('map');
+    let menuHidden = true;
+    var menuz = $('pauseCanvas');
+    var info = $('pauseText');
+    let audioHidden = false;
+    var audioz = $('pauseAudio');
+
     //shop.style.visibility = "hidden";
     document.onkeydown = function (event) {
         event = event || window.event;
@@ -237,6 +245,38 @@ function addKeys() {
                     resetPlayer();
                 }
                 break;
+            case 77:
+                if (mapHidden){
+                    mapHidden = false;
+                    miniMapz.style.opacity = 1;
+                }
+                else{
+                    mapHidden = true;
+                    miniMapz.style.opacity = 0;
+                }
+                break;
+            case 27:
+                if (menuHidden){
+                    menuHidden = false;
+                    menuz.style.opacity = 1;
+                    info.style.opacity = 1;
+                }
+                else {
+                    menuHidden = true;
+                    menuz.style.opacity = 0;
+                    info.style.opacity = 0;
+                }
+                break;
+            case 89:
+                if(audioHidden){
+                    audioHidden = false;
+                    audioz.style.visibility = "visible";
+                }
+                else{
+                    audioHidden = true;
+                    audioz.style.visibility = "hidden";
+                }
+            break;
         }
     }
 }
