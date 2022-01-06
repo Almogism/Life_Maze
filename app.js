@@ -23,7 +23,6 @@ var db_config = {
       database: process.env.database
   };
 var db;
-
 function handleDisconnect() {
     db = mysql.createConnection(db_config); // Recreate the connection, since
                                                   // the old one cannot be reused.
@@ -44,7 +43,6 @@ function handleDisconnect() {
     }
   });
 }
-
 handleDisconnect();
 /*
 db.connect((error)=>{
@@ -106,11 +104,13 @@ app.get('/get-first-level', (req, res) => {
             console.log(error);
         }
         res.send({level : results[0].level, money: results[0].money});
-    })
-});
+    })});
 
-
+<<<<<<< Updated upstream
 //------------------- post -----------------------
+=======
+/*---------------- posts function -----------------*/
+>>>>>>> Stashed changes
 
 var usernamename= undefined;
 
