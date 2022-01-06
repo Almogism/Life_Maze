@@ -151,26 +151,21 @@ function syncronize(state){
         case 21:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             switchLevels(state);
-            insertObjective("לחפש דירה!");
             break;
         case 22:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             mission21 = true;
             switchLevels(state);
-            insertObjective("לחפש דירה!");
             break;
         case 23:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             mission21 = true; mission22 = true;
             switchLevels(state);
-            insertObjective("לחפש דירה!");
             break;
         case 24:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true;
-            insertObjective("לחפש דירה!");
-            canBuy = true;
             switchLevels(state);
             break;
         case 3:
@@ -178,14 +173,12 @@ function syncronize(state){
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true; mission3 = true;
             switchLevels(state);
-            insertObjective("ללכת לביטוח לאומי!");
             break;
         case 241:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true; mission3 = true; mission31 = true; mission4 = true;
             switchLevels(state);
-            insertObjective("ללכת לקרן להכוונה!");
             break;
         case 31:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
