@@ -41,6 +41,21 @@ h1{
     z-index: 100000;
 }
 
+audio{
+    position: fixed;
+    top:5%;
+    left:98%;
+    width:18%;
+    transform: translate(-98%,-5%);
+    opacity: 1;
+    border-radius: 30px;
+    border:solid 3px black;
+    -webkit-box-shadow: 3px 3px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 3px 3px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 3px 3px 20px rgba(0,0, 0, 0.4);
+    z-index: 10000000;
+}
+
 .container {
     direction: rtl;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
