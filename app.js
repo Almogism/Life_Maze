@@ -163,7 +163,6 @@ app.post('/switch-level',(req,res)=>{
 
 //login ->  into game
 app.post('/next',(req,res)=>{
-    res.status(201);
     const username = req.body.myusername;
     const password = req.body.password;
     if(!username){
@@ -188,7 +187,7 @@ app.post('/next',(req,res)=>{
                 if(error){
                     console.log(er);
                 }
-                if(re[0].level != 1){
+                if(re[0].level != 69){
                     res.render('levelask');
                     return;
                 }
