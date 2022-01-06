@@ -657,7 +657,7 @@ function playerBetween(x1,x2,y1,y2){
         return true;
     return false;
 }
-
+module.exports = playerBetween;
 //Switching levels.
 async function switchLevels(level){
     if (!globalLevel){

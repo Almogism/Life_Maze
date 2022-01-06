@@ -11,7 +11,7 @@ var player = {
     rotationSpeed: 5,	// rotation each update (in degrees)
     horizontal: false   // right 1 left -1
 }
-
+module.exports = player;
 //Movement function for the player.
 function move(timeDelta) {
     
