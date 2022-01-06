@@ -665,7 +665,6 @@ async function switchLevels(level){
         'application/json' } }).then(response => response.json());
         globalLevel = response.level;
         globalMoney= response.money;
-        alert(globalMoney);
         syncronize(globalLevel);
     }
     switch (level) {
