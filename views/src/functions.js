@@ -166,6 +166,7 @@ function syncronize(state){
             mission25 = true;
             insertObjective("לחפש דירה!");
             canBuy = true;
+            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
             switchLevels(state);
             break;
         case 3:
@@ -174,12 +175,16 @@ function syncronize(state){
             mission25 = true; mission3 = true;
             switchLevels(state);
             insertObjective("ללכת לביטוח לאומי!");
+            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
+            canBuy = true;
             break;
         case 241:
             mission11 = true; mission12 = true; mission13 = true; mission14 = true;
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true; mission3 = true; mission31 = true; mission4 = true;
             switchLevels(state);
+            canBuy = true;
+            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
             insertObjective("ללכת לקרן להכוונה!");
             break;
         case 31:
@@ -187,6 +192,8 @@ function syncronize(state){
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true; mission3 = true; mission31 = true; mission4 = true;
             mission41 = true;
+            canBuy = true;
+            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
             switchLevels(state);
             break;
         case 242:
@@ -194,6 +201,8 @@ function syncronize(state){
             mission21 = true; mission22 = true; mission23 = true; mission24 = true;
             mission25 = true; mission3 = true; mission31 = true; mission4 = true;
             mission41 = true; mission5 = true; mission51 = true;
+            canBuy = true;
+            insertItems("מטאטא - 200","מפתח צינורות - 200","תמונות לדירה - 1500","שיפוץ למטבח - 3000","ריהוט לדירה - 10000");
             switchLevels(state);
             break;
         default:

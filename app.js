@@ -187,7 +187,7 @@ app.post('/next',(req,res)=>{
                 if(error){
                     console.log(er);
                 }
-                if(re[0].level != 69){
+                if((re[0].level != 69) && (re[0].level != 1 )){
                     res.render('levelask');
                     return;
                 }
