@@ -5,7 +5,6 @@ var path = require('path');
 const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
-const { resolveRunner } = require("jest-resolve");
 
 
 dotenv.config({path: './.env'});
@@ -95,8 +94,26 @@ app.get('/toAdd',(req,res)=>{
 app.get('/game_continue',(req,res)=>{
     res.render('game');
 })
-//---------- post
-// /signup -> login
+app.get('/videopage',(req,res)=>{
+    res.render('videopage');
+})
+
+//get the level from the db
+app.get('/get-first-level', (req, res) => {
+    db.query('SELECT level,money FROM users WHERE userName = ? ',[usernamename],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        res.send({level : results[0].level, money: results[0].money});
+    })
+});
+
+
+//------------------- post -----------------------
+
+var usernamename= undefined;
+
+// signup -> login
 app.post('/login',(req,res)=>{
     
     console.log(req.body);
@@ -131,7 +148,6 @@ app.post('/login',(req,res)=>{
         var hashedPassword = await bcrypt.hashSync(password,salt);
 
         //insert into db
-        
         db.query('INSERT INTO users SET ?',
         {userName : username , Name : name , password : hashedPassword , gender : genders ,service: service },(error,results)=>{
             if(error){
@@ -142,7 +158,7 @@ app.post('/login',(req,res)=>{
     })
 })
 
-
+//update money and level
 app.post('/switch-level',(req,res)=>{
     const level = req.body.level;
     const money = req.body.money;
@@ -152,17 +168,9 @@ app.post('/switch-level',(req,res)=>{
         }  
     })
 });
-//get the level from the db
-app.get('/get-first-level', (req, res) => {
-    db.query('SELECT level,money FROM users WHERE userName = ? ',[usernamename],async(error,results)=>{
-        if(error){
-            console.log(error);
-        }
-        res.send({level : results[0].level, money: results[0].money});
-    })
-});
-var usernamename= undefined;
-//-get into game
+
+
+//login ->  into game
 app.post('/next',(req,res)=>{
     res.status(201);
     const username = req.body.myusername;
@@ -206,6 +214,8 @@ app.post('/next',(req,res)=>{
     )
     
 });
+
+//levelask(back to level 1) -> game
 app.post('/game_continue',(req,res)=>{
     db.query('UPDATE users SET level = ? WHERE userName = ?',[1,usernamename],async(error,results)=>{
         if(error){
@@ -215,4 +225,3 @@ app.post('/game_continue',(req,res)=>{
     })
 })
 
-module.exports = app;
