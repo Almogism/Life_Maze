@@ -140,13 +140,66 @@ let sync = false;
 //let mission = false;
 //let mission = false;
 //let mission = false;
-
 let globalLevel;
 //Check player location to commence events.
+function syncronize(state){
+    switch (state) {
+        case 1:
+            break;
+        case 21:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            switchLevels(state);
+            break;
+        case 22:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true;
+            switchLevels(state);
+            break;
+        case 23:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true;
+            switchLevels(state);
+            break;
+        case 24:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true; mission23 = true; mission24 = true;
+            mission25 = true;
+            switchLevels(state);
+            break;
+        case 3:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true; mission23 = true; mission24 = true;
+            mission25 = true; mission3 = true;
+            switchLevels(state);
+            break;
+        case 241:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true; mission23 = true; mission24 = true;
+            mission25 = true; mission3 = true; mission31 = true; mission4 = true;
+            switchLevels(state);
+            break;
+        case 31:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true; mission23 = true; mission24 = true;
+            mission25 = true; mission3 = true; mission31 = true; mission4 = true;
+            mission41 = true;
+            switchLevels(state);
+            break;
+        case 242:
+            mission11 = true; mission12 = true; mission13 = true; mission14 = true;
+            mission21 = true; mission22 = true; mission23 = true; mission24 = true;
+            mission25 = true; mission3 = true; mission31 = true; mission4 = true;
+            mission41 = true; mission5 = true; mission51 = true;
+            switchLevels(state);
+            break;
+        default:
+            break;
+    }
+}
 function checkPlayerLocation(){
     if (!sync){
         sync = true;
-        switchLevels(4);
+        switchLevels(1);
     }
     if (!mission11 && playerBetween(14,15,2,3)){
         mission11 = true;
@@ -416,8 +469,8 @@ function checkPlayerLocation(){
             imageWidth: 200,
             imageHeight: 150,  
             showDenyButton: true,
-            confirmButtonText: 'השתחררתי לפני חודש מהצבא ואני קצת מבולבל',  
-            denyButtonText: `רציתי לקבל מידע רלוונטי עבור מסיימי שירות לאומי`,
+            confirmButtonText: 'השתחררתי לפני חודש ואני קצת מבולבל',
+            denyButtonText: 'רציתי לקבל מידע רלוונטי עבור חיילים משוחררים',
         }).then((result) => {
             if ((result.isConfirmed) ||  (result.isDenied)){
                 Swal.fire({
@@ -603,18 +656,16 @@ function playerBetween(x1,x2,y1,y2){
     return false;
 }
 
-
 //Switching levels.
 async function switchLevels(level){
     if (!globalLevel){
-        const response = await fetch('/get-first-level', { headers: { 'Content-Type': 'application/json' } }).then(response => response.json());
+        const response = await fetch('/get-first-level', { headers: { 'Content-Type':
+        'application/json' } }).then(response => response.json());
         globalLevel = response.level;
-        alert(globalLevel);
+        syncronize(globalLevel);
     }
     switch (level) {
         case 1:
-            
-            alert("Error!\nSavta shelha.");
             break;
         case 21:
             freezePlayer();
@@ -922,5 +973,4 @@ async function switchLevels(level){
         },
         body: JSON.stringify({ level }),
       });
-
 }
