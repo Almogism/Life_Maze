@@ -65,3 +65,26 @@ form{
     font-family:sans-serif;
 
 }
+
+input[type="button"]{
+    width: 20%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="button"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+}
+
+/* button[type="submit"]:hover{
+    border-color: #2691d9;
+    transition: .5s;
+} */
