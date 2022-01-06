@@ -84,6 +84,7 @@ app.get('/',(req,res)=>{
 */
 //--------- routes
 app.get('/',(req,res)=>{
+    res.status(200).json({ name: 'john' });
     res.render('firstpage');
 })
 
@@ -194,7 +195,7 @@ app.get('/get-first-level', (req, res) => {
 var usernamename= undefined;
 //console.log(usernamename);
 app.post('/next',(req,res)=>{
-    
+    res.status(200);
     const username = req.body.myusername;
     const password = req.body.password;
     usernamename =username;
@@ -222,3 +223,4 @@ app.post('/next',(req,res)=>{
     )
     
 });
+module.exports = app;
