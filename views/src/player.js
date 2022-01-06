@@ -258,13 +258,13 @@ function addKeys() {
             case 27:
                 if (menuHidden){
                     menuHidden = false;
-                    menuz.style.opacity = 1;
-                    info.style.opacity = 1;
+                    menuz.style.visibility = "visible";
+                    info.style.visibility = "visible";
                 }
                 else {
                     menuHidden = true;
-                    menuz.style.opacity = 0;
-                    info.style.opacity = 0;
+                    menuz.style.visibility = "hidden";
+                    info.style.visibility = "hidden";
                 }
                 break;
             case 89:

@@ -6,7 +6,8 @@ body {
     width : 480px;
     height: 270px;
     background: linear-gradient(120deg, #2980b9, #8e44ad);
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
     position: fixed;
     top:50%;
     left:50%;
@@ -24,7 +25,8 @@ h1{
     text-align: center;
     transform: translate(-50%,-45%);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
     color:white;
     -webkit-text-stroke: 1px black;
     text-shadow: 1px 1px 2px black;
