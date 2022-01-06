@@ -10,13 +10,9 @@
 <head style="direction: rtl;">
 
     <div class="intro-help-hover" style="direction: rtl;">
-    <p style="direction: rtl;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    <p style="direction: rtl;"><img onclick="help()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
     title=
-    "    ברוכים הבאים🎉 
-    מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה. 
-    התנועה במשחק היא באמצעות העכבר ומקשים W A S D.
-    כדי לכבות ולהפעיל את מפת המשחק  לחצו על M.
-    כדי להפעיל ולכבות את חנות החפצים לחצו E."
+    "כפתור עזרה"
     
     width="36" height="36" /></p> </div> 
         <script>
@@ -26,6 +22,14 @@
             }
             let flag = true;
             
+            function help(){
+                Swal.fire({
+                    icon: 'question',
+                    title: 'עזרה',
+                    html: "זזים באמצעות מקשי הW,A,S,D <br> לחצו על ESC על מנת לעצור את המשחק ולהיזכר שנית במקשים <br> לחצו על E על מנת לפתוח או לסגור את חנות החפצים <br> לחצו על O על מנת לפתוח או לסגור את ההכוונה במהלך המשחק <br> לחצו על Y על מנת לפתוח או לסגור את נגן המוזיקה של המשחק <br> לחצו על M על מנת להציג או להסתיר את מפת המשחק"
+                })
+            }
+
             function settingz(){
                 Swal.fire({
                     title: 'הגדרות',

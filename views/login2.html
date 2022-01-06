@@ -8,19 +8,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 <head>
-    <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
-    title="!ברוכים הבאים
-    .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
-    .התנועה במשחק היא באמצעות העכבר וחצי המקלדת
-    .כדי לכבות או להפעיל את מפת המשחק M לחצו על" style="text-align: right;"
+    <p style="text-align: right;"><img onclick="help()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    title="כפתור עזרה" style="text-align: right;"
     width="36" height="36" /></p>
         <script>
             function copyLink(){
                 navigator.clipboard.writeText("lifemaze.online");
                 Swal.fire('הקישור הועתק');
             }
+
+            function help(){
+                Swal.fire({
+                    icon: 'question',
+                    title: 'עזרה',
+                    html: "זזים באמצעות מקשי הW,A,S,D <br> לחצו על ESC על מנת לעצור את המשחק ולהיזכר שנית במקשים <br> לחצו על E על מנת לפתוח או לסגור את חנות החפצים <br> לחצו על O על מנת לפתוח או לסגור את ההכוונה במהלך המשחק <br> לחצו על Y על מנת לפתוח או לסגור את נגן המוזיקה של המשחק <br> לחצו על M על מנת להציג או להסתיר את מפת המשחק"
+                })
+            }
+
             let flag = true;
-            
             function settingz(){
                 Swal.fire({
                     title: 'הגדרות',

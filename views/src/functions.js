@@ -884,6 +884,7 @@ async function switchLevels(level){
             freezePlayer();
             dimScreen();
             setTimeout(() => {
+                relocatePlayer(7,10,0);
                 deleteSprites();
                 initSprites(24);
                 map = map24;
