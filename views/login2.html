@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-    
-</head>
+
+    <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+        
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
 <head>
     <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
     title="!ברוכים הבאים
@@ -12,7 +16,8 @@
     width="36" height="36" /></p>
         <script>
             function copyLink(){
-                navigator.clipboard.writeText("https://lifemaze.com/");
+                navigator.clipboard.writeText("lifemaze.online");
+                Swal.fire('הקישור הועתק');
             }
         </script>
 
