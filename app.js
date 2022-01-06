@@ -5,7 +5,6 @@ var path = require('path');
 const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
-const { resolveRunner } = require("jest-resolve");
 
 
 dotenv.config({path: './.env'});
