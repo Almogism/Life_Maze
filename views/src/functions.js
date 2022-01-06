@@ -116,7 +116,7 @@ function completeObjective(objective){
 }
 
 //Boolean variables to mark finishing missions.
-let temp =false;
+//let temp =false;
 let flag= false;
 let mission11= false;
 let mission12= false;
@@ -134,12 +134,7 @@ let mission41 = false;
 let mission5 = false;
 let mission51 = false;
 let sync = false;
-//let mission = false;
-//let mission = false;
-//let mission = false;
-//let mission = false;
-//let mission = false;
-//let mission = false;
+
 let globalLevel;
 let globalMoney;
 //Check player location to commence events.
