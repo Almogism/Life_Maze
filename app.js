@@ -5,27 +5,17 @@ var path = require('path');
 const bp = require('body-parser');
 const bcrypt = require("bcryptjs");
 var cons = require('consolidate');
-
-//const { a } = require("swig/lib/dateformatter");
-
+const { resolveRunner } = require("jest-resolve");
 
 
 dotenv.config({path: './.env'});
 const app = express();
 app.engine('html', cons.swig)
-//app.set('views', path.join(__dirname));
 app.set('view engine', 'html');
 
 
 //create conection to the data base (db)
-/*
-const db = mysql.createConnection({
-    host : process.env.host,
-    user: process.env.user,
-    password : process.env.password,
-    database : process.env.database
-});
-*/
+
 var db_config = {
     host: process.env.host,
       user: process.env.user,
@@ -76,15 +66,11 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, err => {
     if(err) throw err;
     console.log("%c Server running", "color: green");
-});/*
-app.get('/',(req,res)=>{
-    res.render('game');
-    
-})
-*/
+});
+
 //--------- routes
 app.get('/',(req,res)=>{
-    //res.status(200).json({ name: 'john' });
+    res.status(201);
     res.render('firstpage');
 })
 
@@ -105,6 +91,9 @@ app.get('/recoverPassword',(req,res)=>{
 })
 app.get('/toAdd',(req,res)=>{
     res.render('toAdd');
+})
+app.get('/game_continue',(req,res)=>{
+    res.render('game');
 })
 //---------- post
 // /signup -> login
@@ -128,10 +117,6 @@ app.post('/login',(req,res)=>{
             console.log('that username is already in use');
             res.render('signup3');
             return;
-            //help dosent work V
-            /*return res.render('signup',{
-                messege:'that username is already in use'
-            })*/
         }
         //is the password confirm is right
         else if(password !== passwordConfirm)
@@ -139,12 +124,6 @@ app.post('/login',(req,res)=>{
             console.log('password dosent match');
             res.render('signup2');
             return;
-            //help dosent work V
-            /*
-            return res.render('signup',{
-                message: 'Password do not match'
-            })
-            */
         }
 
         //hash the password
@@ -159,47 +138,40 @@ app.post('/login',(req,res)=>{
                 console.log(error);
             }
             res.render('login');
-            /*else{
-                console.log(results);
-            }*/
         })
-        
-
-
     })
-
-
-
 })
 
-//-get into game
+
 app.post('/switch-level',(req,res)=>{
     const level = req.body.level;
-    db.query('UPDATE users SET level = ? WHERE userName = ?',[level,usernamename],async(error,results)=>{
+    const money = req.body.money;
+    db.query('UPDATE users SET level = ? , money = ? WHERE userName = ?',[level,money,usernamename],async(error,results)=>{
         if(error){
             console.log(error);
         }  
-        console.log(results.affectedRows + " record(s) updated");
     })
 });
 //get the level from the db
 app.get('/get-first-level', (req, res) => {
-    db.query('SELECT level FROM users WHERE userName = ? ',[usernamename],async(error,results)=>{
+    db.query('SELECT level,money FROM users WHERE userName = ? ',[usernamename],async(error,results)=>{
         if(error){
             console.log(error);
         }
-        var leveldb = results.level;
-        res.send({level : results[0].level});
+        res.send({level : results[0].level, money: results[0].money});
     })
 });
 var usernamename= undefined;
-//console.log(usernamename);
+//-get into game
 app.post('/next',(req,res)=>{
-    res.status(200);
+    res.status(201);
     const username = req.body.myusername;
     const password = req.body.password;
+    if(!username){
+        res.render('login2');
+        return;
+    }
     usernamename =username;
-    //console.log(usernamename);
     db.query('SELECT password FROM users WHERE userName = ? ',[username],async(error,results)=>{
         if(error){
             console.log(error);
@@ -213,8 +185,19 @@ app.post('/next',(req,res)=>{
 
 
        if( bcrypt.compareSync(password,pass)){
-           console.log('fuck yeah');
-           res.render('game');
+           db.query('SELECT level FROM users WHERE userName = ?',[username],async(er,re)=>{
+                if(error){
+                    console.log(er);
+                }
+                if(re[0].level != 1){
+                    res.render('levelask');
+                    return;
+                }
+                else{
+                    res.render('game');
+                }
+           });
+           
        }
        else{
          res.render('login2');
@@ -223,4 +206,13 @@ app.post('/next',(req,res)=>{
     )
     
 });
+app.post('/game_continue',(req,res)=>{
+    db.query('UPDATE users SET level = ? WHERE userName = ?',[1,usernamename],async(error,results)=>{
+        if(error){
+            console.log(error);
+        }
+        res.render('game');
+    })
+})
+
 module.exports = app;

@@ -7,17 +7,21 @@ let purchase4 = false;
 let purchase5 = false;
 let purchase6 = false;
 
-let playerMoney = 1200;
-
 //Update the money element in the shop.
 function updateMoney(){
     var money = $("money");
-    money.innerHTML = " " + playerMoney;
+    money.innerHTML = " " + globalMoney;
 }
 
 //Add more money to the player.
 function changeMoney(increment=0){
-    playerMoney += increment;
+    globalMoney += increment;
+    updateMoney();
+}
+
+//Set money
+function setMoney(newMoney=0){
+    globalMoney = newMoney;
     updateMoney();
 }
 
@@ -35,7 +39,7 @@ function buyShoes(){
     var money = $("money");
     var shoes = $("item1");
     if (!purchase1){
-        if (playerMoney >= 1000){
+        if (globalMoney >= 1000){
             originalPlayerSpeed = originalPlayerSpeed*2;
             player.moveSpeed = originalPlayerSpeed;
             changeMoney(-1000);
@@ -70,7 +74,7 @@ function buyBroom(){
     var broom = $("item2");
     if (canBuy){
         if (!purchase2){
-            if (playerMoney >= 200){
+            if (globalMoney >= 200){
                 purchase2 = true;
                 deleteSprites();
                 initSprites(24);
@@ -112,7 +116,7 @@ function buyWrench(){
     var wrench = $("item3");
     if (canBuy){
         if (!purchase3){
-            if (playerMoney >= 200){
+            if (globalMoney >= 200){
                 purchase3 = true;
                 deleteSprites();
                 initSprites(24);
@@ -154,7 +158,7 @@ function buyPictures(){
     var pictures = $("item4");
     if (canBuy){
         if (!purchase4){
-            if (playerMoney >= 1500){
+            if (globalMoney >= 1500){
                 purchase4 = true;
                 map24[12][8] = 55; map24[5][13] = 56; map24[10][15] = 57;
                 changeMoney(-1500);
@@ -195,7 +199,7 @@ function buyOven(){
     var oven = $("item5");
     if (canBuy){
         if (!purchase5){
-            if (playerMoney >= 3000){
+            if (globalMoney >= 3000){
                 purchase5 = true;
                 map24[5][8] = 7;
                 map24[5][7] = 12;
@@ -237,7 +241,7 @@ function buyFurniture(){
     var furniture = $("item6");
     if (canBuy){
         if (!purchase6){
-            if (playerMoney >= 10000){
+            if (globalMoney >= 10000){
                 purchase6 = true;
                 deleteSprites();
                 initSprites(24);

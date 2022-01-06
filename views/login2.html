@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-    <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
-        
-    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-
+<script src="https://unpkg.com/sweetalert2/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <head>
-    <p style="text-align: right;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
-    title="!ברוכים הבאים
-    .מטרתו של המשחק היא הכנתכם לחיים האמיתיים לאחר שירות ארוך ומשמעותי עבור המדינה
-    .התנועה במשחק היא באמצעות העכבר וחצי המקלדת
-    .כדי לכבות או להפעיל את מפת המשחק M לחצו על" style="text-align: right;"
+    <p style="text-align: right;"><img onclick="help()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Blue_question_mark_icon.svg/1200px-Blue_question_mark_icon.svg.png" alt="" 
+    title="כפתור עזרה" style="text-align: right;"
     width="36" height="36" /></p>
         <script>
             function copyLink(){
                 navigator.clipboard.writeText("lifemaze.online");
                 Swal.fire('הקישור הועתק');
             }
+
+            function help(){
+                Swal.fire({
+                    icon: 'question',
+                    title: 'עזרה',
+                    html: "זזים באמצעות מקשי הW,A,S,D <br> לחצו על ESC על מנת לעצור את המשחק ולהיזכר שנית במקשים <br> לחצו על E על מנת לפתוח או לסגור את חנות החפצים <br> לחצו על O על מנת לפתוח או לסגור את ההכוונה במהלך המשחק <br> לחצו על Y על מנת לפתוח או לסגור את נגן המוזיקה של המשחק <br> לחצו על M על מנת להציג או להסתיר את מפת המשחק"
+                })
+            }
+
             let flag = true;
-            
             function settingz(){
                 Swal.fire({
                     title: 'הגדרות',
@@ -65,6 +68,7 @@
 
 
     <p style="text-align: right;"><img onclick="settingz()"  src="https://cdn.iconscout.com/icon/free/png-256/apple-settings-1-493162.png" alt="" 
+
         title="הגדרות" 
         width="36" height="36" /></p>
     <p style="text-align: right;"><img onclick="copyLink()" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/344/external-share-cryptocurrency-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt="" 
@@ -78,9 +82,9 @@
     <title>Document</title>
 </head>
 <body id="log-in"> 
-    <div class="center" id = "center">
+    <div class="center" id="center">
     <h1 id ="koteret">Life Maze</h1>
-    <h1 id = "koteret2">סיסמא או שם משתמש לא נכון</h1>
+    <h1 id="koteret2" style="font-size: x-large;">סיסמא או שם משתמש לא נכונים</h1>
     <form action="/next" method="POST" >
 
     <div class="txt_field">
