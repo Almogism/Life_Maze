@@ -1,7 +1,9 @@
 # Life_Maze
-welcome to Life Maze game.
-For this game you would need a stable internet connection, a keyboard, screen and a mouse.
-You could use any browser you have installed on your computer.
+Welcome to Life Maze game :)
+
+For this game you'll need a stable internet connection, keyboard, screen and a mouse.
+You can use any browser you have on your computer.
+
 Enjoy!
 
 <img width="956" alt="Screenshot_4" src="https://user-images.githubusercontent.com/94786296/172272113-1a49fb4e-10fe-487c-805b-6b5f553acc58.png">
